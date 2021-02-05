@@ -164,7 +164,7 @@
                     * Please tell us about the Company</span>
                 </label>
             </div>
-        </div>
+
 
 
     <!-- Fieldset EMPLOYEE Information-->
@@ -216,12 +216,12 @@
                            pattern="[0-9]{9}">
                 </label>
             </div><!--END id="pcContact" -->
+        </div>
 
             <button type="submit" class="btn btn-success" id="submitBTN">
             Complete</button>
-        </div>
 
-        </form><!-- END of id="pcform" -->
+    </form><!-- END of id="pcform" -->
     </div><!--END of id="container" -->
 
     <!-- Link to the universal Footer -->
