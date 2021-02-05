@@ -1,0 +1,252 @@
+<!--
+    This file holds the HTML code for the CbCSC
+            Confirmation web page.
+    Date: Saturday 23rd of January, 2021
+    Updated: Tuesday 26th of January, 2021
+    Project Name: Coneybeare Sustainability Catalog
+    File name: index.shtml   Root: ../confirmation/index.shtml
+    Author/'s: CTRL ALT DEL
+                Amanda H.
+                Dylan H.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/confirmation.css">
+
+    <title>About - Coneybeare Cleantech</title>
+
+</head>
+<body>
+
+<!-- Link to the universal Header -->
+    <!--#include virtual="/includes/header.html" -->
+
+<!-- container for the entire web form -->
+    <div class="container p-3 my-3 border" id="formContainer">
+
+<!-- Information Form -->
+    <form action="confirm.php" method="get" class="form" id="pcform">
+
+    <!-- Fieldset COMPANY Information-->
+        <div class="form-group border" id="pcCompany">
+            <h2>Company Information</h2><br>
+
+
+        <!-- Company NAME input -->
+            <div class="form-group">
+                <label for="cName" >Company Name:
+                    <input type="text" class="form-control" id="cName"
+                           placeholder="Company Name">
+                    <span class="incomplete d-none text-danger" id="invalid-cName">
+                    * Please enter Company name</span>
+                </label>
+
+                <label for="cWebsite" >Company Website:
+                    <input type="text" class="form-control" id="cWebsite"
+                           placeholder="Company Name">
+                    <span class="incomplete d-none text-danger" id="invalid-cSite">
+                    * Please enter the Company Web Address</span>
+                </label>
+                </div>
+
+            <!-- Company ADDRESS input -->
+            <!--ADDRESS Line 1 -->
+                <div class="form-group">
+                <label for="Address1">Address:
+                    <input type="text" class="form-control" id="Address1"
+                           placeholder="1234 Main St">
+                    <span class="incomplete d-none text-danger" id="invalid-address">
+                    * Please enter Company address</span>
+                </label>
+
+            <!-- Company ADDRESS 2 OPTIONAL -->
+                <label for="inputAddress2">Address 2:
+                    <input type="text" class="form-control" id="inputAddress2"
+                           placeholder="Address">
+                    <span class="incomplete d-none text-danger" id="invalid-address2">
+                    * Please input an address</span>
+                </label>
+            </div>
+
+    <!-- Company GROUP CITY STATE ZIP -->
+        <!--Company CITY  -->
+                <div class="form-group">
+                    <label for="inputCity">City:
+                    <input type="text" class="form-control" id="inputCity">
+                    <span class="incomplete d-none text-danger" id="invalid-city">
+                    * Please enter an address</span>
+                    </label>
+
+            <!--Company STATE -->
+                    <label for="inputState">State:
+                    <select id="inputState" class="form-control">
+                        <option value="state"       >State</option>
+                        <option value="washington"  >Washington</option>
+                        <option value="oregon"      >Oregon</option>
+                        <option value="california"  >California</option>
+                        <option value="idaho"       >Idaho</option>
+                        <option value="wyoming"     >Wyoming</option>
+                        <option value="other  "     >Other...</option>
+                    </select>
+                    <span class="incomplete d-none text-danger" id="invalid-state">
+                    * Please enter a State </span>
+                    </label>
+
+            <!--Company ZIP CODE -->
+
+                    <label for="inputZip">Zip:
+                    <input type="text" class="form-control" id="inputZip">
+                    <span class="incomplete d-none text-danger" id="invalid-zipcode">
+                    * Please enter a Zip code</span>
+                    </label>
+            </div>
+
+            <!--Company COUNTRY  -->
+            <div class="form-group">
+                    <label for="inputCountry">Country:
+                        <input type="text" class="form-control" id="inputCountry">
+                        <span class="incomplete d-none text-danger" id="invalid-Country">
+                    * Please enter a Country</span>
+                    </label>
+
+        <!-- CATEGORY, Company Background -->
+                <label>
+                <select id="cCategory" class="form-control" name="cCategory">
+                    <option value="none">Company Background</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Circular-Economy">Circular Economy</option>
+                    <option value="Consumer-Goods">Consumer Goods</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Ecology">Ecology</option>
+                    <option value="Education">Education</option>
+                    <option value="Energy">Energy</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Lighting">Lighting</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Waste-Water">Waste Water</option>
+                    <option value="Other">Other...</option>
+                </select>
+                    <span class="incomplete d-none text-danger" id="invalid-category">
+                    * Please select a category</span>
+                </label>
+
+<!-- !!!ERROR NOT OPERATING : Hidden Text entry field for Other...
+                <div class="otherText d-none text-danger" id="otherText">
+                    <label>
+                    <input type="text" class="form-control" id="otherCategory"
+                           placeholder="Please enter Category">
+                    </label>
+                    <span class="incomplete d-none text-danger" id="invalid-other">
+                    Please select a Category </span>
+                </label>-->
+            </div>
+
+        <!--ABOUT Company-->
+            <div class="form-group">
+                <label>
+                <textarea class="form-control" rows="6" id="about"
+                          name="cAbout" placeholder="About the Company"></textarea>
+                <span class="incomplete d-none text-danger" id="invalid-about">
+                    * Please tell us about the Company</span>
+                </label>
+            </div>
+        </div>
+
+
+    <!-- Fieldset EMPLOYEE Information-->
+        <div class="form-group border" id="pcEmployee">
+
+        <!-- FIRST Name Employee -->
+            <div class="form-group"><h2>Company Contact Person</h2><br>
+                <label for="fname" >First Name:
+                <input type="text" class="form-control" id="fname"
+                placeholder="First Name">
+                <span class="incomplete d-none text-danger" id="invalid-fname">
+                    * Please enter first name</span>
+                </label>
+
+        <!-- LAST Name Employee -->
+                <label for="lname">Last Name:
+                    <input type="text" class="form-control" id="lname"
+                           placeholder="Last Name">
+                    <span class="incomplete d-none text-danger" id="invalid-lname">
+                    * Please enter last name</span>
+                </label>
+
+        <!-- Employee DEPARTMENT -->
+                <label for="department" >Department:
+                    <input type="text" class="form-control" id="department"
+                           placeholder="Department">
+                    <span class="incomplete d-none text-danger" id="invalid-department">
+                    * Please enter Department</span>
+                </label>
+            </div>
+
+        <!-- Employee EMAIL -->
+            <div class="form-group">
+                <label for="eEmail" id="email">Email address:
+                    <input type="email" class="form-control" id="eEmail"
+                           placeholder="name@example.com">
+                    <span class="incomplete d-none text-danger" id="invalid-eEmail">
+                    * Please enter e-mail</span>
+                </label>
+
+            <!--Company TELEPHONE -->
+                <label for="phone">Phone number:<br>
+                    <input type="tel" class="form-control" id="phone" placeholder="888-377-0042"
+                           pattern="[0-9]{3}, [0-9]{3}, [0-9]{4}, [0-9]{9}">
+                </label>
+            <!-- Company extension -->
+                <label for="phone2">Extension:<br>
+                    <input type="tel" class="form-control" id="phone2" placeholder="1234"
+                           pattern="[0-9]{9}">
+                </label>
+            </div><!--END id="pcContact" -->
+
+            <button type="submit" class="btn btn-success" id="submitBTN">
+            Complete</button>
+        </div>
+
+        </form><!-- END of id="pcform" -->
+    </div><!--END of id="container" -->
+
+    <!-- Link to the universal Footer -->
+    <!--#include virtual="/includes/footer.html" -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+    <script src="confirm.js"></script>
+</body>
+</html>
+
+<!-- -->
+
+<!-- -->
+
+<!-- -->
+
+<!-- -->
+
+<!-- -->
+
+<!-- -->
+
+<!-- -->
