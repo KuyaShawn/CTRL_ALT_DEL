@@ -50,7 +50,7 @@
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Category</span>
-                <span class="max-lines-2">Housing</span>
+                <span class="max-lines-2"><svg class="icon"><use href="images/symbol-defs.svg#housing"></use></svg>Housing</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Contact Info</span>
