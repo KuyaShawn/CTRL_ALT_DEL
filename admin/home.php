@@ -7,19 +7,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styles.css">
     <title>Admin Home Page</title>
 </head>
 <body>
+<nav class="bg-warning text-dark nav navbar">
+    <span class="navbar-brand">Coneybeare Admin Page</span>
+    <div class="navbar-nav">
+        <span class="ml-auto">Welcome Admin!</span>
+    </div>
+</nav>
+
 <div class="row">
-    <div class="col-2 bg-light">
+    <div class="col-2 bg-light py-3"> <!-- Left Navigation (eventually need to become an include)-->
 
     </div>
-    <div class="col-8">
+    <div class="col-8 p-3"> <!-- Main Area -->
         <div>
-            <h2>Pending Approval</h2>
+            <h2>Companies Pending Approval</h2>
+            <div class="rounded-border d-flex m-0 p-0">
+                <div class="company m-0 p-0 row flex-grow-1">
+                    <div class="col-4 col-lg-2 bottom-divider">
+                        <span class="category">Company</span>
+                        <br>
+                        <span class="max-lines-2">All Power Labs</span>
+                    </div>
+                    <div class="col-8 col-lg-4 bottom-divider">
+                        <span class="category">About Us</span>
+                        <br>
+                        <span class="max-lines-2">Wood -> Energy via very efficient gasification.</span>
+                    </div>
+                    <div class="col-3 col-lg-2">
+                        <span class="category">Category</span>
+                        <br>
+                        <svg class="db-icon"><use href="/images/symbol-defs.svg#energy"></use></svg><span class="max-lines-2">Energy</span>
+                    </div>
+                    <div class="col-3 col-lg-2">
+                        <span class="category">Contact Info</span>
+                        <br>
+                        <span class="max-lines-2"><a href="http://allpowerlabs.com">Website</a></span>
+                    </div>
+                    <div class="col-6 col-lg-2 ">
+                        <span class="category">Location</span>
+                        <br>
+                        <span class="max-lines-2">Berkeley, CA</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-around flex-column flex-lg-row">
+                    <svg class="button"><use href="/images/symbol-defs.svg#button-accept"></use> </svg>
+                    <svg class="button"><use href="/images/symbol-defs.svg#button-cancel"></use> </svg>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-2 bg-light">
+    <div class="col-2 bg-light py-3"> <!-- Right Navigation (eventually needs to become an include) -->
 
     </div>
 </div>

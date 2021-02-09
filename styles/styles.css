@@ -27,11 +27,17 @@ header{
     height: 1.5rem;
 }
 
-.icon{
+.button{
+    width: 50px;
+    height: 50px;
+}
+
+.db-icon, .icon{
     height: 30px;
     width: 30px;
-    margin-bottom: 6px;
+    margin-top: -12px;
     margin-right: 4px;
+    margin-left: -6px;
 }
 
 .category{
@@ -46,8 +52,17 @@ header{
     border-radius: var(--database-radius);
 }
 
+.rounded-border{
+    border: 2px solid black;
+    border-radius: var(--database-radius);
+}
+
+.rounded-border .company{
+    border: none;
+}
+
 .company div {
-    padding: .4rem;
+    padding: 4px 15px 6px 15px;
     border-right: 2px solid black;
 }
 
