@@ -25,19 +25,18 @@
 
     <title>Thank you for your application.</title>
 </head>
+<?php
+//Turn on error reporting
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
 <body>
-
-    <!-- Link to the universal Header -->
-    <!--#include virtual="/includes/header.html" -->
-
-
+<div class="container">
     <!-- greeting to potential client -->
     <h1>Thank you for your application.</h1>
+    <p>Thank you for providing your information.
+        It has been sent to the Coneybeare Sustainability team for review.</p>
 
-    <!-- retreiving potential client form data -->
-    <?
-    var_dump($_GET);
-    ?>
 
     <!-- Link to the universal Footer -->
     <!--#include virtual="/includes/footer.html" -->
@@ -49,5 +48,7 @@
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
     <script src="confirm.js"></script>
+</div>
+
 </body>
 </html>
