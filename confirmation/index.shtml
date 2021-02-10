@@ -65,8 +65,8 @@
             <label>Upload Your Company Logo:</label>
             <div class="input-group mb-3">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="iconFile">
-                    <label class="custom-file-label" placeholder="Company Logo" for="iconFile">Choose
+                    <input type="file" placeholder="Company Logo" class="custom-file-input" id="iconFile">
+                    <label class="custom-file-label" for="iconFile">Choose
                         file</label>
                 </div>
             </div>
@@ -428,9 +428,9 @@
 
                 <!-- Geographical area in which they serve -->
                 <div class="form-group col-6">
-                    <label for="inputArea">Please select a Geographical area in which you serve:</label>
+                    <label for="inputArea">Service Area:</label>
                     <select id="inputArea" name="area" class="form-control">
-                        <option value="select">Select</option>
+                        <option value="select">Please select a Geographical area in which you serve</option>
                         <option value="local">Local/Regional</option>
                         <option value="state">State</option>
                         <option value="national">National</option>
