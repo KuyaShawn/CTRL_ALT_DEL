@@ -1,99 +1,103 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <a class="navbar-brand" href="/">
-            <img src="/images/icon-white.png" alt="Coneybeare Logo" width="30" height="30"
-                 class="d-inline-block mr-1">
-            Coneybeare
-        </a>
-
-        <!--            Note: Still researching aria commands and will fix these later-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorySearchNav"
-                aria-controls="categorySearchNav" aria-expanded="false" aria-label="Toggle category navigation">
-            <svg class="icon">
-                <use href="/images/symbol-defs.svg#button-plus-filled"></use>
-            </svg>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarHeader">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item pr-4">
-                    <a class="nav-link text-truncate" href="/about">About</a>
-                </li>
-                <li class="nav-item pr-4">
-                    <a class="nav-link text-truncate" href="#">Contact (PH)</a>
-                </li>
-                <li class="nav-item pr-4">
-                    <a class="nav-link text-truncate" href="#">Placeholder</a>
-                </li>
-                <li class="nav-item pr-4">
-                    <a class="nav-link text-truncate" href="#">Database (PH)</a>
-                </li>
-            </ul>
-            <ul class="nav pr-2 navbar-nav">
-                <li>
-                    <a class="nav-link" href="/confirmation">Sign up (PH)</a>
-                </li>
-            </ul>
-            <form class="d-flex my-3 my-lg-0">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">Search</button>
-            </form>
+    <nav class="navbar navbar-dark navbar-expand-md justify-content-between nav_bg_color">
+        <div class="container-fluid">
+            <a class="navbar-brand pr-4" href="#"><img class="pr-3" src="images/Coneybeare_Icon_small_white.png"
+                                                       alt="Coneybeare Icon">Coneybeare Sustainability Catalog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse dual-nav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item pr-5">
+                        <a class="nav-link text-truncate " aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item pr-5">
+                        <a class="nav-link text-truncate " aria-current="page" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item pr-5">
+                        <a class="nav-link text-truncate " aria-current="page" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item pr-5">
+                        <a class="nav-link text-truncate " aria-current="page" href="#">Place Holder</a>
+                    </li>
+                    <li class="nav-item pr-5">
+                        <a class="nav-link text-truncate " aria-current="page" href="#">Database</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- code for Drop down menu for extra listed item -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle pr-4 " href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Extras
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Place Holder</a>
+                            <a class="dropdown-item" href="#">Place Holder</a>
+                            <a class="dropdown-item" href="#">Place Holder</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link text-truncate " aria-current="page" href="#">Sign up</a>
+                    </li>
+                    <form class="d-flex my-3 my-lg-0 mx-auto">
+                        <input class="form-control search_bar" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>
+                </ul>
+            </div>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success p-0">
+    <nav class="sub_nav navbar navbar-expand-lg navbar-dark sub_bg_color p-0">
         <div class="collapse navbar-collapse" id="categorySearchNav">
             <div class="navbar-nav flex-wrap overflow-hidden category-nav">
                 <a class="nav-item nav-link" href="/search.php">
                 <span><svg class="nav-icon"><use
-                        href="/images/symbol-defs.svg#agriculture"></use></svg> Agriculture</span>
+                        href="images/symbol-defs.svg#agriculture"></use></svg> Agriculture</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#circular-economy"></use></svg> Circular Economy</span>
-                </a>
-                <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use
-                            href="/images/symbol-defs.svg#clothing"></use></svg> Clothing</span>
-                </a>
-                <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#consumer-goods"></use></svg> Consumer Goods</span>
-                </a>
-                <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#ecology"></use></svg> Ecology</span>
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#circular-economy"></use></svg> Circular Economy</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
                     <span><svg class="nav-icon"><use
-                            href="/images/symbol-defs.svg#education"></use></svg> Education</span>
+                            href="images/symbol-defs.svg#clothing"></use></svg> Clothing</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#energy"></use></svg> Energy</span>
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#consumer-goods"></use></svg> Consumer Goods</span>
+                </a>
+                <a class="nav-item nav-link" href="/search.php">
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#ecology"></use></svg> Ecology</span>
+                </a>
+                <a class="nav-item nav-link" href="/search.php">
+                    <span><svg class="nav-icon"><use
+                            href="images/symbol-defs.svg#education"></use></svg> Education</span>
+                </a>
+                <a class="nav-item nav-link" href="/search.php">
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#energy"></use></svg> Energy</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
                 <span><svg class="nav-icon"><use
-                        href="/images/symbol-defs.svg#healthcare"></use></svg> Healthcare</span>
+                        href="images/symbol-defs.svg#healthcare"></use></svg> Healthcare</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#housing"></use></svg> Housing</span>
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#housing"></use></svg> Housing</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
                     <span><svg class="nav-icon"><use
-                            href="/images/symbol-defs.svg#lighting"></use></svg> Lighting</span>
+                            href="images/symbol-defs.svg#lighting"></use></svg> Lighting</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#manufacturing"></use></svg> Manufacturing</span>
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#manufacturing"></use></svg> Manufacturing</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#transportation"></use></svg> Transportation</span>
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#transportation"></use></svg> Transportation</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
                 <span><svg class="nav-icon"><use
-                        href="/images/symbol-defs.svg#wastewater"></use></svg> Wastewater</span>
+                        href="images/symbol-defs.svg#wastewater"></use></svg> Wastewater</span>
                 </a>
                 <a class="nav-item nav-link" href="/search.php">
-                    <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#water"></use></svg> Water</span>
+                    <span><svg class="nav-icon"><use href="images/symbol-defs.svg#water"></use></svg> Water</span>
                 </a>
             </div>
         </div>
