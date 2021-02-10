@@ -39,18 +39,22 @@ hr.solid {
     width: 1000px;
     position: relative;
 }
-
-.dirt_img_text {
+.dirt_img_text{
     color: white;
+    background-color: #87A96B;
+    padding: 1.5rem;
+    border-radius: 15px;
+    opacity: 60%;
 }
-
 .centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+.dirt_img_text h3{
+    opacity: 100%;
+}
 .image-container {
     position: relative;
 }
