@@ -61,6 +61,14 @@ header{
     border: none;
 }
 
+.accept:hover {
+    fill: green;
+}
+
+.cancel:hover{
+    fill: red;
+}
+
 .company div {
     padding: 4px 15px 6px 15px;
     border-right: 2px solid black;

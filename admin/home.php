@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col-2 bg-light py-3"> <!-- Left Navigation (eventually need to become an include)-->
-
+        <span>Left Nav, currently empty</span>
     </div>
     <div class="col-8 p-3"> <!-- Main Area -->
         <div>
@@ -54,14 +54,14 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-around flex-column flex-lg-row">
-                    <svg class="button"><use href="/images/symbol-defs.svg#button-accept"></use> </svg>
-                    <svg class="button"><use href="/images/symbol-defs.svg#button-cancel"></use> </svg>
+                    <svg class="button accept"><use href="/images/symbol-defs.svg#button-accept"></use> </svg>
+                    <svg class="button cancel"><use href="/images/symbol-defs.svg#button-cancel"></use> </svg>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-2 bg-light py-3"> <!-- Right Navigation (eventually needs to become an include) -->
-
+        <span>Right Nav, current empty</span>
     </div>
 </div>
 
