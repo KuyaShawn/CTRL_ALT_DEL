@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav class="bg-warning text-dark nav navbar">
-    <span class="navbar-brand">Coneybeare Admin Page</span>
+    <a class="navbar-brand navbar-link" href="/">Coneybeare Admin Page</a>
     <div class="navbar-nav">
         <span class="ml-auto">Welcome Admin!</span>
     </div>

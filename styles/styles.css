@@ -22,6 +22,15 @@ header{
     background-color: #B0B0B0;
 }
 
+.navbar-link{
+    color: black;
+    text-decoration: none;
+}
+
+.navbar-link:hover{
+    color: black;
+}
+
 .alert-box{
     position: absolute;
     z-index: 10;
