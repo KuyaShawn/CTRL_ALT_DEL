@@ -35,17 +35,17 @@
 <div class="container p-3 my-3 border" id="formContainer">
 
     <!-- Information Form -->
-    <form action="confirm.php" method="get" class="form" id="pcform">
+    <form action="confirm.php" method="get" class="form" id="form">
 
         <!-- Fieldset COMPANY Information-->
-        <fieldset id="pcCompany">
+        <fieldset id="company-info">
             <h2>Company Information</h2><br>
 
             <div class="form-row">
                 <!-- Company NAME input -->
                 <div class="form-group col-6">
-                    <label for="cName">Company Name:</label>
-                    <input type="text" class="form-control" id="cName"
+                    <label for="company-name">Company Name:</label>
+                    <input type="text" class="form-control" id="company-name"
                            placeholder="Enter company name">
                     <span class="incomplete d-none text-danger" id="invalid-cName">
                         * Please enter Company name</span>
@@ -53,8 +53,8 @@
 
                 <!-- Comapny Webiste input -->
                 <div class="form-group col-6">
-                    <label for="cWebsite">Company Website: </label>
-                    <input type="text" class="form-control" id="cWebsite"
+                    <label for="company-website">Company Website: </label>
+                    <input type="text" class="form-control" id="company-website"
                            placeholder="Enter website URL">
                     <span class="incomplete d-none text-danger" id="invalid-cSite">
                         * Please enter the Company Web Address</span>
@@ -403,8 +403,8 @@
             <!-- CATEGORY, Company Background -->
             <div class="form-row">
                 <div class="form-group col-6">
-                    <label for="cCategory">Category:</label>
-                    <select id="cCategory" class="form-control" name="cCategory">
+                    <label for="company-category">Category:</label>
+                    <select id="company-category" class="form-control" name="company-category">
                         <option value="none">Company Background</option>
                         <option value="Agriculture">Agriculture</option>
                         <option value="Architecture">Architecture</option>
@@ -443,7 +443,7 @@
             <div class="form-group">
                 <label for="about">Tagline:</label>
                 <textarea class="form-control" maxlength="250" rows="6" id="about"
-                          name="cAbout" placeholder="About the Company"></textarea>
+                          name="company-about" placeholder="Please tell us about your Company"></textarea>
                 <span class="incomplete d-none text-danger" id="invalid-about">
                     * Please tell us about the Company</span>
             </div>
@@ -455,9 +455,9 @@
             <h2>Point of Contact</h2>
             <p class="text-muted">(This person will be the main point of contact for your company)</p>
             <br>
+            <!-- first name -->
             <div class="form-row">
                 <div class="form-group col-4">
-
                     <label for="fname">First Name:</label>
                     <input type="text" class="form-control" id="fname"
                            placeholder="First Name">
@@ -465,7 +465,7 @@
                     * Please enter first name</span>
                 </div>
 
-                <!-- Last name -->
+                <!-- last name -->
                 <div class="form-group col-4">
                     <label for="lname">Last Name:</label>
                     <input type="text" class="form-control" id="lname"
@@ -486,10 +486,9 @@
 
             <!--  EMAIL -->
             <div class="form-row">
-
                 <div class="form-group col-4">
-                    <label for="eEmail" id="email">Email address:</label>
-                    <input type="email" class="form-control" id="eEmail"
+                    <label for="company-email">Email address:</label>
+                    <input type="email" class="form-control" id="company-email"
                            placeholder="name@example.com">
                     <span class="incomplete d-none text-danger" id="invalid-eEmail">
                     * Please enter e-mail</span>
