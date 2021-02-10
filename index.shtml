@@ -18,10 +18,10 @@
     <div class="container container_row1">
         <div class="row">
             <div class="image-container col-8">
-                <img src="images/sustainability.jpeg" class="rounded mx-auto d-block " id="sustainability_img">
+                <img src="images/sustainability.jpeg" class="rounded mx-auto d-block " id="sustainability_img" alt="Sustainability Picture">
                 <div class="centered sustainability_img_text"></div>
                 <div class="centered">
-                    <h3 class="text-center">Sustainable technology and Renewable energy<br/>Sustainability Services</h3>
+                    <h3 class="text-center">Sustainable technology and Renewable energy<br/>Services</h3>
                 </div>
             </div>
             <div class="col-4">
@@ -49,7 +49,7 @@
             seamless. Our team of dedicated, talented recruiters provides world-class services customized to each
             client’s
             individual needs, whether they are a start-up company or Fortune 500 corporation. </p>
-        <img src="images/dirt_plants.png" class="rounded mx-auto d-block" id="dirt_img">
+        <img src="images/dirt_plants.png" class="rounded mx-auto d-block" id="dirt_img" alt="Plant Picture">
     </div>
 
 </div>
