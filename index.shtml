@@ -13,10 +13,9 @@
 <body>
 <!--#include virtual="/includes/header.html" -->
 <div class="container home_body">
-    <div>
+    <div class="image-container">
         <img src="images/dirt_plants.png" class="rounded mx-auto d-block " id="dirt_plant">
-        <div class="centered"><h3 class="dirt_img_text text-center">Recycle And Reuse<br/>Sustainability Services</h3>
-        </div>
+        <div class="centered"><h3 class="dirt_img_text text-center">Recycle And Reuse<br/>Sustainability Services</h3></div>
     </div>
     <hr class="solid">
     <h1>Coneybeare Sustainability Catalog</h1>
