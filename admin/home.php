@@ -18,8 +18,14 @@
     </div>
 </nav>
 
+<div class="alert-box" id="alert">
+    <div class="d-flex align-items-center justify-content-center h-100">
+        <span id="alert-content">Success!!</span>
+    </div>
+</div>
+
 <div class="row">
-    <div class="col-2 bg-light py-3"> <!-- Left Navigation (eventually need to become an include)-->
+    <div class="col-2 bg-gray py-3"> <!-- Left Navigation (eventually need to become an include)-->
         <span>Left Nav, currently empty</span>
     </div>
     <div class="col-8 p-3"> <!-- Main Area -->
@@ -58,27 +64,26 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-around flex-column flex-lg-row">
                     <svg class="button accept"
-                         onclick="document.getElementById('1').style.display = 'none'; document.getElementById('1').classList.remove('d-flex');">
+                         onclick="acceptCompany('1')">
                         <use href="/images/symbol-defs.svg#button-accept"></use>
                     </svg>
                     <svg class="button cancel"
-                         onclick="document.getElementById('1').style.display = 'none'; document.getElementById('1').classList.remove('d-flex');">
+                         onclick="rejectCompany('1')">
                         <use href="/images/symbol-defs.svg#button-cancel"></use>
                     </svg>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-2 bg-light py-3"> <!-- Right Navigation (eventually needs to become an include) -->
+    <div class="col-2 bg-gray py-3"> <!-- Right Navigation (eventually needs to become an include) -->
         <span>Right Nav, current empty</span>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
+<script src="scripts/notifs.js"></script>
 </body>
 </html>
