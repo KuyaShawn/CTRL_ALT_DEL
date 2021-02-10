@@ -40,13 +40,13 @@ hr.solid {
     position: relative;
 }
 .dirt_img_text{
-    color: white;
     background-color: #87A96B;
     padding: 1.5rem;
     border-radius: 15px;
     opacity: 60%;
 }
 .centered {
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
