@@ -25,7 +25,7 @@
     <div class="col-8 p-3"> <!-- Main Area -->
         <div>
             <h2>Companies Pending Approval</h2>
-            <div class="rounded-border d-flex m-0 p-0">
+            <div class="rounded-border d-flex m-0 p-0" id="1">
                 <div class="company m-0 p-0 row flex-grow-1">
                     <div class="col-4 col-lg-2 bottom-divider">
                         <span class="category">Company</span>
@@ -40,7 +40,10 @@
                     <div class="col-3 col-lg-2">
                         <span class="category">Category</span>
                         <br>
-                        <svg class="db-icon"><use href="/images/symbol-defs.svg#energy"></use></svg><span class="max-lines-2">Energy</span>
+                        <svg class="db-icon">
+                            <use href="/images/symbol-defs.svg#energy"></use>
+                        </svg>
+                        <span class="max-lines-2">Energy</span>
                     </div>
                     <div class="col-3 col-lg-2">
                         <span class="category">Contact Info</span>
@@ -54,8 +57,14 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-around flex-column flex-lg-row">
-                    <svg class="button accept"><use href="/images/symbol-defs.svg#button-accept"></use> </svg>
-                    <svg class="button cancel"><use href="/images/symbol-defs.svg#button-cancel"></use> </svg>
+                    <svg class="button accept"
+                         onclick="document.getElementById('1').style.display = 'none'; document.getElementById('1').classList.remove('d-flex');">
+                        <use href="/images/symbol-defs.svg#button-accept"></use>
+                    </svg>
+                    <svg class="button cancel"
+                         onclick="document.getElementById('1').style.display = 'none'; document.getElementById('1').classList.remove('d-flex');">
+                        <use href="/images/symbol-defs.svg#button-cancel"></use>
+                    </svg>
                 </div>
             </div>
         </div>
