@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-dark navbar-expand-md justify-content-between nav_bg_color">
         <div class="container-fluid">
-            <a class="navbar-brand pr-4" href="#"><img class="pr-3" src="images/Coneybeare_Icon_small_white.png"
+            <a class="navbar-brand pr-4" href="#"><img class="pr-3" src="/images/Coneybeare_Icon_small_white.png"
                                                        alt="Coneybeare Icon">Coneybeare Sustainability Catalog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
                 <span class="navbar-toggler-icon"></span>
@@ -9,19 +9,16 @@
             <div class="navbar-collapse collapse dual-nav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item pr-5">
-                        <a class="nav-link text-truncate " aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-truncate " aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item pr-5">
-                        <a class="nav-link text-truncate " aria-current="page" href="about.html">About</a>
+                        <a class="nav-link text-truncate " aria-current="page" href="/about/">About</a>
                     </li>
                     <li class="nav-item pr-5">
-                        <a class="nav-link text-truncate " aria-current="page" href="#">Contact</a>
+                        <a class="nav-link text-truncate disabled" aria-current="page" href="#">Contact</a>
                     </li>
                     <li class="nav-item pr-5">
-                        <a class="nav-link text-truncate " aria-current="page" href="#">Place Holder</a>
-                    </li>
-                    <li class="nav-item pr-5">
-                        <a class="nav-link text-truncate " aria-current="page" href="#">Database</a>
+                        <a class="nav-link text-truncate " aria-current="page" href="/search.php">Catalog</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -38,9 +35,9 @@
                         </div>
                     </li>
                     <li>
-                        <a class="nav-link text-truncate " aria-current="page" href="#">Sign up</a>
+                        <a class="nav-link text-truncate " aria-current="page" href="/confirmation/">Sign up</a>
                     </li>
-                    <form class="d-flex my-3 my-lg-0 mx-auto">
+                    <form class="d-flex my-3 my-lg-0 mx-auto" action="/search.php" method="get">
                         <input class="form-control search_bar" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-secondary" type="submit">Search</button>
                     </form>

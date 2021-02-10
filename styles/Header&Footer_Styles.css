@@ -204,7 +204,7 @@ footer p {
 }
 
 .social_icons li a:hover, .social_icons li  a:focus {
-    color: red;
+    color: green;
     border: 0;
 }
 
