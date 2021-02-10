@@ -31,15 +31,21 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 ?>
 <body>
-<div class="container">
+<?php
+include('../includes/header.html');
+?>
+<div class="container my-3">
     <!-- greeting to potential client -->
     <h1>Thank you for your application.</h1>
     <p>Thank you for providing your information.
         It has been sent to the Coneybeare Sustainability team for review.</p>
 
+</div>
 
     <!-- Link to the universal Footer -->
-    <!--#include virtual="/includes/footer.html" -->
+    <?php
+    include('../includes/footer.html');
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -48,7 +54,7 @@ error_reporting(E_ALL);
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
     <script src="confirm.js"></script>
-</div>
+
 
 </body>
 </html>
