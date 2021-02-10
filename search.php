@@ -23,111 +23,141 @@ include('includes/header.html')
         <div class="company my-2 row">
             <div class="col-4 col-lg-2 bottom-divider">
                 <span class="category">Company</span>
+                <br>
                 <span class="max-lines-2">All Power Labs</span>
             </div>
             <div class="col-8 col-lg-4 no-small-divider bottom-divider">
                 <span class="category">About Us</span>
+                <br>
                 <span class="max-lines-2">Wood -> Energy via very efficient gasification.</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Category</span>
-                <span class="max-lines-2"><svg class="icon"><use href="images/symbol-defs.svg#energy"></use></svg>Energy</span>
+                <br>
+                <svg class="db-icon"><use href="images/symbol-defs.svg#energy"></use></svg>
+                <span class="max-lines-2">Energy</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Contact Info</span>
+                <br>
                 <span class="max-lines-2"><a href="http://allpowerlabs.com">Website</a></span>
             </div>
             <div class="col-6 col-lg-2 no-divider">
                 <span class="category">Location</span>
+                <br>
                 <span class="max-lines-2">Berkeley, CA</span>
             </div>
         </div>
         <div class="company my-2 row">
             <div class="col-4 col-lg-2 bottom-divider">
                 <span class="category">Company</span>
+                <br>
                 <span class="max-lines-2">Binishells</span>
             </div>
             <div class="col-8 col-lg-4 no-small-divider bottom-divider">
                 <span class="category">About Us</span>
+                <br>
                 <span class="max-lines-2">Inflatable -> Concrete house in all sorts of cool organic shapes.</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Category</span>
-                <span class="max-lines-2"><svg class="icon"><use href="images/symbol-defs.svg#housing"></use></svg>Housing</span>
+                <br>
+                <svg class="db-icon"><use href="images/symbol-defs.svg#housing"></use></svg>
+                <span class="max-lines-2">Housing</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Contact Info</span>
+                <br>
                 <span class="max-lines-2"><a href="https://binishells.com/">Website</a></span>
             </div>
             <div class="col-6 col-lg-2 no-divider">
                 <span class="category">Location</span>
+                <br>
                 <span class="max-lines-2">Beverly Hills, CA</span>
             </div>
         </div>
         <div class="company my-2 row">
             <div class="col-4 col-lg-2 bottom-divider">
                 <span class="category">Company</span>
+                <br>
                 <span class="max-lines-2">Ecology Artisans</span>
             </div>
             <div class="col-8 col-lg-4 no-small-divider bottom-divider">
                 <span class="category">About Us</span>
+                <br>
                 <span class="max-lines-2">INVALID DESCRIPTION</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Category</span>
-                <span class="max-lines-2"><svg class="icon"><use href="images/symbol-defs.svg#agriculture"></use> </svg>Agriculture</span>
+                <br>
+                <svg class="db-icon"><use href="images/symbol-defs.svg#agriculture"></use> </svg>
+                <span class="max-lines-2">Agriculture</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Contact Info</span>
+                <br>
                 <span class="max-lines-2"><a href="https://ecologyartisans.com/">Website</a></span>
             </div>
             <div class="col-6 col-lg-2 no-divider">
                 <span class="category">Location</span>
+                <br>
                 <span class="max-lines-2">San Diego, CA</span>
             </div>
         </div>
         <div class="company my-2 row">
             <div class="col-4 col-lg-2 bottom-divider">
                 <span class="category">Company</span>
+                <br>
                 <span class="max-lines-2">Organic Valley</span>
             </div>
             <div class="col-8 col-lg-4 no-small-divider bottom-divider">
                 <span class="category">About Us</span>
+                <br>
                 <span class="max-lines-2">Fairly big conglomerate of local agriculture co-ops in the Midwest. Sounds pretty cool, and classic midwest under the radar.</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Category</span>
-                <span class="max-lines-2"><svg class="icon"><use href="images/symbol-defs.svg#agriculture"></use> </svg>Agriculture</span>
+                <br>
+                <svg class="db-icon"><use href="images/symbol-defs.svg#agriculture"></use> </svg>
+                <span class="max-lines-2">Agriculture</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Contact Info</span>
+                <br>
                 <span class="max-lines-2"><a href="mailto:Organic@OrganicValley.coop">Email</a></span>
             </div>
             <div class="col-6 col-lg-2 no-divider">
                 <span class="category">Location</span>
+                <br>
                 <span class="max-lines-2">La Farge, WI</span>
             </div>
         </div>
         <div class="company my-2 row">
             <div class="col-4 col-lg-2 bottom-divider">
                 <span class="category">Company</span>
+                <br>
                 <span class="max-lines-2">Solberg Manufacturing</span>
             </div>
             <div class="col-8 col-lg-4 no-small-divider bottom-divider">
                 <span class="category">About Us</span>
+                <br>
                 <span class="max-lines-2">Makes custom filtration and silencing products for machinery. 200 employees.</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Category</span>
-                <span class="max-lines-2"><svg class="icon"><use
-                                href="images/symbol-defs.svg#manufacturing"></use> </svg>Manufacturing</span>
+                <br>
+                <svg class="db-icon"><use
+                            href="images/symbol-defs.svg#manufacturing"></use> </svg>
+                <span class="max-lines-2">Manufacturing</span>
             </div>
             <div class="col-3 col-lg-2">
                 <span class="category">Contact Info</span>
+                <br>
                 <span class="max-lines-2">None Provided</span>
             </div>
             <div class="col-6 col-lg-2 no-divider">
                 <span class="category">Location</span>
+                <br>
                 <span class="max-lines-2">Itasca, IL</span>
             </div>
         </div>
