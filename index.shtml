@@ -13,25 +13,45 @@
 <body>
 <!--#include virtual="/includes/header.html" -->
 <div class="container home_body">
-    <div class="image-container">
-        <img src="images/dirt_plants.png" class="rounded mx-auto d-block " id="dirt_plant">
-        <div class="centered dirt_img_text"><h3 class=" text-center">Recycle And Reuse<br/>Sustainability Services</h3></div>
-        <div class="centered">
-            <h3 class="text-center">Recycle And Reuse<br/>Sustainability Services</h3>
+    <h1>Coneybeare Sustainability Catalog</h1>
+    <hr class="solid">
+    <div class="container container_row1">
+        <div class="row">
+            <div class="image-container col-8">
+                <img src="images/sustainability.jpeg" class="rounded mx-auto d-block " id="sustainability_img">
+                <div class="centered sustainability_img_text"></div>
+                <div class="centered">
+                    <h3 class="text-center">Sustainable technology and Renewable energy<br/>Sustainability Services</h3>
+                </div>
+            </div>
+            <div class="col-4">
+                <h4 class="text-center">Welcome</h4>
+                <p>Coneybeare Sustainability is a full-service recruitment leader in the sustainable technology
+                    and
+                    renewable energy
+                    sectors, offering retained and exclusive contingency recruiting, direct hire and contractor
+                    placements,
+                    consulting and training services as well as reference checks.Employers may hire us to connect them
+                    with great
+                    employees, independent contractors, or consultants. Our consultants also offer training in both
+                    employment and
+                    sustainability-related practices. </p>
+            </div>
         </div>
     </div>
-    <hr class="solid">
-    <h1>Coneybeare Sustainability Catalog</h1>
-    <p>Welcome, Coneybeare Sustainability is a full-service recruitment leader in the sustainable technology and
-        renewable energy
-        sectors, offering retained and exclusive contingency recruiting, direct hire and contractor placements,
-        consulting and training services as well as reference checks. Employers may hire us to connect them with great
-        employees, independent contractors, or consultants. Our consultants also offer training in both employment and
-        sustainability-related practices. Coneybeare Sustainability’s team of recruiters, who have built a robust
-        employer
-        and candidate network, produces superior results and makes the process of finding and placing premier talent
-        seamless. Our team of dedicated, talented recruiters provides world-class services customized to each client’s
-        individual needs, whether they are a start-up company or Fortune 500 corporation. </p>
+    <div class="container container_row2">
+        <h4 class="text-left">Be a part of the team</h4>
+        <p>Coneybeare Sustainability’s team of recruiters, who have built a
+            robust
+            employer
+            and candidate network, produces superior results and makes the process of finding and placing premier
+            talent
+            seamless. Our team of dedicated, talented recruiters provides world-class services customized to each
+            client’s
+            individual needs, whether they are a start-up company or Fortune 500 corporation. </p>
+        <img src="images/dirt_plants.png" class="rounded mx-auto d-block" id="dirt_img">
+    </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

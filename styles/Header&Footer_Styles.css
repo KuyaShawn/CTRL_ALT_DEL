@@ -5,11 +5,11 @@
 }
 
 .nav_bg_color {
-    background-color: #4B6F44;
+    background-color: #60b003;
 }
 
 .sub_bg_color {
-    background-color: #87A96B;
+    background-color: #489402;
 }
 
 .Coneybeare_icon {
@@ -32,18 +32,25 @@ hr.solid {
 
 .home_body h1 {
     text-align: center;
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
 }
-
-#dirt_plant {
+#sustainability_img {
     margin-top: 10px;
-    width: 1000px;
+    width: 37.5em;
     position: relative;
 }
-.dirt_img_text{
-    background-color: #87A96B;
+#dirt_img{
+    width: 100%;
+    height: 50%;
+}
+.sustainability_img_text{
+    background-color: #2a3b45;
+    width: 26.5em;
+    height: 8.375em;
     padding: 1.5rem;
     border-radius: 15px;
-    opacity: 60%;
+    opacity: 75%;
 }
 .centered {
     color: white;
@@ -52,11 +59,15 @@ hr.solid {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.dirt_img_text h3{
-    opacity: 100%;
-}
 .image-container {
     position: relative;
+}
+.container_row1{
+    margin-top: 0.625em;
+    margin-bottom: 1.25em;
+}
+.container_row2 h4{
+    margin-bottom: 0.938em;
 }
 
 /* ----- Footer styling ----- */
@@ -64,7 +75,7 @@ hr.solid {
 
 .footer-top {
     padding: 1.25em 0 2.5em 0;
-    background-color: #333;
+    background-color: #60b003;
     text-align: left;
     color: #aaa;
 }
@@ -82,8 +93,7 @@ hr.solid {
 footer {
     width: 100%;
     min-height: 15.625em;
-    padding: 0.625em 0 1.563em 0;
-
+    padding: 1.25em 0 0 0;
 }
 
 .heading_position {
@@ -103,7 +113,7 @@ footer {
 /* bottom nav styles */
 .footer-bottom {
     padding: 0.938em 0 1.063em 0;
-    background-color: #444;
+    background-color: #489402;
     text-align: left;
     color: #aaa;
 }
