@@ -55,7 +55,8 @@
                 <div class="form-group col-6">
                     <label for="company-website">Company Website: </label>
                     <input type="text" class="form-control" id="company-website"
-                           placeholder="Enter website URL">
+                           placeholder="Enter website URL"
+                           pattern="(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)">
                     <span class="incomplete d-none text-danger" id="invalid-cSite">
                         * Please enter the Company Web Address</span>
                 </div>
@@ -489,7 +490,7 @@
                 <div class="form-group col-4">
                     <label for="company-email">Email address:</label>
                     <input type="email" class="form-control" id="company-email"
-                           placeholder="name@example.com">
+                           placeholder="name@example.com" pattern="[\w!#$%&'*+/=?^`{|}~\.\-]+@[A-z0-9]+\.[A-z0-9]+">
                     <span class="incomplete d-none text-danger" id="invalid-eEmail">
                     * Please enter e-mail</span>
                 </div>
@@ -498,7 +499,7 @@
                 <div class="form-group col-4">
                     <label for="phone">Phone number:</label>
                     <input type="tel" class="form-control" id="phone" placeholder="888-377-0042"
-                           pattern="\(?[0-9]{3}\)?[ -\.]?[0-9]{3}[ \.-]?[0-9]{4}">
+                           pattern="\(?[0-9]{3}\)?[ \.\-]?[0-9]{3}[ \.\-]?[0-9]{4}">
                 </div>
 
                 <!-- Company extension -->
