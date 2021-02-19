@@ -41,15 +41,6 @@ function validation() {
         filledIn = false;
     }
 
-    // Company ADDRESS Field 1
-    let cAddress = document.getElementById("Address1").value;
-    if(cAddress==="") {
-        let errorAddress = document.getElementById("invalid-address");
-        errorAddress.classList.remove("d-none");
-        filledIn = false;
-    }
-
-
     // Company CITY FIELD
     let cCity = document.getElementById("inputCity").value;
     if(cCity==="") {
@@ -63,14 +54,6 @@ function validation() {
     if(state === "state" ){
         let errorState = document.getElementById("invalid-state");
         errorState.classList.remove("d-none");
-        filledIn = false;
-    }
-
-    // Company ZIPCODE FIELD
-    let cZip = document.getElementById("inputZip").value;
-    if(cZip==="") {
-        let errorZip = document.getElementById("invalid-zipcode");
-        errorZip.classList.remove("d-none");
         filledIn = false;
     }
 
@@ -107,6 +90,13 @@ function validation() {
         filledIn = false;
     }
 
+    // Company TAGLINE TEXT FIELD
+    let cTagline = document.getElementById("tagline").value;
+    if(cTagline==="") {
+        let errorTagline = document.getElementById("invalid-tagline");
+        errorTagline.classList.remove("d-none");
+        filledIn = false;
+    }
 
     // EMPLOYEE INFORMATION
 
@@ -123,14 +113,6 @@ function validation() {
     if(last==="") {
         let errorLast = document.getElementById("invalid-lname");
         errorLast.classList.remove("d-none");
-        filledIn = false;
-    }
-
-    // DEPARTMENT
-    let eDepartment = document.getElementById("department").value;
-    if(eDepartment==="") {
-        let errorDept = document.getElementById("invalid-department");
-        errorDept.classList.remove("d-none");
         filledIn = false;
     }
 
