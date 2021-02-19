@@ -29,13 +29,12 @@ include('includes/header.html')
 
     $path = 'http://ctrl-alt-delete.greenriverdev.com/api/v1/search.php?';
     if (!empty($category)){
-        $path .= 'category='.$category.'&';
+        $path .= 'category='.urlencode($category).'&';
 
     }
     if(!empty($search)){
-        $path .= 'search='.$search;
+        $path .= 'search='.urlencode($search);
     }
-
 
     $opts = array('http' =>
         array(
