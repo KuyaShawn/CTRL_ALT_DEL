@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $cnxn = connect();
 $cnxn->set_charset('utf8');
 
-$sql = "SELECT * FROM company";
+$sql = "SELECT id, name, category, about, url, state, country FROM company";
 
 if (!empty($_GET)) {
     $sql .= ' WHERE ';
