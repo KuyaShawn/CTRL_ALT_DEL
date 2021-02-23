@@ -18,23 +18,25 @@ include('includes/header.html')
 ?>
 
 <div class="container py-4">
-    <h1 class="text-center mb-3">Search Results</h1>
 
     <?php
 
-    var_dump($_GET);
-
-    $category = $_GET['category'];
-    $search = $_GET['search'];
+    ini_set('display_errors', 0);
+    error_reporting(E_ALL & ~E_NOTICE);
 
     $path = 'http://ctrl-alt-delete.greenriverdev.com/api/v1/search.php?';
-    if (!empty($category)){
-        $path .= 'category='.urlencode($category).'&';
 
+    $searchHeader = "";
+    if (isset($_GET['category'])){
+        $path .= 'category='.urlencode($_GET['category']).'&';
+        $searchHeader .= ucwords($_GET['category'].' ');
     }
-    if(!empty($search)){
-        $path .= 'search='.urlencode($search);
+    if(isset($_GET['search'])){
+        $path .= 'search='.urlencode($_GET['search']);
+        $searchHeader .= ucwords($_GET['search']);
     }
+
+    echo "<h1 class='text-center mb-3'>Search Results - $searchHeader</h1>";
 
     $opts = array('http' =>
         array(
@@ -46,9 +48,56 @@ include('includes/header.html')
     $result = file_get_contents($path, false, $context);
 
     $data = json_decode($result);
-    echo ('<pre>');
-    var_dump($data);
-    echo ('</pre>');
+
+    foreach($data as $obj){
+        $row = get_object_vars($obj);
+
+        $id = $row['id'];
+        $name = $row['name'];
+        $category = $row['category'];
+        $state = $row['state'];
+        $country = $row['country'];
+        $about = $row['about'];
+        $url = $row['url'];
+        $iconCategory = strtolower(str_replace(' ', '-', $category));
+
+        $location = "";
+        if(!empty($state)){
+            $location .= $state;
+        }
+        if(!empty($country)){
+            if(!empty($state)){
+                $location .= ", ";
+            }
+            $location .= $country;
+        }
+
+        //Parsing the url since its not standardized in the database (regex is my own creation (Dylan))
+        preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
+        $urlParsed = $matches['domain'].$matches['path'];
+
+        if(!empty($url)){
+            echo "<a class='media my-3' id='$id' href='https://$urlParsed' target='_blank' rel='noopener noreferrer'>";
+        } else {
+            echo "<div class='media my-3' id='$id'>";
+        }
+
+        echo "<img src='/images/dirt_plants.png' class='mr-3 search-image'>";
+        echo "<div class='media-body row'>";
+        echo "<span class='col-6'>$name</span>";
+        echo "<span class='col-6'><svg class='nav-icon'><use href='/images/symbol-defs.svg#$iconCategory'></use></svg>$category</span>";
+        echo "<span class='col-6'>Service</span>";
+        echo "<span class='col-6'>$location</span>";
+        echo "<span class='col-12 mt-3'>$about</span>";
+        echo "</div>";
+
+        if(!empty($url)){
+            echo "</a>";
+        } else {
+            echo "</div>";
+        }
+
+    }
 
     ?>
 
