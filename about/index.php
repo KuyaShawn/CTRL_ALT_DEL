@@ -17,7 +17,9 @@
 </head>
 
 <body>
-<!--#include virtual="/includes/header.html" -->
+<?
+include '../includes/header.html';
+?>
 
 <div class="container mt-3 my-3 rounded border border-success">
     <section class="media my-3" id="vicky">
@@ -62,5 +64,7 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 
-<!--#include virtual="/includes/footer.html" -->
+<?
+include '../includes/footer.html';
+?>
 </body>

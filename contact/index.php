@@ -28,7 +28,9 @@
     <title>Coneybeare Sustainability Catalog</title>
 </head>
 <body>
-<!--#include virtual="/includes/header.html" -->
+<?
+include '../includes/header.html';
+?>
 
 <div class="container" id="main_container">
     <div id="form_wrapper">
@@ -98,6 +100,8 @@
     </div>
 </div>
 
-<!--#include virtual="/includes/footer.html" -->
+<?
+include '../includes/footer.html';
+?>
 </body>
 </html>

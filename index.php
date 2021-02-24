@@ -14,7 +14,11 @@
     <title>Coneybeare Sustainability Catalog</title>
 </head>
 <body>
-<!--#include virtual="/includes/header.html" -->
+
+<?
+include 'includes/header.html';
+?>
+
 <div class="container home_body">
     <h1 class="mt-4 mb-3 h1_bold">Coneybeare Sustainability Catalog</h1>
     <p>A searchable database and on-line marketplace for innovative solutions in sustainability; Creating visibility and
@@ -67,6 +71,9 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 
-<!--#include virtual="/includes/footer.html" -->
+<?
+include 'includes/footer.html';
+?>
+
 </body>
 </html>
