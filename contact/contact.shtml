@@ -30,18 +30,17 @@
 <body>
 <!--#include virtual="/includes/header.html" -->
 
-<div class="container rounded-lg mt-4" id="main_container">
+<div class="container" id="main_container">
     <div id="form_wrapper">
         <form action="" method="post" id="contactform">
-            <div class="container">
+            <div>
                 <h1 id="contact_heading">Contact Us</h1>
                 <p>If you have any questions or queries a member of staff will always be happy to help. Feel free to
                     contact
                     us by
                     email and we will be sure to get back to you as soon as possible</p>
-                <hr class="solid">
             </div>
-            <fieldset class="form-group">
+            <fieldset class="mt-4">
                 <h3>Your Contact info</h3>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -70,110 +69,34 @@
                         <div class="input_area">
                             <label class="form-check-label" for="email">Email</label>
                             <input type="text" class="form-control form_input2" id="email"
-                                   placeholder="Enter An Email"
+                                   placeholder="Enter Your Email"
                                    name="email">
                         </div>
                         <span class="error_msg" id="error_email">
-                        Please enter an Email Address
+                        Please enter a valid Email Address
+                    </span>
+                        <span class="error_msg" id="error_valid">
+                        Please enter a valid Email Address
                     </span>
                     </div>
                     <div class="form-group col-md-12">
                         <div class="input_area">
                             <label class="form-check-label" for="msg">Message</label>
                             <textarea class="form-control form_input2" id="msg" rows="5"
-                                      placeholder="Add a message"></textarea>
+                                      placeholder="How Can We Help?"></textarea>
                         </div>
                         <span class="error_msg" id="error_msgTextarea">
-                        Please type your message
+                        Please enter a valid Email Address
                     </span>
                     </div>
                 </div>
             </fieldset>
-            <div>
-                <button class="btn btn-dark float-right" type="submit">Submit</button>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-dark" type="submit">Submit</button>
             </div>
         </form>
     </div>
 </div>
-
-<!--
-BACKUP DESIGN DO NOT TOUCH!!!
-
-    * DESIGN #1 *
-    <form class="bg-light rounded-lg">
-        <div class="jumbotron bg-success mt-4">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>If you have any questions or queries a member of staff will always be happy to help. Feel free to contact us by
-                    telephone or email and we will be sure to get back to you as soon as possible</p>
-            </div>
-        </div>
-        <fieldset class="form-group">
-            <legend>Contact info</legend>
-        </fieldset>
-
-    </form>
-
-    * DESIGN #2 *
-    <div class="container bg-light rounded-lg mt-4" id="main_container">
-    <div id="form_wrapper">
-        <form>
-            <div class="container">
-                <h1 id="contact_heading">Contact Us</h1>
-                <p>If you have any questions or queries a member of staff will always be happy to help. Feel free to
-                    contact
-                    us by
-                    telephone or email and we will be sure to get back to you as soon as possible</p>
-                <hr class="solid">
-            </div>
-            <div class="form_rows">
-                <span class="label_input">Contact info</span>
-                <input class="form_input" type="text" name="name" placeholder="Enter Your Name">
-            </div>
-
-
-        </form>
-    </div>
-</div>
-
-* DESIGN #3 *
-
-<div class="container bg-light rounded-lg mt-4" id="main_container">
-    <div id="form_wrapper">
-        <form>
-            <div class="container">
-                <h1 id="contact_heading">Contact Us</h1>
-                <p>If you have any questions or queries a member of staff will always be happy to help. Feel free to
-                    contact
-                    us by
-                    telephone or email and we will be sure to get back to you as soon as possible</p>
-                <hr class="solid">
-            </div>
-            <fieldset class="form-group">
-                <h3>Contact info</h3>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label class="form-check-label" for="fname">First name:</label>
-                        <input type="text" class="form-control" id="fname" placeholder="Enter First Name"
-                               name="first_name">
-                        <span class="error_msg" id="error_fname">
-                        Please enter a first name
-                    </span>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="form-check-label" for="lname">Last name:</label>
-                        <input type="text" class="form-control" id="lname" placeholder="Enter Last Name"
-                               name="last_name">
-                        <span class="error_msg" id="error_lname">
-                        Please enter a last name
-                    </span>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
--->
 
 <!--#include virtual="/includes/footer.html" -->
 </body>
