@@ -47,6 +47,7 @@ if (!empty($_GET)) {
     }
 }
 
+
 $sql .= " LIMIT 0, 25";
 
 $result = mysqli_query($cnxn, $sql);
