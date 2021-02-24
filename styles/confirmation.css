@@ -9,31 +9,14 @@
                 Amanda H.
  */
 
-/*  HTML Styles
- */
-html {
-    box-sizing: border-box;
-}
-
-/*  Div and Class Styles
- */
-.form-group {
-    /* !!! DOES NOT OPERATE: Trying to add
-    Padding and margin to form groups and
-    user content fields */
-    padding: inherit !important;
+#formContainer {
+    border-radius: 13px;
+    border: 1px solid #609E1C;
 }
 
 .text-danger {
     color: firebrick !important;
-
 }
 
-/*
-#formContainer {
-    border: mediumvioletred;
-    border-left-style: dot-dash;
-    border-width: thin;
-    width: 75%;
-}
+
 
