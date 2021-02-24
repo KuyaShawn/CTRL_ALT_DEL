@@ -12,7 +12,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/styles/styles.css">
 
-    <title>About - Coneybeare Cleantech</title>
+    <title>Coneybeare Sustainability Catalog - About</title>
 
 </head>
 

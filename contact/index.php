@@ -25,7 +25,7 @@
     <script defer src="/scripts/contact.js"></script>
 
 
-    <title>Coneybeare Sustainability Catalog</title>
+    <title>Coneybeare Sustainability Catalog - Contact Us</title>
 </head>
 <body>
 <?
