@@ -41,7 +41,7 @@ include 'includes/header.html';
                     renewable energy
                     sectors, offering retained and exclusive contingency recruiting, direct hire and contractor
                     placements,
-                    consulting and training services as well as reference checks.Employers may hire us to connect them
+                    consulting and training services as well as reference checks. Employers may hire us to connect them
                     with great
                     employees, independent contractors, or consultants. Our consultants also offer training in both
                     employment and
@@ -61,7 +61,6 @@ include 'includes/header.html';
             individual needs, whether they are a start-up company or Fortune 500 corporation. </p>
         <img src="images/dirt_plants.png" class="rounded mx-auto d-block" id="dirt_img" alt="Plant Picture">
     </div>
-
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

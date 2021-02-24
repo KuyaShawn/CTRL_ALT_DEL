@@ -34,7 +34,7 @@ include '../includes/header.html';
 
 <div class="container" id="main_container">
     <div id="form_wrapper">
-        <form action="" method="post" id="contactform">
+        <form action="confirm.php" method="post" id="contactform">
             <div>
                 <h1 id="contact_heading">Contact Us</h1>
                 <p>If you have any questions or queries a member of staff will always be happy to help. Feel free to
@@ -85,7 +85,8 @@ include '../includes/header.html';
                         <div class="input_area">
                             <label class="form-check-label" for="msg">Message</label>
                             <textarea class="form-control form_input2" id="msg" rows="5"
-                                      placeholder="How Can We Help?"></textarea>
+                                      placeholder="How Can We Help?"
+                                      name="message"></textarea>
                         </div>
                         <span class="error_msg" id="error_msgTextarea">
                         Please enter a valid Email Address
