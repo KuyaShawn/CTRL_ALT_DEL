@@ -36,6 +36,10 @@ function validate() {
         let error_email = document.getElementById("error_email");
         error_email.style.display = "inline";
         isvalid = false;
+    }else if (validateEmail(email) === false &&email !== ""){
+        let error_email = document.getElementById("error_valid");
+        error_email.style.display = "inline";
+        isvalid = false;
     }
 
     // Checks msg validation
@@ -48,4 +52,10 @@ function validate() {
     }
 
     return isvalid;
+}
+
+// Email Validator
+function validateEmail(email){
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
