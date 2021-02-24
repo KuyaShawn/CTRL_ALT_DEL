@@ -35,7 +35,7 @@ if (!empty($_GET)) {
         if(!empty($category)){ // for chaining filters will clean up later
             $sql .= " AND ";
         }
-        $sql .= "(name LIKE '%$search%' OR about LIKE '%$search%')";
+        $sql .= "(name LIKE '%$search%' OR about LIKE '%$search%' OR category LIKE '%$search%')";
         $filterSuccess = true;
     }
 
