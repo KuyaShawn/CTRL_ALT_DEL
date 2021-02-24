@@ -1,0 +1,8 @@
+.container h1{
+    padding-top: 32px;
+}
+hr.solid{
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-top: 0.063em solid #bbbbbb;
+}
