@@ -1,46 +1,35 @@
 <header>
     <link rel="stylesheet" href="/styles/Header&Footer_Styles.css">
-    <nav class="navbar navbar-dark navbar-expand-md justify-content-between nav_bg_color">
+    <nav class="navbar navbar-dark navbar-expand-lg justify-content-between nav_bg_color">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img class="pr-2" src="/images/Coneybeare_Icon_small_white.png"
+            <a class="navbar-brand pr-3" href="/"><img class="pr-3" src="/images/Coneybeare_Icon_small_white.png"
                                                        alt="Coneybeare Icon">Coneybeare Sustainability Catalog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse dual-nav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item pr-5">
+                    <li class="nav-item pr-3">
                         <a class="nav-link text-truncate " aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item pr-5">
+                    <li class="nav-item pr-3">
                         <a class="nav-link text-truncate " aria-current="page" href="/about/">About</a>
                     </li>
-                    <li class="nav-item pr-5">
-                        <a class="nav-link text-truncate disabled" aria-current="page" href="#">Contact</a>
+                    <li class="nav-item pr-3">
+                        <a class="nav-link text-truncate " aria-current="page" href="/contact/contact.shtml">Contact</a>
                     </li>
-                    <li class="nav-item pr-5">
+                    <li class="nav-item pr-3">
                         <a class="nav-link text-truncate " aria-current="page" href="/search.php">Catalog</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- code for Drop down menu for extra listed item -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle pr-4 " href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Extras
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Place Holder</a>
-                            <a class="dropdown-item" href="#">Place Holder</a>
-                            <a class="dropdown-item" href="#">Place Holder</a>
-                        </div>
-                    </li>
                     <li>
                         <a class="nav-link text-truncate " aria-current="page" href="/confirmation/">Sign up</a>
                     </li>
                 </ul>
-                <form class="d-flex my-3 my-lg-0" action="/search.php" method="get">
-                    <input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex my-3 my-lg-0 ml-3" action="/search.php" method="get">
+                    <input name="search" class="form-control pl-3" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-secondary" type="submit">Search</button>
                 </form>
             </div>
