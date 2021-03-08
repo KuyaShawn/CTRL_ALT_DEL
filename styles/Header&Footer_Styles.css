@@ -1,5 +1,12 @@
 /* ----- Header styling ----- */
 /* form styling */
+@media (min-width: 992px) { /*lg breakpoint dynamic height */
+    .category-nav {
+        height: 43px;
+    }
+}
+
+
 .nav_bg_color {
     background-color: #60b003;
 }
@@ -12,13 +19,18 @@
     width: 50px;
 }
 
-.category-nav {
-    height: 43px;
-}
-
 .nav-icon {
     width: 1.5rem;
     height: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: rgba(255, 255, 255, .75)
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: rgba(255, 255, 255, 1)
 }
 
 /* ----- Main Home styling ----- */

@@ -1,43 +1,41 @@
 <header>
     <link rel="stylesheet" href="/styles/Header&Footer_Styles.css">
-    <nav class="navbar navbar-dark navbar-expand-lg justify-content-between nav_bg_color">
+    <nav class="navbar navbar-dark navbar-expand-lg nav_bg_color flex-wrap">
         <div class="container-fluid">
             <a class="navbar-brand pr-3" href="/"><img class="pr-3" src="/images/Coneybeare_Icon_small_white.png"
                                                        alt="Coneybeare Icon">Coneybeare Sustainability Catalog</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse dual-nav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item pr-3">
-                        <a class="nav-link text-truncate " aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item pr-3">
-                        <a class="nav-link text-truncate " aria-current="page" href="/about/">About</a>
-                    </li>
-                    <li class="nav-item pr-3">
-                        <a class="nav-link text-truncate " aria-current="page" href="/contact/">Contact</a>
-                    </li>
-                    <li class="nav-item pr-3">
-                        <a class="nav-link text-truncate " aria-current="page" href="/search.php">Catalog</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- code for Drop down menu for extra listed item -->
-                    <li>
-                        <a class="nav-link text-truncate " aria-current="page" href="/confirmation/">Sign up</a>
-                    </li>
-                </ul>
-                <form class="d-flex my-3 my-lg-0 ml-3" action="/search.php" method="get">
-                    <input name="search" class="form-control pl-3" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-secondary" type="submit">Search</button>
-                </form>
+            <button class="navbar-toggler ml-3" type="button" data-toggle="collapse" data-target="#categorySearchNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="navbar-nav w-100 align-items-lg-center">
+                    <a class="nav-item pr-3 nav-link text-truncate" aria-current="page" href="/">Home</a>
+                    <a class="nav-item pr-3 nav-link text-truncate" aria-current="page" href="/about/">About</a>
+                    <a class="nav-item pr-3 nav-link text-truncate" aria-current="page" href="/contact/">Contact</a>
+                    <a class="nav-item pr-3 nav-link text-truncate mr-auto" aria-current="page" href="/search.php">Catalog</a>
+
+                    <a class="nav-item pr-3 nav-link text-truncate" aria-current="page" href="/confirmation/">Sign up</a>
+                    <form class="d-none d-xl-flex my-3 my-lg-0 ml-3 w-50" action="/search.php" method="get">
+                        <input name="search" class="form-control pl-3" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
+
+        </div>
+        <div class="container-fluid d-xl-none">
+            <form class="d-flex my-3 w-100" action="/search.php" method="get">
+                <input name="search" class="form-control pl-3" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary" type="submit">Search</button>
+            </form>
         </div>
     </nav>
     <nav class="sub_nav navbar navbar-expand-lg navbar-dark sub_bg_color p-0">
         <div class="collapse navbar-collapse" id="categorySearchNav">
-            <div class="navbar-nav flex-wrap overflow-hidden category-nav">
+            <div class="navbar-nav flex-lg-wrap overflow-hidden category-nav">
                 <a class="nav-item nav-link" href="/search.php?category=agriculture">
                 <span><svg class="nav-icon"><use
                         href="/images/symbol-defs.svg#agriculture"></use></svg> Agriculture</span>
