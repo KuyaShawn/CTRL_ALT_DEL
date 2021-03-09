@@ -2,7 +2,7 @@
 
 //Implement standard response headers
 header('Allow: GET'); //Required header for 405 error codes per RFC 7231 standards
-header('Content-type: application/json');
+header('Content-type: application/json; charset=UTF-8');
 
 //Main database connection, upon fatal error PHP reports 500 error code anyways which is appropriate.
 //Fatal errors should probably be logged for future admin usage.
