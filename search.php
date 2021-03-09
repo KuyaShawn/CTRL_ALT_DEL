@@ -51,6 +51,8 @@ include('includes/header.html')
     curl_close($curl);
 
     echo "<h1 class='text-center mb-3'>Search Results - $searchHeader</h1>";
+    echo "<hr class='solid'>";
+
 
     $data = json_decode($result);
 
@@ -82,14 +84,14 @@ include('includes/header.html')
         $urlParsed = $matches['domain'].$matches['path'];
 
         if(!empty($url)){
-            echo "<a class='media my-3' id='$id' href='https://$urlParsed' target='_blank' rel='noopener noreferrer'>";
+            echo "<a class='media my-4' id='$id' href='https://$urlParsed' target='_blank' rel='noopener noreferrer'>";
         } else {
-            echo "<div class='media my-3' id='$id'>";
+            echo "<div class='media my-4' id='$id'>";
         }
 
         echo "<img src='/images/dirt_plants.png' class='mr-3 search-image'>";
         echo "<div class='media-body row'>";
-        echo "<span class='col-6'>$name</span>";
+        echo "<span class='col-6' span style='font-size:20px'>$name</span>";
         echo "<span class='col-6'><svg class='nav-icon'><use href='/images/symbol-defs.svg#$iconCategory'></use></svg>$category</span>";
         echo "<span class='col-6'>Service</span>";
         echo "<span class='col-6'>$location</span>";
