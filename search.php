@@ -24,28 +24,33 @@ include('includes/header.html')
     ini_set('display_errors', 0);
     error_reporting(E_ALL & ~E_NOTICE);
 
-    $path = 'http://ctrl-alt-delete.greenriverdev.com/api/v1/search.php?';
 
+    $path = 'http://api.ctrl-alt-delete.greenriverdev.com/v1/search.php?';
+
+    $data = array();
     $searchHeader = "";
     if (isset($_GET['category'])){
-        $path .= 'category='.urlencode($_GET['category']).'&';
+        $data['category'] = $_GET['category'];
         $searchHeader .= ucwords($_GET['category'].' ');
     }
     if(isset($_GET['search'])){
-        $path .= 'search='.urlencode($_GET['search']);
+        $data['search'] = $_GET['search'];
         $searchHeader .= ucwords($_GET['search']);
     }
 
-    echo "<h1 class='text-center mb-3'>Search Results - $searchHeader</h1>";
-
-    $opts = array('http' =>
-        array(
-            'method'  => 'GET',
-            'header'  => 'Content-type: application/x-www-form-urlencoded',
-        )
+    $headers = array(
+            'Content-type: application/x-www-form-urlencoded'
     );
-    $context  = stream_context_create($opts);
-    $result = file_get_contents($path, false, $context);
+
+    $curl = curl_init($path . http_build_query($data));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+
+    $result = curl_exec($curl);
+    curl_close($curl);
+
+    echo "<h1 class='text-center mb-3'>Search Results - $searchHeader</h1>";
 
     $data = json_decode($result);
 
