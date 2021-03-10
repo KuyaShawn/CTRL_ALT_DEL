@@ -130,7 +130,7 @@ include('includes/header.html')
                 <h4>About</h4>
                 <p id="modal-tagline">possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
                     Worth a pain diagnosis</p>
-                <h4>Website</h4>
+                <h4 class="d-none" id="modal-url-heading">Website</h4>
                 <a id="modal-url" href="#" target='_blank' rel='noopener noreferrer'>Insert here</a>
             </div>
 

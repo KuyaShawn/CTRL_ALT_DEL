@@ -25,9 +25,11 @@ function updateModalData(data){
 
     let url
     if(data.url !== ""){
+        document.getElementById('modal-url-heading').classList.toggle('d-none', false);
         let urlMatch = data.url.match(/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/);
         url = "https://" + urlMatch.groups.domain + urlMatch.groups.path;
     } else {
+        document.getElementById('modal-url-heading').classList.toggle('d-none', true);
         url = "";
     }
 
@@ -53,6 +55,18 @@ function updateModalData(data){
 
     //document.getElementById('modal-icon').href = ('/images/symbol-defs.svg#' + data.category);
     document.getElementById('modal-category').textContent = data.category;
-    document.getElementById('modal-location').textContent = data.city + ", " + data.state;
+
+    let locationString = "";
+    if(data.state !== ""){
+        locationString += data.state;
+    }
+    if(data.country !== ""){
+        if(data.state !== ""){
+            locationString += ", ";
+        }
+        locationString += data.country;
+    }
+
+    document.getElementById('modal-location').textContent = locationString;
     document.getElementById('modal-phone').textContent = data.phone;
 }
