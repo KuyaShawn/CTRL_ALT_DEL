@@ -26,7 +26,7 @@ include 'includes/header.html';
     <hr class="solid">
     <div class="container_row1">
         <div class="row">
-            <div class="image-container col-8">
+            <div class="image-container col-12 col-lg-8">
                 <img src="images/sustainability.jpeg" class="rounded mx-auto d-block " id="sustainability_img"
                      alt="Sustainability Picture">
                 <div class="centered sustainability_img_text"></div>
@@ -34,7 +34,7 @@ include 'includes/header.html';
                     <h3 class="text-center">Sustainable technology and Renewable energy<br/>Services</h3>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-lg-4">
                 <h3 class="text-left font-weight-bold">Welcome</h3>
                 <p class="text-left">Coneybeare Sustainability is a full-service recruitment leader in the sustainable technology
                     and
