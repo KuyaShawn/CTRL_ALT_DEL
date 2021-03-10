@@ -119,7 +119,7 @@ include('includes/header.html')
             <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
         </div>
         <div class="popup-body">
-            <img src="/images/dirt_plants.png" class="search-image">
+            <img src="/images/dirt_plants.png" class="search_image">
             <div class=" info_section">
                 <h4>About</h4>
                 <p id="modal-tagline">possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.

@@ -97,6 +97,9 @@ header{
     margin-right: 4px;
     margin-left: -6px;
 }
+p{
+    font-family: 'Poppins', sans-serif;
+}
 
 .category{
     text-transform: uppercase;

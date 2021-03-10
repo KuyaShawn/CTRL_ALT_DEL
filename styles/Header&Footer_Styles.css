@@ -104,12 +104,6 @@ hr.solid {
     color: #aaa;
 }
 
-.footer_icon {
-    margin-top: 20px;
-    width: 66px;
-    height: 66px;
-}
-
 .footer_column {
     color: #FFF;
 }
@@ -139,7 +133,7 @@ footer {
     padding: 0.938em 0 1.063em 0;
     background-color: #489402;
     text-align: left;
-    color: #aaa;
+    color: rgba(255, 255, 255, 1);
 }
 
 .social_icons {
@@ -165,13 +159,12 @@ footer {
 }
 
 .social_icons li i {
-    width: 1.25em;
-    height: 1.25em;
+    font-size: 1.4rem;
     text-align: center;
 }
 
 .social_icons li a:hover, .social_icons li a:focus {
-    color: green;
+    color: rgba(255, 255, 255, 1);
     border: 0;
 }
 
