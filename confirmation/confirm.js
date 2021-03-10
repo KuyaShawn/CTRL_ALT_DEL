@@ -98,7 +98,12 @@ function validation() {
     // Key words
 
     document.getElementById('tagInput');
-    tagInput.value = tagString;
+    if(tagString > TAG_MAX_LENGTH){
+        filledIn = false;
+    } else {
+        tagInput.value = tagString;
+    }
+
 
 
     // Private contact check box

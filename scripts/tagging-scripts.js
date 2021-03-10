@@ -7,7 +7,7 @@ let tagList = document.getElementById("tagList")
 let tagString = "";
 let charDisplay = document.getElementById("tagCharCount");
 
-const MAX_LENGTH = 250;
+const TAG_MAX_LENGTH = 250;
 
 document.addEventListener("load", setDynamicStyles);
 
@@ -71,9 +71,9 @@ function updateTagString(){
         tagString += tagInput.value;
     }
 
-    charDisplay.textContent = tagString.length + " / " + MAX_LENGTH;
+    charDisplay.textContent = tagString.length + " / " + TAG_MAX_LENGTH;
 
-    if(tagString.length > MAX_LENGTH){
+    if(tagString.length > TAG_MAX_LENGTH){
         charDisplay.classList.toggle('error', true);
     } else {
         charDisplay.classList.toggle('error', false);

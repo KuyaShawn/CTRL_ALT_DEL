@@ -209,9 +209,6 @@
                         </div>
                     </div>
                     <span class="char-count" id="tagCharCount">0 / 250</span>
-                    <br>
-                    <span class="incomplete d-none text-danger" id="invalid-about">
-                            * Please enter some key words about the Company</span>
                 </div>
             </div>
         </fieldset><br>
