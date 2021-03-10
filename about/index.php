@@ -22,7 +22,7 @@ include '../includes/header.html';
 ?>
 
 <div class="container mt-3 my-3 rounded border border-success">
-    <section class="media my-3" id="vicky">
+    <section class="media my-3 d-flex flex-column" id="vicky">
         <img class="mr-3 rounded img-fluid" style="width: 100px;"
              src="images/vicky.png" alt="Victoria Betancourt">
         <div class="media-body">
