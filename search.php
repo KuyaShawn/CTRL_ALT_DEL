@@ -87,7 +87,7 @@ include('includes/header.html')
         if(!empty($url)){
             echo "<a class='media my-4' id='$id' href='https://$urlParsed' target='_blank' rel='noopener noreferrer'>";
         } else {
-            echo "<div class='media my-4' id='$id'>";
+            echo "<div class='media my-4' id='$id' onclick='openModal($id)'>";
         }
 
         echo "<img src='/images/dirt_plants.png' class='mr-3 search-image'>";
@@ -113,40 +113,39 @@ include('includes/header.html')
 </div>
 <!-- popupBox start -->
 <div>
-    <a data-popup-target="#popup">Ecology Artisans</a>
     <div class="popup_container" id="popup">
         <div class="popup-header">
-            <div class="title">Ecology Artisans</div>
-            <button data-close-button class="close-button">&times;</button>
+            <div class="title" id="modal-title">Ecology Artisans</div>
+            <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
         </div>
         <div class="popup-body">
             <img src="/images/dirt_plants.png" class="search-image">
             <div class=" info_section">
                 <h4>About</h4>
-                <p>possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
+                <p id="modal-tagline">possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
                     Worth a pain diagnosis</p>
                 <h4>Website</h4>
-                <p>Insert here</p>
+                <p id="modal-url">Insert here</p>
             </div>
 
         </div>
         <div class="popup-sidebar">
             <div>
                 <h5>Service:</h5>
-                <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#ecology"></use></svg>Agriculture</span>
+                <span id="modal-category"><svg class="nav-icon"><use id="modal-icon" href="/images/symbol-defs.svg#ecology"></use></svg>Agriculture</span>
             </div>
             <div>
                 <h5>Location:</h5>
-                <span>California, USA</span>
+                <span id="modal-location">California, USA</span>
             </div>
             <div>
                 <h5>Contact:</h5>
-                <span>123-456-7890</span>
+                <span id="modal-phone">123-456-7890</span>
             </div>
         </div>
     </div>
 
-    <div id="overlay"></div>
+    <div id="overlay" onclick="closeModal()"></div>
 </div>
 <!-- popupBox end -->
 
@@ -160,6 +159,6 @@ include('includes/footer.html')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-
+<script src="/scripts/search-functions.js"></script>
 </body>
 </html>
