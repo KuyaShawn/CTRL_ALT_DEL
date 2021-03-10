@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coneybeare Sustainability Catalog - Search</title>
 
+    <link rel="stylesheet" href="styles/popupBox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
@@ -110,6 +111,44 @@ include('includes/header.html')
 
 
 </div>
+<!-- popupBox start -->
+<div>
+    <a data-popup-target="#popup">Ecology Artisans</a>
+    <div class="popup_container" id="popup">
+        <div class="popup-header">
+            <div class="title">Ecology Artisans</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="popup-body">
+            <img src="/images/dirt_plants.png" class="search-image">
+            <div class=" info_section">
+                <h4>About</h4>
+                <p>possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
+                    Worth a pain diagnosis</p>
+                <h4>Website</h4>
+                <p>Insert here</p>
+            </div>
+
+        </div>
+        <div class="popup-sidebar">
+            <div>
+                <h5>Service:</h5>
+                <span><svg class="nav-icon"><use href="/images/symbol-defs.svg#ecology"></use></svg>Agriculture</span>
+            </div>
+            <div>
+                <h5>Location:</h5>
+                <span>California, USA</span>
+            </div>
+            <div>
+                <h5>Contact:</h5>
+                <span>123-456-7890</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+</div>
+<!-- popupBox end -->
 
 <?php
 include('includes/footer.html')
