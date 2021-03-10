@@ -14,6 +14,7 @@
     ?>
     <title>Sign Up - Coneybeare Sustainability Catalog</title>
     <link rel="stylesheet" href="/styles/confirmation.css">
+    <link rel="stylesheet" href="/styles/tagging-styles.css">
 
 </head>
 
@@ -36,11 +37,9 @@
 
         <!-- Fieldset COMPANY Information-->
         <fieldset id="company-info">
-                <h3>Company Information</h3><br>
+            <h3>Company Information</h3><br>
 
             <div class="form-row">
-
-
                 <!-- Company NAME input -->
                 <div class="form-group col">
                     <label for="company-name">Company Name:</label>
@@ -60,8 +59,47 @@
             </div>
 
             <div class="form-row">
+                <!--  EMAIL -->
+                <div class="form-group col">
+                    <label for="contact-email">Email address:</label>
+                    <input type="email" class="form-control" id="contact-email" name="contact-email"
+                           pattern="[\w!#$%&'*+/=?^`{|}~\.\-]+@[A-z0-9]+\.[A-z0-9]+">
+                    <span class="incomplete d-none text-danger" id="invalid-conEmail">
+                * Please enter e-mail</span>
+                </div>
+
+                <!--Company TELEPHONE -->
+                <div class="form-group col">
+                    <label for="cPhone">Phone number:</label>
+                    <input type="tel" class="form-control" id="cPhone" name="cPhone"
+                           placeholder="888-123-0042" pattern="[0-9]{3}, [0-9]{3}, [0-9]{4}, [0-9]{9}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <!--ADDRESS Line 1 -->
+                <div class="form-group col">
+                    <label for="Address1">Address:</label>
+                    <input type="text" class="form-control" id="address1"
+                          name="address1" placeholder="1234 Main St.">
+                    <span class="incomplete d-none text-danger" id="invalid-address">
+                    * Please enter Company address</span>
+
+                </div>
+
+                <!-- Company ADDRESS 2 OPTIONAL -->
+                <div class="form-group col">
+                    <label for="inputAddress2">Address 2:</label>
+                    <input type="text" class="form-control" id="address2"
+                           name="address2" placeholder="Suite 1234-B">
+                    <span class="incomplete d-none text-danger" id="invalid-address2">
+                    * Please input an address</span>
+
+                </div>
+            </div>
 
 
+            <div class="form-row">
                 <!--Company COUNTRY  -->
                 <div class="form-group col">
                     <label for="inputCountry">Country:</label>
@@ -69,9 +107,10 @@
                         <?php
                         include('confirm-includes/countries.html');
                         ?>
-                    </select>
+                     </select>
                     <span class="incomplete d-none text-danger" id="invalid-country">
-                    * Please enter a Country</span>
+                        * Please enter a Country</span>
+
                 </div>
 
                 <!--Company STATE -->
@@ -84,7 +123,8 @@
                         ?>
                     </select>
                     <span class="incomplete d-none text-danger" id="invalid-state">
-                    * Please enter a State </span>
+                        * Please enter a State </span>
+
                 </div>
             </div>
 
@@ -94,7 +134,7 @@
                     <label for="inputCity">City:</label>
                     <input type="text" class="form-control" name="inputCity" id="inputCity">
                     <span class="incomplete d-none text-danger" id="invalid-city">
-                        * Please enter a city</span>
+                                * Please enter a city</span>
                 </div>
 
                 <!-- Geographical area in which they serve -->
@@ -108,15 +148,15 @@
                         <option value="global">Global</option>
                     </select>
                     <span class="incomplete d-none text-danger" id="invalid-area">
-                        * Please select an area</span>
+                                * Please select an area</span>
                 </div>
             </div>
 
             <div class="form-row">
-                <!-- Industry CATEGORY, Company Background -->
+                <!-- Industry , Company Background -->
                 <div class="form-group col">
-                    <label for="company-category">Industry:</label>
-                    <select id="company-category" class="form-control" name="company-category">
+                    <label for="industry">Industry:</label>
+                    <select id="industry" class="form-control" name="industry">
                         <option value="none">Select Category</option>
                         <option value="Agriculture">Agriculture</option>
                         <option value="Architecture">Architecture</option>
@@ -148,74 +188,39 @@
                 </div>
             </div>
 
-                <!--ABOUT Company -->
-                <div class="form-group">
-                    <label for="about">About:</label>
-                    <textarea class="form-control" maxlength="250" rows="4" id="about"
-                              name="about"></textarea>
-                    <span class="incomplete d-none text-danger" id="invalid-about">
-                        * Please tell us about the Company</span>
-                </div>
-
+            <div class="form-row">
                 <!-- Company TAGLINE -->
-                <div class="form-group">
+                <div class="form-group col">
                     <label for="tagline">Tagline:</label>
                     <textarea class="form-control" maxlength="250" rows="2" id="tagline"
                               name="tagline"></textarea>
                     <span class="incomplete d-none text-danger" id="invalid-tagline">
                         * Please tell us the company tagline</span>
                 </div>
-        </fieldset>
-
-
-        <!-- Fieldset Company Contact Person Information-->
-        <fieldset id="contact">
-            <h3>Company Contact</h3>
-
-            <!-- authorization -->
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value=""
-                           id="ccAuth" name="ccAuth"> I authorize Coneybeare
-                    Sustainability Catalog to publish the below person with
-                    the company listing.</label><br>
-                <span class="incomplete d-none text-danger" id="invalid-ccAuth">
-                        * Please authorize public contact</span>
-            </div><br>
+            </div>
 
             <div class="form-row">
-            <!-- first name -->
-            <div class="form-group col">
-                <label for="cfname">First Name:</label>
-                <input type="text" class="form-control" id="cfname" name="cfname">
-                <span class="incomplete d-none text-danger" id="invalid-cfname">
-                * Please enter first name</span>
-            </div>
-
-            <!-- last name -->
-            <div class="form-group col">
-                <label for="clname">Last Name:</label>
-                <input type="text" class="form-control" id="clname" name="clname">
-                <span class="incomplete d-none text-danger" id="invalid-clname">
-                * Please enter last name</span>
-            </div>
-            </div>
-
-            <!--  EMAIL -->
-            <div class="form-group">
-                <label for="contact-email">Email address:</label>
-                <input type="email" class="form-control" id="contact-email" name="contact-email"
-                       pattern="[\w!#$%&'*+/=?^`{|}~\.\-]+@[A-z0-9]+\.[A-z0-9]+">
-                <span class="incomplete d-none text-danger" id="invalid-conEmail">
-                * Please enter e-mail</span>
+                <!--Keywords Company -->
+                <div class="form-group col">
+                    <label for="tagInput">Search Tags (comma separated list):</label>
+                    <div class="form-control d-flex tag-form">
+                        <div id="tagList" class="tag-list">
+                            <input class="tag-input" type="text" id="tagInput" name="tagPostString">
+                        </div>
+                    </div>
+                    <span class="char-count" id="tagCharCount">0 / 250</span>
+                    <br>
+                    <span class="incomplete d-none text-danger" id="invalid-about">
+                            * Please enter some key words about the Company</span>
+                </div>
             </div>
         </fieldset><br>
 
 
 
-        <!-- Fieldset POINT OF CONTACT Information-->
+        <!-- Fieldset Private CONTACT Information-->
         <fieldset id="poc">
-            <h3>Point of Contact</h3>
+            <h3>Private Contact</h3>
 
             <!-- authorization -->
             <div class="form-check">
@@ -230,21 +235,21 @@
 
             <div class="form-row">
 
-            <!-- first name -->
-            <div class="form-group col">
-                <label for="pfname">First Name:</label>
-                <input type="text" class="form-control" id="pfname" name="pfname">
-                <span class="incomplete d-none text-danger" id="invalid-pfname">
-                * Please enter first name</span>
-            </div>
+                <!-- first name -->
+                <div class="form-group col">
+                    <label for="pfname">First Name:</label>
+                    <input type="text" class="form-control" id="pfname" name="pfname">
+                    <span class="incomplete d-none text-danger" id="invalid-pfname">
+                    * Please enter first name</span>
+                </div>
 
-            <!-- last name -->
-            <div class="form-group col">
-                <label for="plname">Last Name:</label>
-                <input type="text" class="form-control" id="plname" name="plname">
-                <span class="incomplete d-none text-danger" id="invalid-plname">
-                * Please enter last name</span>
-            </div>
+                <!-- last name -->
+                <div class="form-group col">
+                    <label for="plname">Last Name:</label>
+                    <input type="text" class="form-control" id="plname" name="plname">
+                    <span class="incomplete d-none text-danger" id="invalid-plname">
+                    * Please enter last name</span>
+                </div>
             </div>
 
             <!--  EMAIL -->
@@ -255,11 +260,30 @@
                 <span class="incomplete d-none text-danger" id="invalid-pEmail">
                 * Please enter a contact e-mail</span>
             </div>
-            <button type="submit" class="btn btn-success" id="submitBTN">
-                Submit
+
+            <div class="form-row">
+                <!--Company TELEPHONE -->
+                <div class="form-group col">
+                    <label for="phone">Phone number:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone"
+                               placeholder="888-123-0042"
+                               pattern="[0-9]{3}, [0-9]{3}, [0-9]{4}, [0-9]{9}">
+                </div>
+
+                <!-- Company extension -->
+                <div class="form-group col">
+                    <label for="phone2">Extension:</label>
+                        <input type="tel" class="form-control" id="phone2" name="phone2"
+                               placeholder="1234"
+                               pattern="[0-9]{9}">
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-success" id="submitBTN">Submit
             </button>
         </fieldset>
-        </div>
+
 
     </form><!-- END of id="pcform" -->
     </div>
@@ -270,6 +294,14 @@
     include('../includes/footer.html');
     ?>
 
+
+    <template id="tagTemplate">
+        <div class="tag">
+            <span class="tag-text">Tag Example</span>
+            <div role="button" class="tag-button" aria-label="Delete Tag">&times;</div>
+        </div>
+    </template>
+
     <!-- Links to Bootstrap libraries -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -277,6 +309,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
+    <script src="/scripts/tagging-scripts.js"></script>
 
     <!-- Link to style sheet -->
     <script src="confirm.js"></script>
@@ -284,7 +317,7 @@
 </html>
 
 <!--
-row-cols-1 row-cols-md-2 row-cols-lg3
+
 
 
 

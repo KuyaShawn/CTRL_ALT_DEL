@@ -29,31 +29,31 @@
     <div class="container p-3 my-3 border h-75 justify-content-center" id="formContainer">
     <?php
         // autoglobal array
-        //echo var_dump($_POST);
+        // echo var_dump($_POST);
 
 
         /* Company information variables */
         $cName = $_POST['company-name'];
-        $cSite = $_POST['company-website'];
+        $cWebsite = $_POST['company-website'];
+        $cEmail = $_POST['contact-email'];
+        $cPhone = $_POST['cPhone'];
+        $cStreet = $_POST['address1'];
+        $cSuite = $_POST['address2'];
         $cCountry = $_POST['country'];
         $cState = $_POST['state'];
         $cCity = $_POST['inputCity'];
         $cService = $_POST['inputArea'];
-        $cCategory = $_POST['company-category'];
+        $cCategory = $_POST['industry'];
         $cLogo = $_POST['logo'];
-        $cAbout = $_POST['about'];
         $cTagline = $_POST['tagline'];
+        $cKey = $_POST['tagPostString'];
 
-        /* Company Contact Person Information variables */
-        $empFirst = $_POST['cfname'];
-        $empLast = $_POST['clname'];
-        $empEMail = $_POST['contact-email'];
-
-        /* Point of contact Information*/
+        /* Point of Contact/Private Contact Info variables */
         $pcFirst = $_POST['pfname'];
         $pcLast = $_POST['plname'];
-        $pcEMail = $_POST['pEmail'];
-
+        $pcEmail = $_POST['pEmail'];
+        $pcPhone = $_POST['phone'];
+        $pcPhone .= " #" . $_POST['phone2'];
 
 
 
@@ -61,13 +61,13 @@
         include('confirm-includes/functions.php');
 
         /* Printing Message and content from applicant*/
-        thankYou($pcFirst);
+        thankYou();
         message($cName);
         echo"<table class='table'>
             <tr>
                <td>Company:</td><td>$cName</td>
             </tr><tr>
-               <td>Website:</td><td>$cSite</td>
+               <td>Website:</td><td>$cWebsite</td>
             </tr><tr>
                <td>Location:</td><td>$cCity, $cState, $cCountry</td>
             </tr><tr>
@@ -75,17 +75,15 @@
             </tr><tr>
                <td>Industry:</td><td>$cCategory</td>
             </tr><tr>
-               <td>About:</td><td>$cAbout</td>
-            </tr><tr>
                <td>Tagline:</td><td>$cTagline</td>
             </tr><tr>
-               <td>Contact Person:</td><td>$empFirst $empLast</td>
+               <td>Search Tags:</td><td>$cKey</td>
             </tr><tr>
-               <td>Contact Email:</td><td>$empEMail</td>
+               <td>Contact Email:</td><td>$cEmail</td>
             </tr><tr>
                <td>Point of Contact:</td><td>$pcFirst $pcLast</td>
             </tr><tr>
-               <td>Point of Contact Email:</td><td>$pcEMail</td>
+               <td>Point of Contact Email:</td><td>$pcEmail</td>
             </tr>
             </table>";
 
@@ -93,14 +91,14 @@
 
 
         /* Sending to E-mail*/
-        $emailTo = "aholt5@mail.greenriver.edu";
+        $emailTo = "dhardy8@mail.greenriver.edu";
         $fromEmail = "no-reply@ctrl-alt-delete.greenriverdev.com";
         $emailSubject = "New Catalog Submission";
         $emailBody = "<table class='table'>
             <tr>
                <td>Company:</td><td>$cName</td>
             </tr><tr>
-               <td>Website:</td><td>$cSite</td>
+               <td>Website:</td><td>$cWebsite</td>
             </tr><tr>
                <td>Location:</td><td>$cCity, $cState, $cCountry</td>
             </tr><tr>
@@ -108,17 +106,15 @@
             </tr><tr>
                <td>Industry:</td><td>$cCategory</td>
             </tr><tr>
-               <td>About:</td><td>$cAbout</td>
-            </tr><tr>
                <td>Tagline:</td><td>$cTagline</td>
             </tr><tr>
-               <td>Contact Person:</td><td>$empFirst $empLast</td>
+               <td>Search Tags:</td><td>$cKey</td>
             </tr><tr>
-               <td>Contact Email:</td><td>$empEMail</td>
+               <td>Contact Email:</td><td>$cEmail</td>
             </tr><tr>
                <td>Point of Contact:</td><td>$pcFirst $pcLast</td>
             </tr><tr>
-               <td>Point of Contact Email:</td><td>$pcEMail</td>
+               <td>Point of Contact Email:</td><td>$pcEmail</td>
             </tr>
             </table>\r\n";
         $emailBody .= "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>

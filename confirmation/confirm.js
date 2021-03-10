@@ -40,6 +40,15 @@ function validation() {
         filledIn = false;
     }
 
+    // Company Email
+
+
+    // Company Telephone
+
+
+    // Company Address Line 1
+
+
     // Company COUNTRY FIELD
     let cCountry = document.getElementById("country").value;
     if (cCountry === "blank") {
@@ -72,13 +81,11 @@ function validation() {
         filledIn = false;
       }
 
-    // company contact check box
-    let cAuth = document.getElementById("ccAuth");
-    if (!cAuth.checked) {
-        let errorPocAuth = document.getElementById("invalid-ccAuth");
-        errorPocAuth.classList.remove("d-none");
-        filledIn = false;
-    }
+    // Industry
+
+
+    // logo
+
 
     // Tagline
     let tag = document.getElementById("tagline").value;
@@ -88,8 +95,21 @@ function validation() {
         filledIn = false;
     }
 
-    // company contact
-    // EMAIL, point of contact
+    // Key words
+
+    document.getElementById('tagInput');
+    tagInput.value = tagString;
+
+
+    // Private contact check box
+    let pcAuth = document.getElementById("pocAuth");
+    if (!pcAuth.checked) {
+        let errorPcAuth = document.getElementById("invalid-pocAuth");
+        errorPcAuth.classList.remove("d-none");
+        filledIn = false;
+    }
+
+    // Private contact Email
     let eEmail = document.getElementById("pEmail").value;
     if (eEmail === "") {
         let errorEmail = document.getElementById("invalid-pEmail");
@@ -97,16 +117,24 @@ function validation() {
         filledIn = false;
     }
 
-    // Point of contact check box
-    let pocAuth = document.getElementById("pocAuth");
-    if (!pocAuth.checked) {
-        let errorPocAuth = document.getElementById("invalid-pocAuth");
-        errorPocAuth.classList.remove("d-none");
-        filledIn = false;
-    }
+    // Private contact phone number
+
 
     // returning if field checks require an error message or not
     return filledIn;
 
 
 }
+/*
+*
+* // company contact check box
+    let cAuth = document.getElementById("ccAuth");
+    if (!cAuth.checked) {
+        let errorPocAuth = document.getElementById("invalid-ccAuth");
+        errorPocAuth.classList.remove("d-none");
+        filledIn = false;
+    }
+*
+*
+*
+* */

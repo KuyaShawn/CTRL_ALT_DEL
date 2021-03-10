@@ -14,15 +14,22 @@
 
 
     /* greeting to potential client */
-    function thankYou($pcFirst)
+    function thankYou()
     {
-        echo "<h3>Thank you for the application $pcFirst!</h3><br>";
+        echo "<h3>Thank you for the application !</h3><br>";
     }
 
     function message($cName)
     {
         echo "<p>The following information about $cName has been sent to 
                 Coneybeare Sustainability Catalog for review.</p>";
+    }
+
+    function readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
+        $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
+        $cKey, $empFirst, $empLast, $empEMail, $empTell) {
+
+
     }
 /*
     function summary($cName, $cSite, $cCountry, $cState, $cCity,
