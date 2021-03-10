@@ -22,7 +22,19 @@ function closeModal() {
 function updateModalData(data){
     document.getElementById('modal-title').textContent = data.name;
     document.getElementById('modal-tagline').textContent = data.about;
-    document.getElementById('modal-url').textContent = data.url;
+
+    let url
+    if(data.url !== ""){
+        let urlMatch = data.url.match(/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/);
+        url = "https://" + urlMatch.groups.domain + urlMatch.groups.path;
+    } else {
+        url = "";
+    }
+
+
+
+    document.getElementById('modal-url').textContent = url;
+    document.getElementById('modal-url').setAttribute('href', url);
 
     /*
     Doesn't work, need research on how to get svg nodes to properly append and prepend

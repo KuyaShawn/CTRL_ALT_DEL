@@ -84,11 +84,14 @@ include('includes/header.html')
         preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
         $urlParsed = $matches['domain'].$matches['path'];
 
+        /*
         if(!empty($url)){
             echo "<a class='media my-4' id='$id' href='https://$urlParsed' target='_blank' rel='noopener noreferrer'>";
         } else {
             echo "<div class='media my-4' id='$id' onclick='openModal($id)'>";
         }
+        */
+        echo "<div class='media my-4 company-hoverable' id='$id' onclick='openModal($id)'>";
 
         echo "<img src='/images/dirt_plants.png' class='mr-3 search-image'>";
         echo "<div class='media-body row'>";
@@ -99,11 +102,14 @@ include('includes/header.html')
         echo "<span class='col-12 mt-3'>$about</span>";
         echo "</div>";
 
+        /*
         if(!empty($url)){
             echo "</a>";
         } else {
             echo "</div>";
         }
+        */
+        echo "</div> <hr>";
 
     }
 
@@ -125,7 +131,7 @@ include('includes/header.html')
                 <p id="modal-tagline">possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
                     Worth a pain diagnosis</p>
                 <h4>Website</h4>
-                <p id="modal-url">Insert here</p>
+                <a id="modal-url" href="#" target='_blank' rel='noopener noreferrer'>Insert here</a>
             </div>
 
         </div>
