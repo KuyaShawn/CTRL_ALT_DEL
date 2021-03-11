@@ -45,21 +45,25 @@ if( //Checking to make sure all
     if(!empty($data->tag_cloud)){
         $company->tag_cloud = $data->tag_cloud;
     }
+    if(!empty($data->logo_path)){
+        $company->logo_path = $data->logo_path;
+    }
 
     if($company->create()){
         http_response_code(201);
         
-        echo json_encode(array('msg' => 'Company created successfully'));
+        echo json_encode(array('message' => 'Company created successfully'));
     } else {
         http_response_code(503);
-        
-        echo json_encode(array('error-msg' => 'Failed to create company'));
+
+        //echo json_encode(array('message' => $company->errorString));
+        echo json_encode(array('message' => 'Failed to create company'));
     }
 
 
 } else {
     http_response_code(400);
-    echo json_encode(array('error-msg' => 'Not all required data fields were provided'));
+    echo json_encode(array('message' => 'Not all required data fields were provided'));
 }
 
 /* Required Fields:

@@ -18,6 +18,7 @@ class Company{
     public $state;
     public $tag_cloud;
     public $url;
+    public $logo_path;
 
     public function __construct($cnxn)
     {
@@ -51,6 +52,7 @@ class Company{
         $this->state = $result['state'];
         $this->tag_cloud = $result['tag_cloud'];
         $this->url = $result['url'];
+        $this->logo_path = $result['logo_path'];
     }
 
     public function create(){
@@ -66,6 +68,7 @@ class Company{
         $this->state = $this->sanitizeCreateInputs($this->state, "state");
         $this->tag_cloud = $this->sanitizeCreateInputs($this->tag_cloud, "tag_cloud");
         $this->url = $this->sanitizeCreateInputs($this->url, "url");
+        $this->logo_path = $this->sanitizeCreateInputs($this->logo_path, "logo_path");
 
         $query = "INSERT INTO {$this->tableName} SET " . implode(', ', $this->insertColumns);
 
@@ -84,10 +87,12 @@ class Company{
         //Optional Data fields that will be bound if exist
         if(!empty($this->phone)){$statement->bindParam(':phone', $this->phone);}
         if(!empty($this->tag_cloud)){$statement->bindParam(':tag_cloud', $this->tag_cloud);}
+        if(!empty($this->logo_path)){$statement->bindParam(':logo_path', $this->logo_path);}
 
         if($statement->execute()){
             return true;
         }
+        //$this->errorString = $statement->errorInfo();
         return false;
     }
 

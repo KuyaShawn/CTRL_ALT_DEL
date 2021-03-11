@@ -41,7 +41,8 @@ if($company->name != null){
         "phone" => $company->phone,
         "state" => $company->state,
         "tag_cloud" => $company->tag_cloud,
-        "url" => $company->url
+        "url" => $company->url,
+        "logo_path" => $company->logo_path
     );
 
     http_response_code(200);
