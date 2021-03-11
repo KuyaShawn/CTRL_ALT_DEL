@@ -202,7 +202,7 @@
             <div class="form-row">
                 <!--Keywords Company -->
                 <div class="form-group col">
-                    <label for="tagInput">Search Tags (comma separated list):</label>
+                    <label for="tagInput">Search Tags: *add a comma after each keyword</label>
                     <div class="form-control d-flex tag-form">
                         <div id="tagList" class="tag-list">
                             <input class="tag-input" type="text" id="tagInput" name="tagPostString">

@@ -126,6 +126,7 @@ footer {
 
 .tagline {
     padding-left: 60px;
+    z-index: 1 !important;
 }
 
 /* bottom nav styles */
