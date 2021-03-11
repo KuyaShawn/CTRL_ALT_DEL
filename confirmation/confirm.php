@@ -127,72 +127,100 @@
 
 
         /* logo uploader */
-        $target_dir = ($_SERVER['DOCUMENT_ROOT'] . "/logos/");
-        $target_dir .= date('ymdHis');
-        $target_file = $target_dir . basename($_FILES["iconFile"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        // Check if image file is a actual image or fake image
-        if(isset($_POST["submitBTN"])) {
-            $check = getimagesize($_FILES["iconFile"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
+        if(!empty($_FILES)) {
+            $target_folder = "/logos/";
+            $filename = date('ymdHis') . basename($_FILES["iconFile"]["name"]);
+            $file_root_path = $target_folder . $filename;
+            $target_file = $_SERVER['DOCUMENT_ROOT'] . $file_root_path;
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            // Check if image file is a actual image or fake image
+            if (isset($_POST["submitBTN"])) {
+                $check = getimagesize($_FILES["iconFile"]["tmp_name"]);
+                if ($check !== false) {
+                    echo "File is an image - " . $check["mime"] . ".";
+                    $uploadOk = 1;
+                } else {
+                    echo "File is not an image.";
+                    $uploadOk = 0;
+                }
+            }
+
+            // Check if file already exists
+            if (file_exists($target_file)) {
+                echo "Sorry, file already exists.";
                 $uploadOk = 0;
             }
-        }
 
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-        }
+            // Check file size, limit 500KB
+            if ($_FILES["iconFile"]["size"] > 500000) {
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            }
 
-        // Check file size, limit 500KB
-        if ($_FILES["iconFile"]["size"] > 500000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-        }
+            // Allow certain file formats
+            $validTypes = array("jpg", "png", "jpeg");
+            if (!in_array($imageFileType, $validTypes)) {
+                echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+                $uploadOk = 0;
+            }
 
-        // Allow certain file formats
-        $validTypes = array("jpg","png","jpeg");
-        if(!in_array($imageFileType,$validTypes)) {
-            echo "Sorry, only JPG, JPEG & PNG files are allowed.";
-            $uploadOk = 0;
-        }
-
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            return;
-        // if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["iconFile"]["tmp_name"], $target_file)) {
-                echo "The file ". htmlspecialchars( basename( $_FILES["iconFile"]["name"])). " has been uploaded.";
-
-                /*
-                     Mess with ths later
-
-                // Connect to DB
-                require(getenv("HOME") . '/connect.php');
-                $cnxn = connect();
-
-                $sql = "INSERT INTO uploads (image_name) VALUES ('$target_file')";
-                //echo $sql;
-                $success = mysqli_query($cnxn, $sql);
-                if(!$success){
-                    echo "Sorry, there was a database error";
-                }
-                */
-
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+                echo "Sorry, your file was not uploaded.";
+                return;
+                // if everything is ok, try to upload file
             } else {
-                echo "Sorry, there was an error uploading your file.";
+                if (move_uploaded_file($_FILES["iconFile"]["tmp_name"], $target_file)) {
+                    echo "The file " . htmlspecialchars(basename($_FILES["iconFile"]["name"])) . " has been uploaded.";
+
+                    /*
+                         Mess with ths later
+
+                    // Connect to DB
+                    require(getenv("HOME") . '/connect.php');
+                    $cnxn = connect();
+
+                    $sql = "INSERT INTO uploads (image_name) VALUES ('$target_file')";
+                    //echo $sql;
+                    $success = mysqli_query($cnxn, $sql);
+                    if(!$success){
+                        echo "Sorry, there was a database error";
+                    }
+                    */
+
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
             }
         }
 
         /* logo uploader END */
+
+        $postVars = array();
+
+        $postVars['name'] = $cName;
+        $postVars['url'] = $cWebsite;
+        $postVars['city'] = $cCity;
+        $postVars['state'] = $cState;
+        $postVars['country'] = $cCountry;
+        $postVars['about'] = $cTagline;
+        $postVars['category'] = $cCategory;
+        $postVars['email'] = $pcEmail;
+
+        if(!empty($cKey)){$postVars['tag_cloud'] = $cKey;}
+        if(!empty($file_root_path)){$postVars['logo_path'] = $file_root_path;}
+
+        $curl = curl_init('http://api.ctrl-alt-delete.greenriverdev.com/v1/company/create.php');
+
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($postVars));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        echo '<br>' . json_decode($result)->message;
 
         ?>
     </div>
