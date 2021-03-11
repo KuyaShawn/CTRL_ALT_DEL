@@ -33,6 +33,10 @@ function updateModalData(data){
         url = "";
     }
 
+    let imagePath = (data.logo_path !== 0) ? data.logo_path : '/images/dirt_plants.png';
+
+    document.getElementById('modal-image').setAttribute('src', imagePath);
+
 
 
     document.getElementById('modal-url').textContent = url;

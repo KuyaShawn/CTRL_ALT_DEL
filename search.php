@@ -57,8 +57,13 @@ include('includes/header.html')
 
     $data = json_decode($result);
 
+    $placeholderImagePath = '/images/dirt_plants.png';
+
     foreach($data as $obj){
+
+
         $row = get_object_vars($obj);
+
 
         $id = $row['id'];
         $name = $row['name'];
@@ -67,6 +72,7 @@ include('includes/header.html')
         $country = $row['country'];
         $about = $row['about'];
         $url = $row['url'];
+        $logo_path = $row['logo_path'];
         $iconCategory = strtolower(str_replace(' ', '-', $category));
 
         $location = "";
@@ -79,6 +85,8 @@ include('includes/header.html')
             }
             $location .= $country;
         }
+
+        $imgPath = (!empty($logo_path)) ? $logo_path : $placeholderImagePath;
 
         //Parsing the url since its not standardized in the database (regex is my own creation (Dylan))
         preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
@@ -93,7 +101,7 @@ include('includes/header.html')
         */
         echo "<div class='media my-4 company-hoverable' id='$id' onclick='openModal($id)'>";
 
-        echo "<img src='/images/dirt_plants.png' class='mr-3 search-image'>";
+        echo "<img src='$imgPath' class='mr-3 search-image'>";
         echo "<div class='media-body row'>";
         echo "<span class='col-6' span style='font-size:20px'>$name</span>";
         echo "<span class='col-6'><svg class='nav-icon'><use href='/images/symbol-defs.svg#$iconCategory'></use></svg>$category</span>";
@@ -125,7 +133,7 @@ include('includes/header.html')
             <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
         </div>
         <div class="popup-body">
-            <img src="/images/dirt_plants.png" class="search_image">
+            <img id="modal-image" src="/images/dirt_plants.png" class="search_image">
             <div class=" info_section">
                 <h4>About</h4>
                 <p id="modal-tagline">possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
