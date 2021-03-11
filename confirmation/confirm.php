@@ -44,7 +44,6 @@
         $cCity = $_POST['inputCity'];
         $cService = $_POST['inputArea'];
         $cCategory = $_POST['industry'];
-        $cLogo = $_POST['logo'];
         $cTagline = $_POST['tagline'];
         $cKey = $_POST['tagPostString'];
 
@@ -125,6 +124,75 @@
 
 
         mail($emailTo, $emailSubject, $emailBody, $headers);
+
+
+        /* logo uploader */
+        $target_dir = ($_SERVER['DOCUMENT_ROOT'] . "/logos/");
+        $target_dir .= date('ymdHis');
+        $target_file = $target_dir . basename($_FILES["iconFile"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // Check if image file is a actual image or fake image
+        if(isset($_POST["submitBTN"])) {
+            $check = getimagesize($_FILES["iconFile"]["tmp_name"]);
+            if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size, limit 500KB
+        if ($_FILES["iconFile"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        $validTypes = array("jpg","png","jpeg");
+        if(!in_array($imageFileType,$validTypes)) {
+            echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            return;
+        // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["iconFile"]["tmp_name"], $target_file)) {
+                echo "The file ". htmlspecialchars( basename( $_FILES["iconFile"]["name"])). " has been uploaded.";
+
+                /*
+                     Mess with ths later
+
+                // Connect to DB
+                require(getenv("HOME") . '/connect.php');
+                $cnxn = connect();
+
+                $sql = "INSERT INTO uploads (image_name) VALUES ('$target_file')";
+                //echo $sql;
+                $success = mysqli_query($cnxn, $sql);
+                if(!$success){
+                    echo "Sorry, there was a database error";
+                }
+                */
+
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        /* logo uploader END */
 
         ?>
     </div>

@@ -29,7 +29,7 @@
     <div class="container p-3 my-3" id="formContainer">
 
     <!-- Information Form -->
-    <form action="confirm.php" method="post" class="form" id="form">
+    <form enctype="multipart/form-data" action="confirm.php" method="post" class="form" id="form">
         <h5>Please complete the form below to be considered for the
             Sustainability Catalog</h5><br>
 
@@ -180,11 +180,11 @@
                 <div class="form-group col">
                     <label>Upload Your Company Logo:</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="logo" id="logo">
-                        <label class="custom-file-label" for="iconFile"></label>
-                        <span class="incomplete d-none text-danger" id="invalid-logo">
-                        * Please upload a logo or product image</span>
+                        <input type="file" class="custom-file-input" id="iconFile" name="iconFile">
+                        <label class="custom-file-label" for="iconFile">Choose file</label>
                     </div>
+                    <!--<span class="incomplete d-none text-danger" id="invalid-logo">
+                        * Please upload a logo or product image</span>-->
                 </div>
             </div>
 
@@ -306,10 +306,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
     <script src="/scripts/tagging-scripts.js"></script>
 
     <!-- Link to style sheet -->
     <script src="confirm.js"></script>
+    <script>
+        $(document).ready(function () {
+            bsCustomFileInput.init()
+        })
+    </script>
 </body>
 </html>
 
