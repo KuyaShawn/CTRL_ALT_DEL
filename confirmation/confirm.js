@@ -19,7 +19,7 @@ function validation() {
     // clearing all invalid messages
     let inValid = document.getElementsByClassName("incomplete");
     for (let i = 0; i < inValid.length; i++) {
-        inValid[i].style.display = "hidden"; // ? is this a valid JS/CSS term/relationship
+        inValid[i].style.display = "hidden";
     }
 
 
@@ -81,11 +81,13 @@ function validation() {
         filledIn = false;
       }
 
-    // Industry
-
-
-    // logo
-
+    // company contact check box
+    let cAuth = document.getElementById("ccAuth");
+    if (!cAuth.checked) {
+        let errorPocAuth = document.getElementById("invalid-ccAuth");
+        errorPocAuth.classList.remove("d-none");
+        filledIn = false;
+    }
 
     // Tagline
     let tag = document.getElementById("tagline").value;
@@ -122,7 +124,6 @@ function validation() {
         filledIn = false;
     }
 
-    // Private contact phone number
 
 
     // returning if field checks require an error message or not
@@ -130,16 +131,3 @@ function validation() {
 
 
 }
-/*
-*
-* // company contact check box
-    let cAuth = document.getElementById("ccAuth");
-    if (!cAuth.checked) {
-        let errorPocAuth = document.getElementById("invalid-ccAuth");
-        errorPocAuth.classList.remove("d-none");
-        filledIn = false;
-    }
-*
-*
-*
-* */

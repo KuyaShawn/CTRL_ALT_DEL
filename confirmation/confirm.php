@@ -26,10 +26,11 @@
         include('../includes/header.html');
     ?>
     <div class="vh-100">
-    <div class="container p-3 my-3 border h-75 justify-content-center" id="formContainer">
+    <div class="container p-3 my-3 border justify-content-center"
+         id="formContainer">
     <?php
         // autoglobal array
-        // echo var_dump($_POST);
+        //echo var_dump($_POST);
 
 
         /* Company information variables */
@@ -59,10 +60,18 @@
         /* link to functions.php and function calls variables */
         include('confirm-includes/functions.php');
 
-        /* Printing Message and content from applicant*/
+        /* Printing Message and form content to Thank you page*/
         thankYou();
         message($cName);
-        echo"<table class='table'>
+/*
+ *
+ * readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
+                     $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
+                     $cKey, $empFirst, $empLast, $empEMail, $empTell);
+
+*/
+
+    echo"<table class='table'>
             <tr>
                <td>Company:</td><td>$cName</td>
             </tr><tr>
@@ -90,9 +99,16 @@
 
 
         /* Sending to E-mail*/
-        $emailTo = "dhardy8@mail.greenriver.edu";
+        $emailTo = "aholt5@mail.greenriver.edu";
         $fromEmail = "no-reply@ctrl-alt-delete.greenriverdev.com";
         $emailSubject = "New Catalog Submission";
+
+        /*
+         *
+         * $emailBody = "readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
+                                      $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
+                                      $cKey, $empFirst, $empLast, $empEMail, $empTell)";
+        */
         $emailBody = "<table class='table'>
             <tr>
                <td>Company:</td><td>$cName</td>
@@ -223,6 +239,8 @@
         echo '<br>' . json_decode($result)->message;
 
         ?>
+
+    </div>
     </div>
 
 
@@ -230,7 +248,6 @@
         /* Link to the universal Footer */
         include('../includes/footer.html');
     ?>
-    </div>
 
 
         <!-- Links to Bootstrap libraries -->
