@@ -17,36 +17,29 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $cnxn = connect();
 $cnxn->set_charset('utf8');
 
-$sql = "SELECT id, name, category, about, url, email, city, state, country, logo_path FROM company WHERE (status_code = 2)";
+$sql = "SELECT com.id, com.name, cat.category_name as category, cat.category_icon_path as icon_path, cat.category_icon_type as icon_type,  com.about, com.state, com.country, com.logo_path 
+        FROM company com 
+        INNER JOIN categories cat
+        ON com.category_id = cat.category_id
+        WHERE (status = 'APPROVED')";
 
 if (!empty($_GET)) {
     $sql .= ' AND ';
-    $filterSuccess = false;
     $category = $_GET['category'];
     $search = $_GET['search'];
 
     //category filtering
     if(!empty($category)){
-        $sql .= "(category = '$category')";
-        $filterSuccess = true;
-    }
-
-    if(!empty($search)){
-        if(!empty($category)){ // for chaining filters will clean up later
-            $sql .= " AND ";
-        }
-        $sql .= "(name LIKE '%$search%' OR about LIKE '%$search%' OR category LIKE '%$search%' OR tag_cloud LIKE '%$search%')";
-        $filterSuccess = true;
-    }
-
-    //Choosing to error it out because if they send data but its bad they likely wanted to filter but messed up
-    if(!$filterSuccess) {
+        $sql .= "(LOWER(cat.category_name) = LOWER('$category'))";
+    } else if(!empty($search)){
+        $sql .= "MATCH (com.name, com.tag_cloud, com.about) AGAINST ('$search') OR MATCH (cat.category_name) AGAINST ('$search')";
+    } else {
+        //Choosing to error it out because if they send data but its bad they likely wanted to filter but messed up
         http_response_code(400);
         echo json_encode(['error-msg' => 'Please please provide either a "search" or "category" data field if you are going to provide data to this endpoint.']);
         die();
     }
 }
-
 
 $sql .= " LIMIT 0, 25";
 

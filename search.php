@@ -57,6 +57,13 @@ include('includes/header.html')
 
     $data = json_decode($result);
 
+    /*
+    echo "<pre>";
+    var_dump($data);
+    echo "</pre>";
+    */
+
+
     $placeholderImagePath = '/images/placeholder.png';
 
     foreach($data as $obj){
@@ -73,7 +80,8 @@ include('includes/header.html')
         $about = $row['about'];
         $url = $row['url'];
         $logo_path = $row['logo_path'];
-        $iconCategory = strtolower(str_replace(' ', '-', $category));
+        $icon_path = $row['icon_path'];
+
 
         $location = "";
         if(!empty($state)){
@@ -104,7 +112,7 @@ include('includes/header.html')
         echo "<img src='$imgPath' class='mr-3 search-image'>";
         echo "<div class='media-body row'>";
         echo "<span class='col-6' span style='font-size:20px'>$name</span>";
-        echo "<span class='col-6'><svg class='nav-icon'><use href='/images/symbol-defs.svg#$iconCategory'></use></svg>$category</span>";
+        echo "<span class='col-6'><svg class='nav-icon'><use href='$icon_path'></use></svg>$category</span>";
         echo "<span class='col-6'>Service</span>";
         echo "<span class='col-6'>$location</span>";
         echo "<span class='col-12 mt-3'>$about</span>";
