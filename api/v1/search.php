@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $cnxn = connect();
 $cnxn->set_charset('utf8');
 
-$sql = "SELECT id, name, category, about, url, state, country, logo_path FROM company";
+$sql = "SELECT id, name, category, about, url, email, city, state, country, logo_path FROM company WHERE (status_code = 2)";
 
 if (!empty($_GET)) {
-    $sql .= ' WHERE ';
+    $sql .= ' AND ';
     $filterSuccess = false;
     $category = $_GET['category'];
     $search = $_GET['search'];

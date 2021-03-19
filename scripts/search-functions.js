@@ -1,6 +1,11 @@
 let overlay = document.getElementById('overlay');
 let popup = document.getElementById('popup');
 
+let modalTitle = document.getElementById('modal-title');
+let modalAbout = document.getElementById('modal-tagline');
+let modalUrlSection = document.getElementById('modal-url-section');
+let modalurl = document.getElementById('modal-url');
+
 async function openModal(id) {
 
     let response = await fetch('https://api.ctrl-alt-delete.greenriverdev.com/v1/company/read.php?id=' + id)
@@ -19,58 +24,101 @@ function closeModal() {
     overlay.classList.remove('active')
 }
 
+//TODO: Maybe look into creating elements rather then constantly setting IDs for some of these
 function updateModalData(data){
-    document.getElementById('modal-title').textContent = data.name;
-    document.getElementById('modal-tagline').textContent = data.about;
+    //Set Company Name
+    modalTitle.textContent = data.name;
+
+
+    //Set About
+    modalAbout.textContent = data.about;
+
+
+    //Set URL
 
     let url
-    if(data.url !== ""){
-        document.getElementById('modal-url-heading').classList.toggle('d-none', false);
+    if(data.url){
+        //Build universal url no matter input by parsing via regex
         let urlMatch = data.url.match(/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/);
         url = "https://" + urlMatch.groups.domain + urlMatch.groups.path;
+
+        modalUrlSection.classList.toggle('d-none', false);
     } else {
-        document.getElementById('modal-url-heading').classList.toggle('d-none', true);
         url = "";
+
+        modalUrlSection.classList.toggle('d-none', true);
     }
-
-    let imagePath = (data.logo_path !== 0) ? data.logo_path : '/images/dirt_plants.png';
-
-    document.getElementById('modal-image').setAttribute('src', imagePath);
-
-
-
     document.getElementById('modal-url').textContent = url;
     document.getElementById('modal-url').setAttribute('href', url);
 
-    /*
-    Doesn't work, need research on how to get svg nodes to properly append and prepend
+
+    //Set Company Logo/Image
+    let imagePath = (data.logo_path) ? data.logo_path : '/images/placeholder.png';
+    document.getElementById('modal-image').setAttribute('src', imagePath);
+
+
+    //Set Company Category
     let modalCategory = document.getElementById('modal-category');
-    modalCategory.removeChild(modalCategory.firstChild);
-
-    let iconNode = document.createElement('svg')
-    iconNode.classList.add('nav-icon');
-    let useNode = document.createElement('use');
-    useNode.setAttribute("href", "/images/symbol-defs.svg#" + data.category);
-    iconNode.appendChild(useNode);
-
-    console.log(iconNode);
-    modalCategory.prepend(iconNode.cloneNode(true));
-    */
-
-    //document.getElementById('modal-icon').href = ('/images/symbol-defs.svg#' + data.category);
     document.getElementById('modal-category').textContent = data.category;
 
-    let locationString = "";
-    if(data.state !== ""){
-        locationString += data.state;
-    }
-    if(data.country !== ""){
-        if(data.state !== ""){
-            locationString += ", ";
-        }
-        locationString += data.country;
+    let svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+        useNode = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+
+    svgNode.classList.add('modal-icon');
+    useNode.setAttribute("href", "/images/symbol-defs.svg#energy");
+    svgNode.appendChild(useNode);
+
+    console.log(svgNode);
+    modalCategory.prepend(svgNode.cloneNode(true));
+
+
+    //Set Company Location
+    if(data.city){
+        document.getElementById('modal-city').textContent = data.city;
+        document.getElementById('modal-city').classList.toggle('d-none', false);
+    } else {
+        document.getElementById('modal-city').textContent = "";
+        document.getElementById('modal-city').classList.toggle('d-none', true);
     }
 
-    document.getElementById('modal-location').textContent = locationString;
-    document.getElementById('modal-phone').textContent = data.phone;
+    if(!data.city && !data.state && !data.country){
+        document.getElementById('modal-location').textContent = "No Location Provided";
+    } else {
+        let locationString = "";
+        if(data.state !== ""){
+            locationString += data.state;
+        }
+        if(data.country !== ""){
+            if(data.state !== ""){
+                locationString += ", ";
+            }
+            locationString += data.country;
+        }
+        document.getElementById('modal-location').textContent = locationString;
+    }
+
+
+    //Set Company Contact Info
+    if(!data.phone && !data.email){
+        document.getElementById('modal-contact-error').classList.toggle('d-none', false);
+    } else {
+        document.getElementById('modal-contact-error').classList.toggle('d-none', true);
+    }
+
+    if(data.phone){
+        document.getElementById('modal-phone').textContent = data.phone;
+        document.getElementById('modal-phone').classList.toggle('d-none', false);
+    } else {
+        document.getElementById('modal-phone').textContent = "";
+        document.getElementById('modal-phone').classList.toggle('d-none', true);
+    }
+
+    if(data.email){
+        document.getElementById('modal-email').textContent = data.email;
+        document.getElementById('modal-email').classList.toggle('d-none', false);
+    } else {
+        document.getElementById('modal-email').textContent = "";
+        document.getElementById('modal-email').classList.toggle('d-none', true);
+    }
+
 }

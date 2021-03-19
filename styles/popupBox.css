@@ -36,14 +36,15 @@
 }
 
 .search_image{
-    width: 128px;
-    height: 128px;
+    width: 156px;
+    height: 156px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.nav-icon{
+.modal-icon{
     margin-right: 3px;
+    margin-left: -6px;
     width: 2rem;
     height: 2rem;
 }

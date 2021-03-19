@@ -57,7 +57,7 @@ include('includes/header.html')
 
     $data = json_decode($result);
 
-    $placeholderImagePath = '/images/dirt_plants.png';
+    $placeholderImagePath = '/images/placeholder.png';
 
     foreach($data as $obj){
 
@@ -138,23 +138,29 @@ include('includes/header.html')
                 <h4>About</h4>
                 <p id="modal-tagline">possibly too small, has hiring needs and is struggling to find good people, but might not pay Coney fee.
                     Worth a pain diagnosis</p>
-                <h4 class="d-none" id="modal-url-heading">Website</h4>
-                <a id="modal-url" href="#" target='_blank' rel='noopener noreferrer'>Insert here</a>
+                <div id="modal-url-section">
+                    <h4>Website</h4>
+                    <a id="modal-url" href="#" target='_blank' rel='noopener noreferrer'>Insert here</a>
+                </div>
+
             </div>
 
         </div>
         <div class="popup-sidebar">
-            <div>
+            <div class="d-flex flex-column">
                 <h5>Service:</h5>
-                <span id="modal-category"><svg class="nav-icon"><use id="modal-icon" href="/images/symbol-defs.svg#ecology"></use></svg>Agriculture</span>
+                <span id="modal-category">Agriculture</span>
             </div>
-            <div>
+            <div class="d-flex flex-column">
                 <h5>Location:</h5>
+                <span id="modal-city">Random City</span>
                 <span id="modal-location">California, USA</span>
             </div>
-            <div>
+            <div class="d-flex flex-column">
                 <h5>Contact:</h5>
+                <span id="modal-contact-error">No contact info provided</span>
                 <span id="modal-phone">123-456-7890</span>
+                <span id="modal-email">someone@about.com</span>
             </div>
         </div>
     </div>
