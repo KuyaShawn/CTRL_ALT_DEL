@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $cnxn = connect();
 $cnxn->set_charset('utf8');
 
-$sql = "SELECT com.id, com.name, cat.category_name as category, cat.category_icon_path as icon_path, cat.category_icon_type as icon_type,  com.about, com.state, com.country, com.logo_path 
+$sql = "SELECT com.id, com.company_name, cat.category_name as category, cat.category_icon_path as icon_path, cat.category_icon_type as icon_type,  com.about, com.state, com.country, com.logo_path 
         FROM company com 
         INNER JOIN categories cat
         ON com.category_id = cat.category_id
@@ -32,7 +32,7 @@ if (!empty($_GET)) {
     if(!empty($category)){
         $sql .= "(LOWER(cat.category_name) = LOWER('$category'))";
     } else if(!empty($search)){
-        $sql .= "MATCH (com.name, com.tag_cloud, com.about) AGAINST ('$search') OR MATCH (cat.category_name) AGAINST ('$search')";
+        $sql .= "MATCH (com.company_name, com.tag_cloud, com.about) AGAINST ('$search') OR MATCH (cat.category_name) AGAINST ('$search')";
     } else {
         //Choosing to error it out because if they send data but its bad they likely wanted to filter but messed up
         http_response_code(400);

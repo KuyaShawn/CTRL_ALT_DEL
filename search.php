@@ -73,7 +73,7 @@ include('includes/header.html')
 
 
         $id = $row['id'];
-        $name = $row['name'];
+        $name = $row['company_name'];
         $category = $row['category'];
         $state = $row['state'];
         $country = $row['country'];

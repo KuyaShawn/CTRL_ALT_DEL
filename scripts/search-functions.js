@@ -27,7 +27,7 @@ function closeModal() {
 //TODO: Maybe look into creating elements rather then constantly setting IDs for some of these
 function updateModalData(data){
     //Set Company Name
-    modalTitle.textContent = data.name;
+    modalTitle.textContent = data.company_name;
 
 
     //Set About
@@ -59,13 +59,13 @@ function updateModalData(data){
 
     //Set Company Category
     let modalCategory = document.getElementById('modal-category');
-    document.getElementById('modal-category').textContent = data.category;
+    document.getElementById('modal-category').textContent = data.category.category_name;
 
     let svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
         useNode = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
     svgNode.classList.add('modal-icon');
-    useNode.setAttribute("href", "/images/symbol-defs.svg#energy");
+    useNode.setAttribute("href", data.category.category_icon_path);
     svgNode.appendChild(useNode);
 
     console.log(svgNode);
@@ -99,22 +99,22 @@ function updateModalData(data){
 
 
     //Set Company Contact Info
-    if(!data.phone && !data.email){
+    if(!data.public_phone && !data.public_email){
         document.getElementById('modal-contact-error').classList.toggle('d-none', false);
     } else {
         document.getElementById('modal-contact-error').classList.toggle('d-none', true);
     }
 
-    if(data.phone){
-        document.getElementById('modal-phone').textContent = data.phone;
+    if(data.public_phone){
+        document.getElementById('modal-phone').textContent = data.public_phone;
         document.getElementById('modal-phone').classList.toggle('d-none', false);
     } else {
         document.getElementById('modal-phone').textContent = "";
         document.getElementById('modal-phone').classList.toggle('d-none', true);
     }
 
-    if(data.email){
-        document.getElementById('modal-email').textContent = data.email;
+    if(data.public_email){
+        document.getElementById('modal-email').textContent = data.public_email;
         document.getElementById('modal-email').classList.toggle('d-none', false);
     } else {
         document.getElementById('modal-email').textContent = "";
