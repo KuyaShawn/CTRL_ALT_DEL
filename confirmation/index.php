@@ -72,7 +72,7 @@
                 <div class="form-group col">
                     <label for="cPhone">Phone number:</label>
                     <input type="tel" class="form-control" id="cPhone" name="cPhone"
-                           placeholder="888-123-0042" pattern="[0-9]{3}, [0-9]{3}, [0-9]{4}, [0-9]{9}">
+                           placeholder="888-123-0042" pattern="[0-9]{10}">
                 </div>
             </div>
 
@@ -153,10 +153,10 @@
             </div>
 
             <div class="form-row">
-                <!-- Industry , Company Background -->
+                <!-- CATEGORY, Industry Company Background -->
                 <div class="form-group col">
-                    <label for="industry">Industry:</label>
-                    <select id="industry" class="form-control" name="industry">
+                    <label for="company-category">Industry:</label>
+                    <select id="company-category" class="form-control" name="company-category">
                         <option value="none">Select Category</option>
                         <option value="Agriculture">Agriculture</option>
                         <option value="Architecture">Architecture</option>
@@ -259,20 +259,20 @@
             </div>
 
             <div class="form-row">
-                <!--Company TELEPHONE -->
+                <!--Private TELEPHONE -->
                 <div class="form-group col">
                     <label for="phone">Phone number:</label>
                         <input type="tel" class="form-control" id="phone" name="phone"
                                placeholder="888-123-0042"
-                               pattern="[0-9]{3}, [0-9]{3}, [0-9]{4}, [0-9]{9}">
+                               pattern="[0-9]{10}">
                 </div>
 
-                <!-- Company extension -->
+                <!-- Private extension -->
                 <div class="form-group col">
                     <label for="phone2">Extension:</label>
                         <input type="tel" class="form-control" id="phone2" name="phone2"
                                placeholder="1234"
-                               pattern="[0-9]{9}">
+                               pattern="[0-9]{}">
                 </div>
             </div>
 

@@ -27,17 +27,45 @@
 
     function readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
         $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
-        $cKey, $empFirst, $empLast, $empEMail, $empTell) {
-
-
-    }
-/*
-    function summary($cName, $cSite, $cCountry, $cState, $cCity,
-                     $cService, $cCategory, $cLogo, $cTagline, $cAbout, $empFirst,
-                     $empLast, $empEMail, $pcFirst, $empLast, $pcEMail)
+        $cKey, $empFirst, $empLast, $empEMail, $empTell)
     {
+        echo"<table class='table'>
+            <tr>
+               <td>Company:</td><td>$cName</td>
+            </tr><tr>
+               <td>Website:</td><td>$cSite</td>
+            </tr><tr>
+                <td>Company Email:</td><td>$cEmail</td>
+            </tr><tr>
+                <td>Company Telephone:</td><td>$cTele</td>
+            </tr><tr>
+               <td>Location:</td><td>$cStreet, $cSuite, 
+                        $cCity, $cState, $cCountry</td>
+            </tr><tr>
+               <td>Service Area:</td><td>$cService</td>
+            </tr><tr>
+               <td>Industry:</td><td>$cCategory</td>
+            </tr><tr>
+                <td>Logo:</td><td>$cLogo</td>
+            </tr><tr>
+               <td>Tagline:</td><td>$cTagline</td>
+            </tr><tr>
+                <td>Key Words:</td><td>$cKey</td>
+            </tr><tr></table>
 
-    } */
+        <h3>Private Company Contact</h3>
+
+        <table class='table'>
+            <tr>
+               <td>Contact Person:</td><td>$empFirst $empLast</td>
+            </tr><tr>
+               <td>Email:</td><td>$empEMail</td>
+            </tr><tr>
+               <td>Telephone:</td><td>$empTell</td>
+            </tr>
+            </table>";
+    }
+
 
 
 
