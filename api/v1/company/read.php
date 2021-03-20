@@ -29,20 +29,21 @@ if(isset($_GET['id'])){
 
 $company->readUsingId();
 
-if($company->name != null){
+if($company->company_name != null){
     $dataArray = array(
         "id" => $company->id,
-        "name" => $company->name,
+        "company_name" => $company->company_name,
         "about" => $company->about,
-        "category" => $company->category,
-        "city" => $company->city,
-        "country" => $company->country,
-        "email" => $company->email,
-        "phone" => $company->phone,
-        "state" => $company->state,
         "tag_cloud" => $company->tag_cloud,
+        "address" => $company->street_address,
+        "city" => $company->city,
+        "state" => $company->state,
+        "country" => $company->country,
+        "public_email" => $company->public_email,
+        "public_phone" => $company->public_phone,
         "url" => $company->url,
-        "logo_path" => $company->logo_path
+        "logo_path" => $company->logo_path,
+        "category" => $company->category
     );
 
     http_response_code(200);

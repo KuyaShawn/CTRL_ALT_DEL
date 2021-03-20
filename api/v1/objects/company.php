@@ -1,4 +1,7 @@
 <?php
+
+require 'category.php';
+
 class Company{
 
     private $connection;
@@ -8,28 +11,40 @@ class Company{
     public $errorString;
 
     public $id;
-    public $name;
+    public $company_name;
     public $about;
-    public $category;
-    public $city;
-    public $country;
-    public $email;
-    public $phone;
-    public $state;
     public $tag_cloud;
+    public $street_address;
+    public $city;
+    public $state;
+    public $country;
+    public $service_area;
+    public $public_email;
+    public $public_phone;
     public $url;
     public $logo_path;
+    public $private_contact_name;
+    public $private_email;
+    public $private_phone;
+    public $status;
+
+    public $category;
 
     public function __construct($cnxn)
     {
         $this->connection = $cnxn;
+        $this->category = new Category($cnxn);
     }
 
     public function readUsingId(){
         $query = "SELECT 
                     *
                 FROM
-                    {$this->tableName}
+                    {$this->tableName} com
+                INNER JOIN 
+                    {$this->category->getTableName()} cat
+                ON
+                    com.category_id = cat.category_id
                 WHERE
                     id = :id
                 LIMIT
@@ -42,17 +57,27 @@ class Company{
 
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        $this->name = $result['name'];
+        $this->company_name = $result['company_name'];
         $this->about = $result['about'];
-        $this->category = $result['category'];
-        $this->city = $result['city'];
-        $this->country = $result['country'];
-        $this->email = $result['email'];
-        $this->phone = $result['phone'];
-        $this->state = $result['state'];
         $this->tag_cloud = $result['tag_cloud'];
+        $this->street_address = $result['street_address'];
+        $this->city = $result['city'];
+        $this->state = $result['state'];
+        $this->country = $result['country'];
+        $this->service_area = $result['service_area'];
+        $this->public_email = $result['public_email'];
+        $this->public_phone = $result['public_phone'];
         $this->url = $result['url'];
         $this->logo_path = $result['logo_path'];
+        $this->private_contact_name = $result['private_contact_name'];
+        $this->private_email = $result['private_email'];
+        $this->private_phone = $result['private_phone'];
+        $this->status = $result['status'];
+
+        $this->category->category_id = $result['category_id'];
+        $this->category->category_name = $result['category_name'];
+        $this->category->category_icon_path = $result['category_icon_path'];
+        $this->category->category_icon_type = $result['category_icon_type'];
     }
 
     public function create(){
