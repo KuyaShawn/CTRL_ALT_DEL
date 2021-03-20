@@ -25,80 +25,87 @@ function validation() {
 
     // Validating COMPANY INFORMATION
     // Company NAME
-    let cName = document.getElementById("company-name").value;
-    if (cName === "") {
-        let errorCName = document.getElementById("invalid-cName");
-        errorCName.classList.remove("d-none");
+    let company_name = document.getElementById("company-name").value;
+    if (company_name === "") {
+        let errorCompany_name = document.getElementById("invalid-cName");
+        errorcompany_name.classList.remove("d-none");
         filledIn = false;
     }
 
     // Company WEBSITE
-    let site = document.getElementById("company-website").value;
-    if (site === "") {
-        let errorCName = document.getElementById("invalid-cSite");
-        errorCName.classList.remove("d-none");
+    let url = document.getElementById("url").value;
+    if (url === "") {
+        let errorUrl = document.getElementById("invalid-cSite");
+        errorUrl.classList.remove("d-none");
         filledIn = false;
     }
 
     // Company Email
-
+    let public_email = document.getElementById("public_email").value;
+    if (public_email === "") {
+        let errorPublic_email = document.getElementById("invalid-public_email");
+        errorPublic_email.classList.remove("d-none");
+        filledIn = false;
+    }
 
     // Company Telephone
+    let public_phone = document.getElementById("public_phone");
+    if(public_phone === ""){
 
+    } else if(public_phone )
 
     // Company Address Line 1
+        street_address
+        invalid-street_address
 
 
     // Company COUNTRY FIELD
-    let cCountry = document.getElementById("country").value;
-    if (cCountry === "blank") {
+    let country = document.getElementById("country").value;
+    if (country === "blank") {
         let errorCountry = document.getElementById("invalid-country");
         errorCountry.classList.remove("d-none");
         filledIn = false;
     }
 
     // Company State
-    let cstate = document.getElementById("state").value;
-    if (cstate === "blank") {
+    let state = document.getElementById("state").value;
+    if (state === "blank") {
         let errorState = document.getElementById("invalid-state");
         errorState.classList.remove("d-none");
         filledIn = false;
     }
 
     // Company CITY FIELD
-    let cCity = document.getElementById("inputCity").value;
-    if (cCity === "") {
+    let city = document.getElementById("city").value;
+    if (city === "") {
         let errorCity = document.getElementById("invalid-city");
           errorCity.classList.remove("d-none");
           filledIn = false;
       }
 
-    // Geographic Area
-    let cArea = document.getElementById("inputArea").value;
-    if (cArea === "select") {
-        let errorArea = document.getElementById("invalid-area");
+    // Service Area / Geographic Service Area
+    let service_area = document.getElementById("service_area").value;
+    if (service_area === "select") {
+        let errorArea = document.getElementById("invalid-service_area");
         errorArea.classList.remove("d-none");
         filledIn = false;
       }
 
-    // company contact check box
-    let cAuth = document.getElementById("ccAuth");
-    if (!cAuth.checked) {
-        let errorPocAuth = document.getElementById("invalid-ccAuth");
-        errorPocAuth.classList.remove("d-none");
-        filledIn = false;
-    }
+    // category_id
+    category_id
 
-    // Tagline
-    let tag = document.getElementById("tagline").value;
-    if (tag === "") {
-        let errorTag = document.getElementById("invalid-tagline");
-        errorTag.classList.remove("d-none");
+    // logo, logo_path
+
+
+    // Tagline / ABOUT
+    let about = document.getElementById("about").value;
+    if (about === "") {
+        let errorAbout = document.getElementById("invalid-about");
+        errorAbout.classList.remove("d-none");
         filledIn = false;
     }
 
     // Key words
-
     document.getElementById('tagInput');
     if(tagString > TAG_MAX_LENGTH){
         filledIn = false;
@@ -116,14 +123,25 @@ function validation() {
         filledIn = false;
     }
 
+    // Private contact Name
+    private_contact_name
+    invalid-private_contact_name
+
+    // Private contact Last Name
+    private_contact_last
+    invalid-private_contact_last
+
     // Private contact Email
-    let eEmail = document.getElementById("pEmail").value;
-    if (eEmail === "") {
-        let errorEmail = document.getElementById("invalid-pEmail");
+    let private_email = document.getElementById("private_email").value;
+    if (private_email === "") {
+        let errorEmail = document.getElementById("invalid-private_email");
         errorEmail.classList.remove("d-none");
         filledIn = false;
     }
 
+    // private phone
+    private_phone
+    invalid-private_phone
 
 
     // returning if field checks require an error message or not

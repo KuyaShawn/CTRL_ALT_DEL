@@ -1,7 +1,7 @@
 <!--
     This file holds the HTML code for the CbCSC
             Confirmation web page.
-    Updated: Tuesday 23rd February, 2021
+    Updated: Friday March 20th, 2021
     Project Name: Coneybeare Sustainability Catalog
     File name: index.php   Root: ../confirmation/index.php
     Author/'s: CTRL ALT DEL
@@ -50,10 +50,10 @@
 
                 <!-- Comapny Webiste input -->
                 <div class="form-group col">
-                    <label for="company-website">Company Website: </label>
-                    <input type="text" class="form-control" name="company-website" id="company-website"
+                    <label for="url">Company Website: </label>
+                    <input type="text" class="form-control" name="url" id="url"
                            pattern="(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w-]+\.[A-z]{2,}){1}(?<path>.*)">
-                    <span class="incomplete d-none text-danger" id="invalid-cSite">
+                    <span class="incomplete d-none text-danger" id="invalid-url">
                         * Please enter the Company Web Address</span>
                 </div>
             </div>
@@ -61,17 +61,17 @@
             <div class="form-row">
                 <!--  EMAIL -->
                 <div class="form-group col">
-                    <label for="contact-email">Email address:</label>
-                    <input type="email" class="form-control" id="contact-email" name="contact-email"
-                           pattern="[\w!#$%&'*+/=?^`{|}~\.\-]+@[A-z0-9]+\.[A-z0-9]+">
-                    <span class="incomplete d-none text-danger" id="invalid-conEmail">
+                    <label for="public_email">Email address:</label>
+                    <input type="email" class="form-control" id="public_email" name="public_email"
+                           pattern="/^[\w!#$%&\'*+\/=?^`{|}~.-]+@[\w]+\.[\w]+$/">
+                    <span class="incomplete d-none text-danger" id="errorPublic_email">
                 * Please enter e-mail</span>
                 </div>
 
                 <!--Company TELEPHONE -->
                 <div class="form-group col">
-                    <label for="cPhone">Phone number:</label>
-                    <input type="tel" class="form-control" id="cPhone" name="cPhone"
+                    <label for="public_phone">Phone number:</label>
+                    <input type="tel" class="form-control" id="public_phone" name="public_phone"
                            placeholder="888-123-0042" pattern="[0-9]{10}">
                 </div>
             </div>
@@ -79,22 +79,19 @@
             <div class="form-row">
                 <!--ADDRESS Line 1 -->
                 <div class="form-group col">
-                    <label for="Address1">Address:</label>
-                    <input type="text" class="form-control" id="address1"
-                          name="address1" placeholder="1234 Main St.">
-                    <span class="incomplete d-none text-danger" id="invalid-address">
+                    <label for="street_address">Address:</label>
+                    <input type="text" class="form-control" id="street_address"
+                          name="street_address" placeholder="1234 Main St.">
+                    <span class="incomplete d-none text-danger" id="invalid-street_address">
                     * Please enter Company address</span>
 
                 </div>
 
                 <!-- Company ADDRESS 2 OPTIONAL -->
                 <div class="form-group col">
-                    <label for="inputAddress2">Address 2:</label>
-                    <input type="text" class="form-control" id="address2"
-                           name="address2" placeholder="Suite 1234-B">
-                    <span class="incomplete d-none text-danger" id="invalid-address2">
-                    * Please input an address</span>
-
+                    <label for="street_address2">Address 2:</label>
+                    <input type="text" class="form-control" id="street_address2"
+                           name="street_address2" placeholder="Suite 1234-B">
                 </div>
             </div>
 
@@ -102,7 +99,7 @@
             <div class="form-row">
                 <!--Company COUNTRY  -->
                 <div class="form-group col">
-                    <label for="inputCountry">Country:</label>
+                    <label for="country">Country:</label>
                     <select id="country" name="country" class="form-control">
                         <?php
                         include('confirm-includes/countries.html');
@@ -115,7 +112,7 @@
 
                 <!--Company STATE -->
                 <div class="form-group col">
-                    <label for="inputState">State:</label>
+                    <label for="state">State:</label>
                     <select id="state" name="state" class="form-control">
                         <!-- Link to the universal Header/Navigation -->
                         <?php
@@ -131,32 +128,32 @@
             <div class="form-row">
                 <!--Company CITY  -->
                 <div class="form-group col">
-                    <label for="inputCity">City:</label>
-                    <input type="text" class="form-control" name="inputCity" id="inputCity">
+                    <label for="city">City:</label>
+                    <input type="text" class="form-control" name="city" id="city">
                     <span class="incomplete d-none text-danger" id="invalid-city">
                                 * Please enter a city</span>
                 </div>
 
                 <!-- Geographical area in which they serve -->
                 <div class="form-group col">
-                    <label for="inputArea">Service Area:</label>
-                    <select id="inputArea" name="inputArea" class="form-control">
+                    <label for="service_area">Service Area:</label>
+                    <select id="service_area" name="service_area" class="form-control">
                         <option value="select">Select Area</option>
                         <option value="local">Local/Regional</option>
                         <option value="state">State</option>
                         <option value="national">National</option>
                         <option value="global">Global</option>
                     </select>
-                    <span class="incomplete d-none text-danger" id="invalid-area">
+                    <span class="incomplete d-none text-danger" id="invalid-service_area">
                                 * Please select an area</span>
                 </div>
             </div>
 
             <div class="form-row">
-                <!-- CATEGORY, Industry Company Background -->
+                <!-- CATEGORY, Industry for the Company's Economic Background -->
                 <div class="form-group col">
-                    <label for="company-category">Industry:</label>
-                    <select id="company-category" class="form-control" name="company-category">
+                    <label for="category_id">Industry:</label>
+                    <select id="category_id" class="form-control" name="category_id">
                         <option value="none">Select Category</option>
                         <option value="Agriculture">Agriculture</option>
                         <option value="Architecture">Architecture</option>
@@ -178,9 +175,9 @@
 
                 <!-- logo upload -->
                 <div class="form-group col">
-                    <label>Upload Your Company Logo:</label>
+                    <label for="logo_path">Upload Your Company Logo:</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="iconFile" name="iconFile">
+                        <input type="file" class="custom-file-input" id="logo_path" name="logo_path">
                         <label class="custom-file-label" for="iconFile">Choose file</label>
                     </div>
                     <!--<span class="incomplete d-none text-danger" id="invalid-logo">
@@ -189,13 +186,13 @@
             </div>
 
             <div class="form-row">
-                <!-- Company TAGLINE -->
+                <!-- Company TAGLINE / ABOUT-->
                 <div class="form-group col">
-                    <label for="tagline">Tagline:</label>
-                    <textarea class="form-control" maxlength="250" rows="2" id="tagline"
-                              name="tagline"></textarea>
-                    <span class="incomplete d-none text-danger" id="invalid-tagline">
-                        * Please tell us the company tagline</span>
+                    <label for="about">Tagline:</label>
+                    <textarea class="form-control" maxlength="250" rows="2" id="about"
+                              name="about"></textarea>
+                    <span class="incomplete d-none text-danger" id="invalid-about">
+                        * Please enter the company Tagline</span>
                 </div>
             </div>
 
@@ -234,43 +231,43 @@
 
                 <!-- first name -->
                 <div class="form-group col">
-                    <label for="pfname">First Name:</label>
-                    <input type="text" class="form-control" id="pfname" name="pfname">
-                    <span class="incomplete d-none text-danger" id="invalid-pfname">
+                    <label for="private_contact_name">First Name:</label>
+                    <input type="text" class="form-control" id="private_contact_name" name="private_contact_name">
+                    <span class="incomplete d-none text-danger" id="invalid-private_contact_name">
                     * Please enter first name</span>
                 </div>
 
                 <!-- last name -->
                 <div class="form-group col">
-                    <label for="plname">Last Name:</label>
-                    <input type="text" class="form-control" id="plname" name="plname">
-                    <span class="incomplete d-none text-danger" id="invalid-plname">
+                    <label for="private_contact_last">Last Name:</label>
+                    <input type="text" class="form-control" id="private_contact_last" name="private_contact_last">
+                    <span class="incomplete d-none text-danger" id="invalid-private_contact_last">
                     * Please enter last name</span>
                 </div>
             </div>
 
             <!--  EMAIL -->
             <div class="form-group">
-                <label for="p-email">Email address:</label>
-                <input type="email" class="form-control" id="pEmail" name="pEmail"
+                <label for="private_email">Email address:</label>
+                <input type="email" class="form-control" id="private_email" name="private_email"
                        pattern="[\w!#$%&'*+/=?^`{|}~\.\-]+@[A-z0-9]+\.[A-z0-9]+">
-                <span class="incomplete d-none text-danger" id="invalid-pEmail">
+                <span class="incomplete d-none text-danger" id="invalid-private_email">
                 * Please enter a contact e-mail</span>
             </div>
 
             <div class="form-row">
                 <!--Private TELEPHONE -->
                 <div class="form-group col">
-                    <label for="phone">Phone number:</label>
-                        <input type="tel" class="form-control" id="phone" name="phone"
+                    <label for="private_phone">Phone number:</label>
+                        <input type="tel" class="form-control" id="private_phone" name="private_phone"
                                placeholder="888-123-0042"
                                pattern="[0-9]{10}">
                 </div>
 
                 <!-- Private extension -->
                 <div class="form-group col">
-                    <label for="phone2">Extension:</label>
-                        <input type="tel" class="form-control" id="phone2" name="phone2"
+                    <label for="private_phone2">Extension:</label>
+                        <input type="tel" class="form-control" id="private_phone2" name="private_phone2"
                                placeholder="1234"
                                pattern="[0-9]{}">
                 </div>

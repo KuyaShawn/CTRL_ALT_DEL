@@ -1,7 +1,7 @@
 <!--
     This file holds the PHP function code for the CbCSC
             Confirma.php page.
-    Updated: Tuesday 23rd February, 2021
+    Updated: Friday March 20th, 2021
     Project Name: Coneybeare Sustainability Catalog
     File name: index.php   Root: ../confirmation/index.php
     Author/'s: CTRL ALT DEL
@@ -19,49 +19,50 @@
         echo "<h3>Thank you for the application !</h3><br>";
     }
 
-    function message($cName)
+    function message($company_name)
     {
-        echo "<p>The following information about $cName has been sent to 
+        echo "<p>The following information about $company_name has been sent to 
                 Coneybeare Sustainability Catalog for review.</p>";
     }
 
-    function readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
-        $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
-        $cKey, $empFirst, $empLast, $empEMail, $empTell)
+    function readOut($company_name, $url, $public_email, $public_phone,
+                     $street_address, $country, $state, $city, $service_area,
+                     $category_id, $logo_path, $about, $tag_cloud,
+                     $private_contact_name, $private_email, $private_phone)
     {
         echo"<table class='table'>
             <tr>
-               <td>Company:</td><td>$cName</td>
+               <td>Company:</td><td>$company_name</td>
             </tr><tr>
-               <td>Website:</td><td>$cSite</td>
+               <td>Website:</td><td>$url</td>
             </tr><tr>
-                <td>Company Email:</td><td>$cEmail</td>
+                <td>Company Email:</td><td>$public_email</td>
             </tr><tr>
-                <td>Company Telephone:</td><td>$cTele</td>
+                <td>Company Telephone:</td><td>$public_phone</td>
             </tr><tr>
-               <td>Location:</td><td>$cStreet, $cSuite, 
-                        $cCity, $cState, $cCountry</td>
+               <td>Location:</td><td>$street_address, 
+                        $city, $state, $country</td>
             </tr><tr>
-               <td>Service Area:</td><td>$cService</td>
+               <td>Service Area:</td><td>$service_area</td>
             </tr><tr>
-               <td>Industry:</td><td>$cCategory</td>
+               <td>Industry:</td><td>$category_id</td>
             </tr><tr>
-                <td>Logo:</td><td>$cLogo</td>
+                <td>Logo:</td><td>$logo_path</td>
             </tr><tr>
-               <td>Tagline:</td><td>$cTagline</td>
+               <td>Tagline:</td><td>$about</td>
             </tr><tr>
-                <td>Key Words:</td><td>$cKey</td>
+                <td>Key Words:</td><td>$tag_cloud</td>
             </tr><tr></table>
 
         <h3>Private Company Contact</h3>
 
         <table class='table'>
             <tr>
-               <td>Contact Person:</td><td>$empFirst $empLast</td>
+               <td>Contact Person:</td><td>$private_contact_name</td>
             </tr><tr>
-               <td>Email:</td><td>$empEMail</td>
+               <td>Email:</td><td>$private_email</td>
             </tr><tr>
-               <td>Telephone:</td><td>$empTell</td>
+               <td>Telephone:</td><td>$private_phone</td>
             </tr>
             </table>";
     }
@@ -75,6 +76,7 @@
      * VALIDATION FUNCTIONS FOR USER INPUT
         Name
         Web address
+        address
         country
         state
         city

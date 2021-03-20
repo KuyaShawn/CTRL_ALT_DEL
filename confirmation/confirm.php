@@ -1,12 +1,13 @@
 <!--
     This file is to catch the Confirmation PHP user data
         for the CbSC Confirmation HTML web page.
-    Date: Monday 25th of January, 2021
+    Date: Friday March 20th, 2021
     Updated:
     Project Name: Coneybeare Sustainability Catalog
     File name: confirm.php
     Author/'s: CTRL ALT DEL
                 Amanda H.
+                Dylan H.
 -->
 
 <?php
@@ -34,26 +35,27 @@
 
 
         /* Company information variables */
-        $cName = $_POST['company-name'];
-        $cWebsite = $_POST['company-website'];
-        $cEmail = $_POST['contact-email'];
-        $cPhone = $_POST['cPhone'];
-        $cStreet = $_POST['address1'];
-        $cSuite = $_POST['address2'];
-        $cCountry = $_POST['country'];
-        $cState = $_POST['state'];
-        $cCity = $_POST['inputCity'];
-        $cService = $_POST['inputArea'];
-        $cCategory = $_POST['industry'];
-        $cTagline = $_POST['tagline'];
-        $cKey = $_POST['tagPostString'];
+        $company_name = $_POST['company_name'];
+        $url = $_POST['url'];
+        $public_email = $_POST['public_email'];
+        $public_phone = $_POST['public_phone'];
+        $street_address = $_POST['street_address'];
+        $street_address .= $_POST['street_address2'];
+        $country = $_POST['country'];
+        $state = $_POST['state'];
+        $city = $_POST['city'];
+        $service_area = $_POST['service_area'];
+        $category_id = $_POST['category_id'];
+        $logo_path = $_POST['logo_path'];
+        $about = $_POST['about'];
+        $tag_cloud = $_POST['tag_cloud'];
 
         /* Point of Contact/Private Contact Info variables */
-        $pcFirst = $_POST['pfname'];
-        $pcLast = $_POST['plname'];
-        $pcEmail = $_POST['pEmail'];
-        $pcPhone = $_POST['phone'];
-        $pcPhone .= " #" . $_POST['phone2'];
+        $private_contact_name = $_POST['private_contact_name'];
+        $private_contact_name .= $_POST['private_contact_last'];
+        $private_email = $_POST['private_email'];
+        $private_phone = $_POST['private_phone'];
+        $private_phone .= "#" . $_POST['private_phone2'];
 
 
 
@@ -62,36 +64,53 @@
 
         /* Printing Message and form content to Thank you page*/
         thankYou();
-        message($cName);
+        message($company_name);
+        readout($company_name, $url, $public_email, $public_phone,
+            $street_address, $country, $state, $city, $service_area,
+            $category_id, $logo_path, $about, $tag_cloud,
+            $private_contact_name, $private_email, $private_phone);
 /*
  *
- * readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
-                     $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
-                     $cKey, $empFirst, $empLast, $empEMail, $empTell);
+ * readOut($company_name, $url, $public_email, $public_phone,
+        $street_address, $country, $state, $city, $service_area,
+        $category_id, $logo_path, $about, $tag_cloud,
+        $private_contact_name, $private_email, $private_phone);
 
 */
 
     echo"<table class='table'>
             <tr>
-               <td>Company:</td><td>$cName</td>
+               <td>Company:</td><td>$company_name</td>
             </tr><tr>
-               <td>Website:</td><td>$cWebsite</td>
+               <td>Website:</td><td>$url</td>
             </tr><tr>
-               <td>Location:</td><td>$cCity, $cState, $cCountry</td>
+                <td>Company Email:</td><td>$public_email</td>
             </tr><tr>
-               <td>Service Area:</td><td>$cService</td>
+                <td>Company Telephone:</td><td>$public_phone</td>
             </tr><tr>
-               <td>Industry:</td><td>$cCategory</td>
+               <td>Location:</td><td>$street_address, 
+                        $city, $state, $country</td>
             </tr><tr>
-               <td>Tagline:</td><td>$cTagline</td>
+               <td>Service Area:</td><td>$service_area</td>
             </tr><tr>
-               <td>Search Tags:</td><td>$cKey</td>
+               <td>Industry:</td><td>$category_id</td>
             </tr><tr>
-               <td>Contact Email:</td><td>$cEmail</td>
+                <td>Logo:</td><td>$logo_path</td>
             </tr><tr>
-               <td>Point of Contact:</td><td>$pcFirst $pcLast</td>
+               <td>Tagline:</td><td>$about</td>
             </tr><tr>
-               <td>Point of Contact Email:</td><td>$pcEmail</td>
+                <td>Key Words:</td><td>$tag_cloud</td>
+            </tr><tr></table>
+
+        <h3>Private Company Contact</h3>
+
+        <table class='table'>
+            <tr>
+               <td>Contact Person:</td><td>$private_contact_name</td>
+            </tr><tr>
+               <td>Email:</td><td>$private_email</td>
+            </tr><tr>
+               <td>Telephone:</td><td>$private_phone</td>
             </tr>
             </table>";
 
@@ -110,26 +129,40 @@
                                       $cKey, $empFirst, $empLast, $empEMail, $empTell)";
         */
         $emailBody = "<table class='table'>
+
+            <h3>New Company Information for Approval</h3>
             <tr>
-               <td>Company:</td><td>$cName</td>
+               <td>Company:</td><td>$company_name</td>
             </tr><tr>
-               <td>Website:</td><td>$cWebsite</td>
+               <td>Website:</td><td>$url</td>
             </tr><tr>
-               <td>Location:</td><td>$cCity, $cState, $cCountry</td>
+                <td>Company Email:</td><td>$public_email</td>
             </tr><tr>
-               <td>Service Area:</td><td>$cService</td>
+                <td>Company Telephone:</td><td>$public_phone</td>
             </tr><tr>
-               <td>Industry:</td><td>$cCategory</td>
+               <td>Location:</td><td>$street_address, 
+                        $city, $state, $country</td>
             </tr><tr>
-               <td>Tagline:</td><td>$cTagline</td>
+               <td>Service Area:</td><td>$service_area</td>
             </tr><tr>
-               <td>Search Tags:</td><td>$cKey</td>
+               <td>Industry:</td><td>$category_id</td>
             </tr><tr>
-               <td>Contact Email:</td><td>$cEmail</td>
+                <td>Logo:</td><td>$logo_path</td>
             </tr><tr>
-               <td>Point of Contact:</td><td>$pcFirst $pcLast</td>
+               <td>Tagline:</td><td>$about</td>
             </tr><tr>
-               <td>Point of Contact Email:</td><td>$pcEmail</td>
+                <td>Key Words:</td><td>$tag_cloud</td>
+            </tr><tr></table>
+
+        <h3>Private Company Contact</h3>
+
+        <table class='table'>
+            <tr>
+               <td>Contact Person:</td><td>$private_contact_name</td>
+            </tr><tr>
+               <td>Email:</td><td>$private_email</td>
+            </tr><tr>
+               <td>Telephone:</td><td>$private_phone</td>
             </tr>
             </table>\r\n";
         $emailBody .= "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
@@ -215,14 +248,14 @@
 
         $postVars = array();
 
-        $postVars['name'] = $cName;
-        $postVars['url'] = $cWebsite;
-        $postVars['city'] = $cCity;
-        $postVars['state'] = $cState;
-        $postVars['country'] = $cCountry;
-        $postVars['about'] = $cTagline;
-        $postVars['category'] = $cCategory;
-        $postVars['email'] = $pcEmail;
+        $postVars['name'] = $company_name;
+        $postVars['url'] = $url;
+        $postVars['city'] = $city;
+        $postVars['state'] = $state;
+        $postVars['country'] = $country;
+        $postVars['about'] = $about;
+        $postVars['category'] = $category_id;
+        $postVars['email'] = $public_email;
 
         if(!empty($cKey)){$postVars['tag_cloud'] = $cKey;}
         if(!empty($file_root_path)){$postVars['logo_path'] = $file_root_path;}
