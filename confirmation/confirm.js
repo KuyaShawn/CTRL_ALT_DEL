@@ -25,10 +25,10 @@ function validation() {
 
     // Validating COMPANY INFORMATION
     // Company NAME
-    let company_name = document.getElementById("company-name").value;
+    let company_name = document.getElementById("company_name").value;
     if (company_name === "") {
         let errorCompany_name = document.getElementById("invalid-cName");
-        errorcompany_name.classList.remove("d-none");
+        errorCompany_name.classList.remove("d-none");
         filledIn = false;
     }
 

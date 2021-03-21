@@ -39,24 +39,27 @@
         $url = $_POST['url'];
         $public_email = $_POST['public_email'];
         $public_phone = $_POST['public_phone'];
-        $street_address = $_POST['street_address'];
-        $street_address .= $_POST['street_address2'];
+        $street_address1 = $_POST['street_address'];
+        $street_address2 = $_POST['street_address2'];
         $country = $_POST['country'];
         $state = $_POST['state'];
         $city = $_POST['city'];
         $service_area = $_POST['service_area'];
         $category_id = $_POST['category_id'];
-        $logo_path = $_POST['logo_path'];
+        $logo_path = "PLACEHOLDER";
         $about = $_POST['about'];
-        $tag_cloud = $_POST['tag_cloud'];
+        $tag_cloud = $_POST['tagPostString'];
 
         /* Point of Contact/Private Contact Info variables */
-        $private_contact_name = $_POST['private_contact_name'];
-        $private_contact_name .= $_POST['private_contact_last'];
+        $private_contact_first_name = $_POST['private_contact_name'];
+        $private_contact_last_name = $_POST['private_contact_last'];
         $private_email = $_POST['private_email'];
         $private_phone = $_POST['private_phone'];
         $private_phone .= "#" . $_POST['private_phone2'];
 
+        /* Mixed Data Fields */
+        $street_address = $street_address1 . " " . $street_address2;
+        $private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
 
 
         /* link to functions.php and function calls variables */
@@ -222,22 +225,6 @@
             } else {
                 if (move_uploaded_file($_FILES["iconFile"]["tmp_name"], $target_file)) {
                     echo "The file " . htmlspecialchars(basename($_FILES["iconFile"]["name"])) . " has been uploaded.";
-
-                    /*
-                         Mess with ths later
-
-                    // Connect to DB
-                    require(getenv("HOME") . '/connect.php');
-                    $cnxn = connect();
-
-                    $sql = "INSERT INTO uploads (image_name) VALUES ('$target_file')";
-                    //echo $sql;
-                    $success = mysqli_query($cnxn, $sql);
-                    if(!$success){
-                        echo "Sorry, there was a database error";
-                    }
-                    */
-
                 } else {
                     echo "Sorry, there was an error uploading your file.";
                 }
@@ -248,19 +235,29 @@
 
         $postVars = array();
 
-        $postVars['name'] = $company_name;
-        $postVars['url'] = $url;
+        //Required fields for creating a company
+        $postVars['company_name'] = $company_name;
+        $postVars['about'] = $about;
         $postVars['city'] = $city;
         $postVars['state'] = $state;
         $postVars['country'] = $country;
-        $postVars['about'] = $about;
-        $postVars['category'] = $category_id;
-        $postVars['email'] = $public_email;
+        $postVars['service_area'] = $service_area;
+        $postVars['url'] = $url;
+        $postVars['private_email'] = $private_email;
+        $postVars['category_id'] = 2; //temporary until code is added
 
-        if(!empty($cKey)){$postVars['tag_cloud'] = $cKey;}
+        //Optional fields
+        if(!empty($tag_cloud)){$postVars['tag_cloud'] = $tag_cloud;}
+
+        if(!empty($street_address1) || !empty($street_address2)){$postVars['street_address'] = $street_address;}
+        if(!empty($public_email)){$postVars['public_email'] = $public_email;}
+        if(!empty($public_phone)){$postVars['public_phone'] = $public_phone;}
         if(!empty($file_root_path)){$postVars['logo_path'] = $file_root_path;}
+        if(!empty($private_contact_first_name) || !empty($private_contact_last_name)){$postVars['private_contact_name'] = $private_contact_name;}
+        if(!empty($private_phone)){$postVars['private_phone'] = $private_phone;}
 
-        $curl = curl_init('http://api.ctrl-alt-delete.greenriverdev.com/v1/company/create.php');
+
+    $curl = curl_init('http://api.ctrl-alt-delete.greenriverdev.com/v1/company/create.php');
 
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($postVars));

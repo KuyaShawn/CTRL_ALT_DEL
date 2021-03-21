@@ -41,15 +41,15 @@
 
             <div class="form-row">
                 <!-- Company NAME input -->
-                <div class="form-group col">
-                    <label for="company-name">Company Name:</label>
-                    <input type="text" class="form-control" name="company-name" id="company-name">
+                <div class="form-group col-md-12 col-lg-6">
+                    <label for="company_name">Company Name:</label>
+                    <input type="text" class="form-control" name="company_name" id="company_name">
                     <span class="incomplete d-none text-danger" id="invalid-cName">
                         * Please enter Company name</span>
                 </div>
 
                 <!-- Comapny Webiste input -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="url">Company Website: </label>
                     <input type="text" class="form-control" name="url" id="url"
                            pattern="(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w-]+\.[A-z]{2,}){1}(?<path>.*)">
@@ -60,7 +60,7 @@
 
             <div class="form-row">
                 <!--  EMAIL -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="public_email">Email address:</label>
                     <input type="email" class="form-control" id="public_email" name="public_email"
                            pattern="/^[\w!#$%&\'*+\/=?^`{|}~.-]+@[\w]+\.[\w]+$/">
@@ -69,7 +69,7 @@
                 </div>
 
                 <!--Company TELEPHONE -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="public_phone">Phone number:</label>
                     <input type="tel" class="form-control" id="public_phone" name="public_phone"
                            placeholder="888-123-0042" pattern="[0-9]{10}">
@@ -78,7 +78,7 @@
 
             <div class="form-row">
                 <!--ADDRESS Line 1 -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="street_address">Address:</label>
                     <input type="text" class="form-control" id="street_address"
                           name="street_address" placeholder="1234 Main St.">
@@ -88,7 +88,7 @@
                 </div>
 
                 <!-- Company ADDRESS 2 OPTIONAL -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="street_address2">Address 2:</label>
                     <input type="text" class="form-control" id="street_address2"
                            name="street_address2" placeholder="Suite 1234-B">
@@ -98,7 +98,7 @@
 
             <div class="form-row">
                 <!--Company COUNTRY  -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="country">Country:</label>
                     <select id="country" name="country" class="form-control">
                         <?php
@@ -111,7 +111,7 @@
                 </div>
 
                 <!--Company STATE -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="state">State:</label>
                     <select id="state" name="state" class="form-control">
                         <!-- Link to the universal Header/Navigation -->
@@ -127,15 +127,25 @@
 
             <div class="form-row">
                 <!--Company CITY  -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="city">City:</label>
                     <input type="text" class="form-control" name="city" id="city">
                     <span class="incomplete d-none text-danger" id="invalid-city">
                                 * Please enter a city</span>
                 </div>
 
-                <!-- Geographical area in which they serve -->
+                <!-- Company Zipcode-->
                 <div class="form-group col">
+                    <label for="zip">Zipcode:</label>
+                    <textarea class="form-control" maxlength="12" rows="1" id="zip"
+                              name="zip"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <!-- Geographical area in which they serve -->
+                <div class="form-group col-sm-12 col-md-6 col-lg-4">
                     <label for="service_area">Service Area:</label>
                     <select id="service_area" name="service_area" class="form-control">
                         <option value="select">Select Area</option>
@@ -147,11 +157,9 @@
                     <span class="incomplete d-none text-danger" id="invalid-service_area">
                                 * Please select an area</span>
                 </div>
-            </div>
 
-            <div class="form-row">
                 <!-- CATEGORY, Industry for the Company's Economic Background -->
-                <div class="form-group col">
+                <div class="form-group col-sm-12 col-md-6 col-lg-4">
                     <label for="category_id">Industry:</label>
                     <select id="category_id" class="form-control" name="category_id">
                         <option value="none">Select Category</option>
@@ -174,10 +182,10 @@
                 </div>
 
                 <!-- logo upload -->
-                <div class="form-group col">
-                    <label for="logo_path">Upload Your Company Logo:</label>
+                <div class="form-group col-md-12 col-lg-4">
+                    <label for="iconFile">Upload Your Company Logo:</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="logo_path" name="logo_path">
+                        <input type="file" class="custom-file-input" id="iconFile" name="iconFile">
                         <label class="custom-file-label" for="iconFile">Choose file</label>
                     </div>
                     <!--<span class="incomplete d-none text-danger" id="invalid-logo">
@@ -230,7 +238,7 @@
             <div class="form-row">
 
                 <!-- first name -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="private_contact_name">First Name:</label>
                     <input type="text" class="form-control" id="private_contact_name" name="private_contact_name">
                     <span class="incomplete d-none text-danger" id="invalid-private_contact_name">
@@ -238,7 +246,7 @@
                 </div>
 
                 <!-- last name -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="private_contact_last">Last Name:</label>
                     <input type="text" class="form-control" id="private_contact_last" name="private_contact_last">
                     <span class="incomplete d-none text-danger" id="invalid-private_contact_last">
@@ -257,7 +265,7 @@
 
             <div class="form-row">
                 <!--Private TELEPHONE -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="private_phone">Phone number:</label>
                         <input type="tel" class="form-control" id="private_phone" name="private_phone"
                                placeholder="888-123-0042"
@@ -265,7 +273,7 @@
                 </div>
 
                 <!-- Private extension -->
-                <div class="form-group col">
+                <div class="form-group col-md-12 col-lg-6">
                     <label for="private_phone2">Extension:</label>
                         <input type="tel" class="form-control" id="private_phone2" name="private_phone2"
                                placeholder="1234"
