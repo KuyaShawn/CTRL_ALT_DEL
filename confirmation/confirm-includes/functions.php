@@ -30,25 +30,37 @@
                      $category_id, $logo_path, $about, $tag_cloud,
                      $private_contact_name, $private_email, $private_phone)
     {
-        echo"<table class='table'>
+        return "<table class='table'>
             <tr>
                <td>Company:</td><td>$company_name</td>
             </tr><tr>
                <td>Website:</td><td>$url</td>
-            </tr><tr>
+            </tr>
+            
+            
+            <tr>
                 <td>Company Email:</td><td>$public_email</td>
             </tr><tr>
                 <td>Company Telephone:</td><td>$public_phone</td>
-            </tr><tr>
+            </tr>
+            
+            
+            <tr>
                <td>Location:</td><td>$street_address, 
                         $city, $state, $country</td>
-            </tr><tr>
+            </tr>
+            
+            
+            <tr>
                <td>Service Area:</td><td>$service_area</td>
             </tr><tr>
                <td>Industry:</td><td>$category_id</td>
             </tr><tr>
                 <td>Logo:</td><td>$logo_path</td>
-            </tr><tr>
+            </tr>
+            
+            
+            <tr>
                <td>Tagline:</td><td>$about</td>
             </tr><tr>
                 <td>Key Words:</td><td>$tag_cloud</td>

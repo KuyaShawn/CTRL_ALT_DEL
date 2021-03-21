@@ -75,6 +75,9 @@ function validation() {
         filledIn = false;
     }
 
+    // zipcode
+
+
     // Company CITY FIELD
     let city = document.getElementById("city").value;
     if (city === "") {

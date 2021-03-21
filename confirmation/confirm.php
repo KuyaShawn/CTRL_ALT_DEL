@@ -33,16 +33,19 @@
         // autoglobal array
         //echo var_dump($_POST);
 
+        /* link to functions.php and function calls variables */
+        include('confirm-includes/functions.php');
 
         /* Company information variables */
         $company_name = $_POST['company_name'];
         $url = $_POST['url'];
         $public_email = $_POST['public_email'];
         $public_phone = $_POST['public_phone'];
-        $street_address1 = $_POST['street_address'];
-        $street_address2 = $_POST['street_address2'];
+        $street_address = $_POST['street_address'];
+        $street_address .= $_POST['street_address2'];
         $country = $_POST['country'];
         $state = $_POST['state'];
+        $zipcode = $_POST['zipcode'];
         $city = $_POST['city'];
         $service_area = $_POST['service_area'];
         $category_id = $_POST['category_id'];
@@ -51,8 +54,8 @@
         $tag_cloud = $_POST['tagPostString'];
 
         /* Point of Contact/Private Contact Info variables */
-        $private_contact_first_name = $_POST['private_contact_name'];
-        $private_contact_last_name = $_POST['private_contact_last'];
+        $private_contact_name = $_POST['private_contact_name'];
+        $private_contact_name .= $_POST['private_contact_last'];
         $private_email = $_POST['private_email'];
         $private_phone = $_POST['private_phone'];
         $private_phone .= "#" . $_POST['private_phone2'];
@@ -62,62 +65,16 @@
         $private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
 
 
-        /* link to functions.php and function calls variables */
-        include('confirm-includes/functions.php');
+        $application_body = readout($company_name, $url, $public_email, $public_phone,
+            $street_address, $country, $state, $city, $service_area,
+            $category_id, $logo_path, $about, $tag_cloud,
+            $private_contact_name, $private_email, $private_phone);
+
 
         /* Printing Message and form content to Thank you page*/
         thankYou();
         message($company_name);
-        readout($company_name, $url, $public_email, $public_phone,
-            $street_address, $country, $state, $city, $service_area,
-            $category_id, $logo_path, $about, $tag_cloud,
-            $private_contact_name, $private_email, $private_phone);
-/*
- *
- * readOut($company_name, $url, $public_email, $public_phone,
-        $street_address, $country, $state, $city, $service_area,
-        $category_id, $logo_path, $about, $tag_cloud,
-        $private_contact_name, $private_email, $private_phone);
-
-*/
-
-    echo"<table class='table'>
-            <tr>
-               <td>Company:</td><td>$company_name</td>
-            </tr><tr>
-               <td>Website:</td><td>$url</td>
-            </tr><tr>
-                <td>Company Email:</td><td>$public_email</td>
-            </tr><tr>
-                <td>Company Telephone:</td><td>$public_phone</td>
-            </tr><tr>
-               <td>Location:</td><td>$street_address, 
-                        $city, $state, $country</td>
-            </tr><tr>
-               <td>Service Area:</td><td>$service_area</td>
-            </tr><tr>
-               <td>Industry:</td><td>$category_id</td>
-            </tr><tr>
-                <td>Logo:</td><td>$logo_path</td>
-            </tr><tr>
-               <td>Tagline:</td><td>$about</td>
-            </tr><tr>
-                <td>Key Words:</td><td>$tag_cloud</td>
-            </tr><tr></table>
-
-        <h3>Private Company Contact</h3>
-
-        <table class='table'>
-            <tr>
-               <td>Contact Person:</td><td>$private_contact_name</td>
-            </tr><tr>
-               <td>Email:</td><td>$private_email</td>
-            </tr><tr>
-               <td>Telephone:</td><td>$private_phone</td>
-            </tr>
-            </table>";
-
-
+        echo $application_body;
 
 
         /* Sending to E-mail*/
@@ -125,50 +82,8 @@
         $fromEmail = "no-reply@ctrl-alt-delete.greenriverdev.com";
         $emailSubject = "New Catalog Submission";
 
-        /*
-         *
-         * $emailBody = "readOut($cName, $cSite, $cEmail, $cTele, $cStreet, $cSuite,
-                                      $cCountry, $cState, $cCity, $cService, $cCategory, $cLogo, $cTagline,
-                                      $cKey, $empFirst, $empLast, $empEMail, $empTell)";
-        */
-        $emailBody = "<table class='table'>
 
-            <h3>New Company Information for Approval</h3>
-            <tr>
-               <td>Company:</td><td>$company_name</td>
-            </tr><tr>
-               <td>Website:</td><td>$url</td>
-            </tr><tr>
-                <td>Company Email:</td><td>$public_email</td>
-            </tr><tr>
-                <td>Company Telephone:</td><td>$public_phone</td>
-            </tr><tr>
-               <td>Location:</td><td>$street_address, 
-                        $city, $state, $country</td>
-            </tr><tr>
-               <td>Service Area:</td><td>$service_area</td>
-            </tr><tr>
-               <td>Industry:</td><td>$category_id</td>
-            </tr><tr>
-                <td>Logo:</td><td>$logo_path</td>
-            </tr><tr>
-               <td>Tagline:</td><td>$about</td>
-            </tr><tr>
-                <td>Key Words:</td><td>$tag_cloud</td>
-            </tr><tr></table>
-
-        <h3>Private Company Contact</h3>
-
-        <table class='table'>
-            <tr>
-               <td>Contact Person:</td><td>$private_contact_name</td>
-            </tr><tr>
-               <td>Email:</td><td>$private_email</td>
-            </tr><tr>
-               <td>Telephone:</td><td>$private_phone</td>
-            </tr>
-            </table>\r\n";
-        $emailBody .= "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
+        $emailBody = $application_body . "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
         Click here to enter CBSC admin and confirm.</a>";
 
         $headers = "From: $fromEmail\r\n";
@@ -290,3 +205,54 @@
 
 </body>
 </html>
+/*
+
+
+not mandatory
+        email
+        phone number
+        street addrress 2
+        zip
+        Geographical scope
+        - Logo or image of product - highly recommended
+        private contact last name
+        private contact telephone2
+
+required / mandatory
+    Company Name
+    Company url
+    street address 1
+    country
+    state
+    city
+    category / industry
+    private contact first name
+    private contact email
+    private contact telephone
+
+
+
+array(19) {
+    ["company-name"]=> string(9) "Pool Land"
+    ["url"]=> string(10) "www.pl.com"
+    ["public_email"]=> string(9) "pl@pl.com"
+    ["public_phone"]=> string(10) "8882024567"
+    ["street_address"]=> string(15) "123 main street"
+    ["street_address2"]=> string(6) "Unit 3"
+    ["country"]=> string(24) "United States of America"
+    ["state"]=> string(2) "AL"
+    ["city"]=> string(8) "citycity"
+    ["zip"]=> string(6) "198562"
+    ["service_area"]=> string(5) "state"
+    ["category_id"]=> string(12) "Architecture"
+    ["about"]=> string(20) "swimming is the best"
+    ["tagPostString"]=> string(0) ""
+    ["pocAuth"]=> string(0) ""
+    ["private_contact_name"]=> string(4) "jane"
+    ["private_contact_last"]=> string(5) "smith"
+    ["private_email"]=> string(9) "js@pl.com"
+    ["private_phone"]=> string(10) "8882026547"
+    ["private_phone2"]=> string(3) "001"
+}
+
+*/

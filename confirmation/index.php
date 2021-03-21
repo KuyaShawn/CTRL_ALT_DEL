@@ -42,8 +42,8 @@
             <div class="form-row">
                 <!-- Company NAME input -->
                 <div class="form-group col-md-12 col-lg-6">
-                    <label for="company_name">Company Name:</label>
-                    <input type="text" class="form-control" name="company_name" id="company_name">
+                    <label for="company-name">Company Name:</label>
+                    <input type="text" class="form-control" name="company-name" id="company-name">
                     <span class="incomplete d-none text-danger" id="invalid-cName">
                         * Please enter Company name</span>
                 </div>
@@ -136,9 +136,9 @@
 
                 <!-- Company Zipcode-->
                 <div class="form-group col">
-                    <label for="zip">Zipcode:</label>
-                    <textarea class="form-control" maxlength="12" rows="1" id="zip"
-                              name="zip"></textarea>
+                    <label for="zipcode">Zipcode:</label>
+                    <textarea class="form-control" maxlength="12" rows="1" id="zipcode"
+                              name="zipcode"></textarea>
                 </div>
             </div>
 
@@ -169,7 +169,7 @@
                         <option value="Circular-Economy">Circular Economy</option>
                         <option value="Consumer-Goods">Consumer Goods</option>
                         <option value="Construction">Construction</option>
-                        <option value="Ecology">Ecology</option>
+                        <option value="Ecol-md-12 col-lg-6ogy">Ecol-md-12 col-lg-6ogy</option>
                         <option value="Education">Education</option>
                         <option value="Energy">Energy</option>
                         <option value="Housing">Housing</option>
