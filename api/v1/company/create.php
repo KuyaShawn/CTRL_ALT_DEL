@@ -23,30 +23,48 @@ $company = new Company($database->connect());
 //Might be changed depending on cURL configuarion.
 $data = json_decode(file_get_contents("php://input"));
 
-if( //Checking to make sure all
-    !empty($data->name) &&
-    !empty($data->url) &&
+if( //Checking to make sure all required fields are present
+    !empty($data->company_name) &&
+    !empty($data->about) &&
     !empty($data->city) &&
     !empty($data->state) &&
     !empty($data->country) &&
-    !empty($data->about) &&
-    !empty($data->category) &&
-    !empty($data->email)
+    !empty($data->service_area) &&
+    !empty($data->url) &&
+    !empty($data->private_email) &&
+    !empty($data->category_id)
 ){
-    $company->name = $data ->name;
-    $company->url = $data ->url;
-    $company->city = $data ->city;
-    $company->state = $data ->state;
-    $company->country = $data ->country;
-    $company->about = $data ->about;
-    $company->category = $data ->category;
-    $company->email = $data ->email;
+    $company->company_name = $data->company_name;
+    $company->about = $data->about;
+    $company->city = $data->city;
+    $company->state = $data->state;
+    $company->country = $data->country;
+    $company->service_area = $data->service_area;
+    $company->url = $data->url;
+    $company->private_email = $data->private_email;
+    $company->category_id = $data->category_id;
+
 
     if(!empty($data->tag_cloud)){
         $company->tag_cloud = $data->tag_cloud;
     }
+    if(!empty($data->street_address)){
+        $company->street_address = $data->street_address;
+    }
+    if(!empty($data->public_email)){
+        $company->public_email = $data->public_email;
+    }
+    if(!empty($data->public_phone)){
+        $company->public_phone = $data->public_phone;
+    }
     if(!empty($data->logo_path)){
         $company->logo_path = $data->logo_path;
+    }
+    if(!empty($data->private_contact_name)){
+        $company->private_contact_name = $data->private_contact_name;
+    }
+    if(!empty($data->private_phone)){
+        $company->private_phone = $data->private_phone;
     }
 
     if($company->create()){
