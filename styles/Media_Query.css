@@ -1,0 +1,28 @@
+/* MEDIA QUERY's */
+
+/* Small screens - MOBILE */
+@media only screen and (max-width: 40em) {
+    /* Main Page */
+    .sustainability_img_text{
+        display: none;
+    }
+    .image-container div{
+        display: none;
+    }
+    .container-fluid a{
+        padding-right: 1px !important;
+        margin-right: 1px !important;
+    }
+    .container-fluid a img{
+        padding-right: 10px !important;
+    }
+
+
+
+    /* Footer */
+    .footer_coney img{
+        display: none;
+    }
+
+
+} /* max-width 640px, mobile-only styles */
