@@ -1,7 +1,7 @@
 <!--
     This file holds the HTML code for the CbCSC
             Confirmation web page.
-    Updated: Friday March 20th, 2021
+    Updated: Sunday March 21st 2021
     Project Name: Coneybeare Sustainability Catalog
     File name: index.php   Root: ../confirmation/index.php
     Author/'s: CTRL ALT DEL
@@ -29,26 +29,38 @@
     <div class="container p-3 my-3" id="formContainer">
 
     <!-- Information Form -->
-    <form enctype="multipart/form-data" action="confirm.php" method="post" class="form" id="form">
+    <form enctype="multipart/form-data" action="confirm.php" method="post"
+          class="form" id="form">
         <h5>Please complete the form below to be considered for the
             Sustainability Catalog</h5><br>
-
-
 
         <!-- Fieldset COMPANY Information-->
         <fieldset id="company-info">
             <h3>Company Information</h3><br>
+            <p> Information provided in this section, if provided,
+                will be included in the Sustainability Catalog</p>
+
+            <!-- Public Company Information authorization -->
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value=""
+                           id="public_authorization" name="public_authorization">
+                            I authorize Coneybeare to publish the below information
+                            to their publicly available Sustainability Catalog .</label><br>
+                <span class="incomplete d-none text-danger" id="invalid-public_authorization">
+                * Please authorize publishing public information</span>
+            </div><br>
 
             <div class="form-row">
                 <!-- Company NAME input -->
                 <div class="form-group col-md-12 col-lg-6">
-                    <label for="company-name">Company Name:</label>
-                    <input type="text" class="form-control" name="company-name" id="company-name">
-                    <span class="incomplete d-none text-danger" id="invalid-cName">
+                    <label for="company_name">Company Name:</label>
+                    <input type="text" class="form-control" name="company_name" id="company_name">
+                    <span class="incomplete d-none text-danger" id="invalid-company_name">
                         * Please enter Company name</span>
                 </div>
 
-                <!-- Comapny Webiste input -->
+                <!-- Company Website input -->
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="url">Company Website: </label>
                     <input type="text" class="form-control" name="url" id="url"
@@ -64,7 +76,7 @@
                     <label for="public_email">Email address:</label>
                     <input type="email" class="form-control" id="public_email" name="public_email"
                            pattern="/^[\w!#$%&\'*+\/=?^`{|}~.-]+@[\w]+\.[\w]+$/">
-                    <span class="incomplete d-none text-danger" id="errorPublic_email">
+                    <span class="incomplete d-none text-danger" id="invalid-public_email">
                 * Please enter e-mail</span>
                 </div>
 
@@ -82,8 +94,10 @@
                     <label for="street_address">Address:</label>
                     <input type="text" class="form-control" id="street_address"
                           name="street_address" placeholder="1234 Main St.">
-                    <span class="incomplete d-none text-danger" id="invalid-street_address">
-                    * Please enter Company address</span>
+                    <span class="recommended" id="invalid-private_phone">
+                        This company will not appear on the map if an address is not supplied. </span>
+                    <!-- <span class="incomplete d-none text-danger" id="invalid-street_address">
+                        * Please enter Company address</span> -->
 
                 </div>
 
@@ -169,7 +183,7 @@
                         <option value="Circular-Economy">Circular Economy</option>
                         <option value="Consumer-Goods">Consumer Goods</option>
                         <option value="Construction">Construction</option>
-                        <option value="Ecol-md-12 col-lg-6ogy">Ecol-md-12 col-lg-6ogy</option>
+                        <option value="Ecology">Ecology</option>
                         <option value="Education">Education</option>
                         <option value="Energy">Energy</option>
                         <option value="Housing">Housing</option>
@@ -179,6 +193,8 @@
                         <option value="Waste-Water">Waste Water</option>
                         <option value="Other">Other...</option>
                     </select>
+                    <span class="incomplete d-none text-danger" id="invalid-category_id">
+                                * Please select an Industry</span>
                 </div>
 
                 <!-- logo upload -->
@@ -188,8 +204,8 @@
                         <input type="file" class="custom-file-input" id="iconFile" name="iconFile">
                         <label class="custom-file-label" for="iconFile">Choose file</label>
                     </div>
-                    <!--<span class="incomplete d-none text-danger" id="invalid-logo">
-                        * Please upload a logo or product image</span>-->
+                    <span class="recommended" id="invalid-logo">
+                        It is highly recommended to upload a logo or product image</span>
                 </div>
             </div>
 
@@ -207,7 +223,8 @@
             <div class="form-row">
                 <!--Keywords Company -->
                 <div class="form-group col">
-                    <label for="tagInput">Search Tags: *add a comma after each keyword</label>
+                    <label for="tagInput">Search Tags: <br>Please add a comma after each phrase. Example:
+                            open source, agriculture, </label>
                     <div class="form-control d-flex tag-form">
                         <div id="tagList" class="tag-list">
                             <input class="tag-input" type="text" id="tagInput" name="tagPostString">
@@ -223,16 +240,16 @@
         <!-- Fieldset Private CONTACT Information-->
         <fieldset id="poc">
             <h3>Private Contact</h3>
-
+            <p>This is who we will contact if any circumstance arises with the listing</p>
             <!-- authorization -->
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value=""
-                    id="pocAuth" name="pocAuth"> I authorize Coneybeare
-                    Sustainability Catalog to contact the below listed person for
+                    id="private_authorization" name="private_authorization"> I authorize
+                    Coneybeare Sustainability Catalog to contact the below listed person for
                     more information.</label><br>
-                <span class="incomplete d-none text-danger" id="invalid-pocAuth">
-                * Please authorize a point of contact</span>
+                <span class="incomplete d-none text-danger" id="invalid-private_authorization">
+                * Please authorize a private contact.</span>
             </div><br>
 
             <div class="form-row">
@@ -270,6 +287,8 @@
                         <input type="tel" class="form-control" id="private_phone" name="private_phone"
                                placeholder="888-123-0042"
                                pattern="[0-9]{10}">
+                    <span class="incomplete d-none text-danger" id="invalid-private_phone">
+                * Please enter a contact telephone number</span>
                 </div>
 
                 <!-- Private extension -->

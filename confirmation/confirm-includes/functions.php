@@ -1,7 +1,7 @@
 <!--
     This file holds the PHP function code for the CbCSC
             Confirma.php page.
-    Updated: Friday March 20th, 2021
+    Updated: Sunday March 21st 2021
     Project Name: Coneybeare Sustainability Catalog
     File name: index.php   Root: ../confirmation/index.php
     Author/'s: CTRL ALT DEL

@@ -1,7 +1,7 @@
 /*
     This file is to hold the Confirmation HMTL
             styles for the CbCSC HTML website.
-    Date: Saturday 23rd of January, 2021
+    Date: Sunday March 21st 2021
     Updated: Tuesday the 26th of January, 2021
     Project Name: Coneybeare Cleantech Sustainability Catalog
     File name: confirmation.css
@@ -12,11 +12,15 @@
 #formContainer {
     border-radius: 13px;
     border: 1px solid #609E1C;
+    background-color: gainsboro;
+    margin-top: 1.25rem;
 }
 
 .text-danger {
     color: firebrick !important;
 }
 
-
+.recommended {
+    color: firebrick;
+}
 

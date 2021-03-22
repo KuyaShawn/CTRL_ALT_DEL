@@ -1,7 +1,7 @@
 <!--
     This file is to catch the Confirmation PHP user data
         for the CbSC Confirmation HTML web page.
-    Date: Friday March 20th, 2021
+    Date: Sunday March 21st 2021
     Updated:
     Project Name: Coneybeare Sustainability Catalog
     File name: confirm.php
@@ -42,7 +42,7 @@
         $public_email = $_POST['public_email'];
         $public_phone = $_POST['public_phone'];
         $street_address = $_POST['street_address'];
-        $street_address .= $_POST['street_address2'];
+        $street_address .= " " . $_POST['street_address2'];
         $country = $_POST['country'];
         $state = $_POST['state'];
         $zipcode = $_POST['zipcode'];
@@ -55,14 +55,14 @@
 
         /* Point of Contact/Private Contact Info variables */
         $private_contact_name = $_POST['private_contact_name'];
-        $private_contact_name .= $_POST['private_contact_last'];
+        $private_contact_name .= " " . $_POST['private_contact_last'];
         $private_email = $_POST['private_email'];
         $private_phone = $_POST['private_phone'];
-        $private_phone .= "#" . $_POST['private_phone2'];
+        $private_phone .= " " . $_POST['private_phone2'];
 
         /* Mixed Data Fields */
-        $street_address = $street_address1 . " " . $street_address2;
-        $private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
+        //$street_address = $street_address1 . " " . $street_address2;
+        //$private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
 
 
         $application_body = readout($company_name, $url, $public_email, $public_phone,
@@ -155,6 +155,7 @@
         $postVars['about'] = $about;
         $postVars['city'] = $city;
         $postVars['state'] = $state;
+        $postVars['zipcode'] = $zipcode;
         $postVars['country'] = $country;
         $postVars['service_area'] = $service_area;
         $postVars['url'] = $url;
@@ -209,26 +210,29 @@
 
 
 not mandatory
-        email
-        phone number
-        street addrress 2
-        zip
-        Geographical scope
+       - email
+        -phone number
+        - zip
+        - Geographical scope
         - Logo or image of product - highly recommended
-        private contact last name
-        private contact telephone2
+        - Private contact Check box
+        -private contact last name
+        -private contact telephone2
 
 required / mandatory
-    Company Name
-    Company url
-    street address 1
-    country
-    state
-    city
-    category / industry
-    private contact first name
-    private contact email
-    private contact telephone
+        Company Contact Publish check box
+        -Company Name
+        -Company url
+        -street address 1
+        -country
+        -state
+        -city
+        -category / industry
+        - key words
+        - Tagline / about
+        -private contact first name
+        -private contact email
+        -private contact telephone
 
 
 
