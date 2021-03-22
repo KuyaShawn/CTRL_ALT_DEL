@@ -9,6 +9,7 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/styles.css">
     <title>Coneybeare Catalog Admin Homepage</title>
+    <script src="scripts/admin-scripts.js"></script>
 </head>
 <body>
 <nav class="bg-warning text-dark nav navbar">
@@ -29,7 +30,7 @@
         <span>Left Nav, currently empty</span>
     </div>
 
-    <div class="flex-grow-1 py-3">
+    <div class="flex-grow-1 p-3">
         <?
         ini_set('display_errors', 1);
         error_reporting(E_ALL & ~E_NOTICE);
@@ -44,73 +45,72 @@
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
         $result = curl_exec($curl);
+        $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
         $data = json_decode($result);
 
-        $placeholderImagePath = '/images/placeholder.png';
 
-        foreach($data as $obj){
+        if($httpcode == 200){
+            $placeholderImagePath = '/images/placeholder.png';
+
+            foreach($data as $obj){
+                $row = get_object_vars($obj);
+
+                $id = $row['id'];
+                $name = $row['company_name'];
+                $category = $row['category_name'];
+                $state = $row['state'];
+                $country = $row['country'];
+                $about = $row['about'];
+                $url = $row['url'];
+                $logo_path = $row['logo_path'];
+                $icon_path = $row['category_icon_path'];
 
 
-            $row = get_object_vars($obj);
-
-
-            $id = $row['id'];
-            $name = $row['company_name'];
-            $category = $row['category'];
-            $state = $row['state'];
-            $country = $row['country'];
-            $about = $row['about'];
-            $url = $row['url'];
-            $logo_path = $row['logo_path'];
-            $icon_path = $row['icon_path'];
-
-
-            $location = "";
-            if(!empty($state)){
-                $location .= $state;
-            }
-            if(!empty($country)){
+                $location = "";
                 if(!empty($state)){
-                    $location .= ", ";
+                    $location .= $state;
                 }
-                $location .= $country;
-            }
+                if(!empty($country)){
+                    if(!empty($state)){
+                        $location .= ", ";
+                    }
+                    $location .= $country;
+                }
 
-            $imgPath = (!empty($logo_path)) ? $logo_path : $placeholderImagePath;
+                $imgPath = (!empty($logo_path)) ? $logo_path : $placeholderImagePath;
 
-            //Parsing the url since its not standardized in the database (regex is my own creation (Dylan))
-            preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
-            $urlParsed = $matches['domain'].$matches['path'];
+                //Parsing the url since its not standardized in the database (regex is my own creation (Dylan))
+                preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
+                $urlParsed = $matches['domain'].$matches['path'];
 
-            echo "<div class='d-flex m-3'>";
-
-                echo "<div class='media company-hoverable flex-grow-1' id='$id' onclick='openModal($id)'>";
-
-                echo "<img src='$imgPath' class='mr-3 search-image'>";
-                    echo "<div class='media-body row'>";
-                    echo "<span class='col-6' span style='font-size:20px'>$name</span>";
-                    echo "<span class='col-6'><svg class='nav-icon'><use href='$icon_path'></use></svg>$category</span>";
-                    echo "<span class='col-6'>Service</span>";
-                    echo "<span class='col-6'>$location</span>";
-                    echo "<span class='col-12 mt-3'>$about</span>";
+                echo "<div class='d-flex my-3' id='$id'>";
+                    echo "<div class='media company-hoverable flex-grow-1' onclick='openModal($id)'>";
+                    echo "<img src='$imgPath' class='mr-3 search-image'>";
+                        echo "<div class='media-body row'>";
+                        echo "<span class='col-6' span style='font-size:20px'>$name</span>";
+                        echo "<span class='col-6'><svg class='nav-icon'><use href='$icon_path'></use></svg>$category</span>";
+                        echo "<span class='col-6'>Service</span>";
+                        echo "<span class='col-6'>$location</span>";
+                        echo "<span class='col-12 mt-3'>$about</span>";
+                        echo "</div>";
                     echo "</div>";
 
-                echo "</div>";
-
-                echo "<div class='d-flex align-items-center justify-content-around flex-column'>
-                    <svg class='button accept'
-                         onclick='acceptCompany($id)'>
-                        <use href='/images/symbol-defs.svg#button-accept'></use>
-                    </svg>
-                    <svg class='button cancel'
-                         onclick='rejectCompany($id)'>
-                        <use href='/images/symbol-defs.svg#button-cancel'></use>
-                    </svg>
-                </div>";
-            echo "</div> <hr>";
-
+                    echo "<div class='d-flex align-items-center justify-content-around flex-column'>
+                        <svg class='button accept'
+                             onclick='acceptCompany($id)'>
+                            <use href='/images/symbol-defs.svg#button-accept'></use>
+                        </svg>
+                        <svg class='button cancel'
+                             onclick='rejectCompany($id)'>
+                            <use href='/images/symbol-defs.svg#button-cancel'></use>
+                        </svg>
+                    </div>";
+                echo "</div> <hr>";
+            }
+        } else {
+            echo "<h3>".$data->message."</h3>";
         }
 
         ?>
@@ -125,6 +125,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-<script src="scripts/notifs.js"></script>
+
 </body>
 </html>
