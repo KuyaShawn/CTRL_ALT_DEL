@@ -2,7 +2,6 @@
     This file is to catch the Confirmation PHP user data
         for the CbSC Confirmation HTML web page.
     Date: Sunday March 21st 2021
-    Updated:
     Project Name: Coneybeare Sustainability Catalog
     File name: confirm.php
     Author/'s: CTRL ALT DEL
@@ -33,7 +32,7 @@
         // autoglobal array
         //echo var_dump($_POST);
 
-        /* link to functions.php and function calls variables */
+        /* link to functions.php */
         include('confirm-includes/functions.php');
 
         /* Company information variables */
@@ -53,7 +52,7 @@
         $about = $_POST['about'];
         $tag_cloud = $_POST['tagPostString'];
 
-        /* Point of Contact/Private Contact Info variables */
+        /* Private Contact/Private Contact Info variables */
         $private_contact_name = $_POST['private_contact_name'];
         $private_contact_name .= " " . $_POST['private_contact_last'];
         $private_email = $_POST['private_email'];
@@ -64,32 +63,28 @@
         //$street_address = $street_address1 . " " . $street_address2;
         //$private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
 
-
         $application_body = readout($company_name, $url, $public_email, $public_phone,
             $street_address, $country, $state, $city, $service_area,
             $category_id, $logo_path, $about, $tag_cloud,
             $private_contact_name, $private_email, $private_phone);
 
 
-        /* Printing Message and form content to Thank you page*/
+        /* Printing Message and form content to Thank you page */
         thankYou();
         message($company_name);
         echo $application_body;
 
 
-        /* Sending to E-mail*/
+        /*  E-mail variables*/
         $emailTo = "aholt5@mail.greenriver.edu";
         $fromEmail = "no-reply@ctrl-alt-delete.greenriverdev.com";
         $emailSubject = "New Catalog Submission";
-
-
         $emailBody = $application_body . "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
-        Click here to enter CBSC admin and confirm.</a>";
-
+            Click here to enter CBSC admin and confirm.</a>";
         $headers = "From: $fromEmail\r\n";
         $headers .= "Content-type: text/html; charset=utf-8\r\n";
 
-
+        /* Sending email to administrator */
         mail($emailTo, $emailSubject, $emailBody, $headers);
 
 

@@ -8,12 +8,11 @@
                 Amanda H.
  */
 
-/*******************************************/
+
 // retrieving the Company application form
 /*******************************************/
 document.getElementById("form").onsubmit = validation;
 
-/*******************************************/
 // System to VALIDATE Fields of User Input
 /*******************************************/
 function validation() {
@@ -26,7 +25,7 @@ function validation() {
         inValid[i].style.display = "hidden";
     }
 
-    /*******************************************/
+
     /* Validating REQUIRED COMPANY INFORMATION */
     /*******************************************/
     //Authorization to Publish
@@ -142,7 +141,6 @@ function validation() {
 }
 
 /*
-    /*******************************************/
     /* OPTIONAL COMPANY INFORMATION */
     /*******************************************/
     /*
