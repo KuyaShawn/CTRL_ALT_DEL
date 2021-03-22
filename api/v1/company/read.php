@@ -17,7 +17,7 @@ include_once "../objects/company.php";
 
 $database = new Database();
 
-$company = new Company($database->connect());
+$company = new Company($database->connect(), NULL);
 
 if(isset($_GET['id'])){
     $company->id = $_GET['id'];

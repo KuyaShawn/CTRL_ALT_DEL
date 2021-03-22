@@ -17,7 +17,7 @@ require_once "../objects/company.php";
 
 $database = new Database();
 
-$company = new Company($database->connect());
+$company = new Company($database->connect(), NULL);
 
 $company->status = !empty($_GET['status']) ? $_GET['status'] : "PENDING";
 

@@ -17,7 +17,7 @@ include_once "../core/PDOuserconnect.php";
 include_once "../objects/company.php";
 
 $database = new Database();
-$company = new Company($database->connect());
+$company = new Company($database->connect(), NULL);
 
 //Data being sent a stringified json for now so we are streaming input to an array rather then superglobal
 //Might be changed depending on cURL configuarion.
