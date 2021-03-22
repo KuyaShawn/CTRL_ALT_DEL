@@ -37,6 +37,22 @@ class Company{
         $this->category = new Category($cnxn);
     }
 
+    public function adminSearch(){
+
+        $query = "SELECT * 
+        FROM company com 
+        INNER JOIN categories cat
+        ON com.category_id = cat.category_id
+        WHERE status = :status";
+
+        $statement = $this->connection->prepare($query);
+        $statement->bindParam(':status', $this->status);
+
+        $statement->execute();
+
+        return $statement;
+    }
+
     public function readUsingId(){
         $query = "SELECT 
                     *

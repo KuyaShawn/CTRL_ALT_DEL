@@ -24,58 +24,99 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-2 bg-gray py-3"> <!-- Left Navigation (eventually need to become an include)-->
+<div class="d-flex">
+    <div class="bg-gray p-3"> <!-- Left Navigation (eventually need to become an include)-->
         <span>Left Nav, currently empty</span>
     </div>
-    <div class="col-8 p-3"> <!-- Main Area -->
-        <div>
-            <h2>Companies Pending Approval</h2>
-            <div class="rounded-border d-flex m-0 p-0" id="1">
-                <div class="company m-0 p-0 row flex-grow-1">
-                    <div class="col-4 col-lg-2 bottom-divider">
-                        <span class="category">Company</span>
-                        <br>
-                        <span class="max-lines-2">All Power Labs</span>
-                    </div>
-                    <div class="col-8 col-lg-4 bottom-divider">
-                        <span class="category">About Us</span>
-                        <br>
-                        <span class="max-lines-2">Wood -> Energy via very efficient gasification.</span>
-                    </div>
-                    <div class="col-3 col-lg-2">
-                        <span class="category">Category</span>
-                        <br>
-                        <svg class="db-icon">
-                            <use href="/images/symbol-defs.svg#energy"></use>
-                        </svg>
-                        <span class="max-lines-2">Energy</span>
-                    </div>
-                    <div class="col-3 col-lg-2">
-                        <span class="category">Contact Info</span>
-                        <br>
-                        <span class="max-lines-2"><a href="http://allpowerlabs.com">Website</a></span>
-                    </div>
-                    <div class="col-6 col-lg-2 ">
-                        <span class="category">Location</span>
-                        <br>
-                        <span class="max-lines-2">Berkeley, CA</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-around flex-column flex-lg-row">
-                    <svg class="button accept"
-                         onclick="acceptCompany('1')">
-                        <use href="/images/symbol-defs.svg#button-accept"></use>
+
+    <div class="flex-grow-1 py-3">
+        <?
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL & ~E_NOTICE);
+
+        $path = 'http://api.ctrl-alt-delete.greenriverdev.com/v1/admin/search.php?';
+
+        $headers = array(
+            'Content-type: application/x-www-form-urlencoded'
+        );
+        $curl = curl_init($path);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        $data = json_decode($result);
+
+        $placeholderImagePath = '/images/placeholder.png';
+
+        foreach($data as $obj){
+
+
+            $row = get_object_vars($obj);
+
+
+            $id = $row['id'];
+            $name = $row['company_name'];
+            $category = $row['category'];
+            $state = $row['state'];
+            $country = $row['country'];
+            $about = $row['about'];
+            $url = $row['url'];
+            $logo_path = $row['logo_path'];
+            $icon_path = $row['icon_path'];
+
+
+            $location = "";
+            if(!empty($state)){
+                $location .= $state;
+            }
+            if(!empty($country)){
+                if(!empty($state)){
+                    $location .= ", ";
+                }
+                $location .= $country;
+            }
+
+            $imgPath = (!empty($logo_path)) ? $logo_path : $placeholderImagePath;
+
+            //Parsing the url since its not standardized in the database (regex is my own creation (Dylan))
+            preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
+            $urlParsed = $matches['domain'].$matches['path'];
+
+            echo "<div class='d-flex m-3'>";
+
+                echo "<div class='media company-hoverable flex-grow-1' id='$id' onclick='openModal($id)'>";
+
+                echo "<img src='$imgPath' class='mr-3 search-image'>";
+                    echo "<div class='media-body row'>";
+                    echo "<span class='col-6' span style='font-size:20px'>$name</span>";
+                    echo "<span class='col-6'><svg class='nav-icon'><use href='$icon_path'></use></svg>$category</span>";
+                    echo "<span class='col-6'>Service</span>";
+                    echo "<span class='col-6'>$location</span>";
+                    echo "<span class='col-12 mt-3'>$about</span>";
+                    echo "</div>";
+
+                echo "</div>";
+
+                echo "<div class='d-flex align-items-center justify-content-around flex-column'>
+                    <svg class='button accept'
+                         onclick='acceptCompany($id)'>
+                        <use href='/images/symbol-defs.svg#button-accept'></use>
                     </svg>
-                    <svg class="button cancel"
-                         onclick="rejectCompany('1')">
-                        <use href="/images/symbol-defs.svg#button-cancel"></use>
+                    <svg class='button cancel'
+                         onclick='rejectCompany($id)'>
+                        <use href='/images/symbol-defs.svg#button-cancel'></use>
                     </svg>
-                </div>
-            </div>
-        </div>
+                </div>";
+            echo "</div> <hr>";
+
+        }
+
+        ?>
     </div>
-    <div class="col-2 bg-gray py-3"> <!-- Right Navigation (eventually needs to become an include) -->
+
+    <div class="bg-gray p-3"> <!-- Right Navigation (eventually needs to become an include) -->
         <span>Right Nav, current empty</span>
     </div>
 </div>
