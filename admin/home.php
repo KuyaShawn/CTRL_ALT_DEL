@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/dialog-boxes.css">
     <title>Coneybeare Catalog Admin Homepage</title>
-    <script src="scripts/admin-scripts.js"></script>
 </head>
 <body>
 <nav class="bg-warning text-dark nav navbar">
@@ -31,6 +31,7 @@
     </div>
 
     <div class="flex-grow-1 p-3">
+        <h3>Companies Pending Approval</h3>
         <?
         ini_set('display_errors', 1);
         error_reporting(E_ALL & ~E_NOTICE);
@@ -85,6 +86,7 @@
                 preg_match('/(?:(?:http(?:s)?:\/\/)?(?:www\.)?)?(?<domain>[\w\.-]+){1}(?<path>.*)/', $url, $matches);
                 $urlParsed = $matches['domain'].$matches['path'];
 
+                echo "<div id='$id'>";
                 echo "<div class='d-flex my-3' id='$id'>";
                     echo "<div class='media company-hoverable flex-grow-1' onclick='openModal($id)'>";
                     echo "<img src='$imgPath' class='mr-3 search-image'>";
@@ -99,18 +101,18 @@
 
                     echo "<div class='d-flex align-items-center justify-content-around flex-column'>
                         <svg class='button accept'
-                             onclick='acceptCompany($id)'>
+                             onclick='beginApproval($id)'>
                             <use href='/images/symbol-defs.svg#button-accept'></use>
                         </svg>
                         <svg class='button cancel'
-                             onclick='rejectCompany($id)'>
+                             onclick='beginRejection($id)'>
                             <use href='/images/symbol-defs.svg#button-cancel'></use>
                         </svg>
                     </div>";
-                echo "</div> <hr>";
+                echo "</div><hr></div>";
             }
         } else {
-            echo "<h3>".$data->message."</h3>";
+            echo "<h5>".$data->message."</h5>";
         }
 
         ?>
@@ -121,10 +123,44 @@
     </div>
 </div>
 
+<!-- Dialogue Boxes -->
+<div id="overlay" class="overlay" onclick="closeDialogue()"></div>
+<!-- Rejection Box -->
+<div id="rejectionBox" class="dialog-container d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-start">
+        <h2>Company Rejection</h2>
+        <button class="close-button" onclick="closeDialogue()">&times;</button>
+    </div>
+
+    <div class="d-flex flex-column form-group">
+        <label for="reason">Reason for rejection:</label>
+        <textarea name="reason" id="reason" class="form-control"></textarea>
+    </div>
+    <hr class="w-100">
+    <span class="mb-3">Are you sure you want to reject this company?</span>
+    <div class="d-flex flex-row justify-content-around">
+        <button class="btn btn-success w-25" onclick="rejectCompany()">Yes</button>
+        <button class="btn btn-danger w-25" onclick="closeDialogue()">No</button>
+    </div>
+</div>
+<!-- Approval Box -->
+<div id="approvalBox" class="dialog-container d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-start">
+        <h2>Company Approval</h2>
+        <button class="close-button" onclick="closeDialogue()">&times;</button>
+    </div>
+    <span class="mb-3">Are you sure you want to approve this company?</span>
+    <div class="d-flex flex-row justify-content-around">
+        <button class="btn btn-success w-25" onclick="approveCompany()">Yes</button>
+        <button class="btn btn-danger w-25" onclick="closeDialogue()">No</button>
+    </div>
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-
+<script src="scripts/admin-scripts.js"></script>
 </body>
 </html>
