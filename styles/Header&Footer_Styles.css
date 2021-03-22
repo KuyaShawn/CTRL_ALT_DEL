@@ -62,7 +62,7 @@ hr.solid {
 
 #dirt_img{
     width: 100%;
-    height: 450px;
+    height: 40vh;
     object-fit: cover;
 
 }
@@ -98,7 +98,7 @@ hr.solid {
 /* top nav styles */
 
 .footer-top {
-    padding: 1.25em 0 2.5em 0;
+    padding: 1rem 0;
     background-color: #60b003;
     text-align: left;
     color: #aaa;
@@ -110,23 +110,11 @@ hr.solid {
 
 footer {
     width: 100%;
-    min-height: 15.625em;
     padding: 1.25em 0 0 0;
 }
 
 .heading_position {
-    padding-top: 1.25em;
     margin-bottom: 0.625em;
-
-}
-
-.footer_coney {
-    padding-top: 30px;
-}
-
-.tagline {
-    padding-left: 60px;
-    z-index: 1 !important;
 }
 
 /* bottom nav styles */
