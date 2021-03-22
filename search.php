@@ -8,6 +8,7 @@
     <title>Coneybeare Sustainability Catalog - Search</title>
 
     <link rel="stylesheet" href="styles/popupBox.css">
+    <link rel="stylesheet" href="styles/Media_Query.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
@@ -24,7 +25,6 @@ include('includes/header.html')
 
     ini_set('display_errors', 0);
     error_reporting(E_ALL & ~E_NOTICE);
-
 
     $path = 'http://api.ctrl-alt-delete.greenriverdev.com/v1/search.php?';
 
