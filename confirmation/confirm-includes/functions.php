@@ -15,19 +15,18 @@ error_reporting(E_ALL);
 
 /* greeting to potential client */
 function thankYou()
-{
-    echo "<h3>Thank you for the application !</h3><br>";
+{   echo "<h3>Thank you for the application !</h3><br>";
 }
 
 function message($company_name)
-{
-    echo "<p>The following information about $company_name has been sent to 
+{   echo "<p>The following information about $company_name has been sent to 
                 Coneybeare Sustainability Catalog for review.</p>";
 }
 
 function readOut($validationArray, $isFormValid)
 {
-    $htmlMessage = "<table class='table'>";
+    $htmlMessage = "<h4>Applicant Company Information</h4>";
+    $htmlMessage .= "<table class='table'>";
 
     foreach ($validationArray as $key => $value) {
         /*
@@ -55,7 +54,7 @@ function readOut($validationArray, $isFormValid)
         if ($key === "tag_cloud") {
             $htmlMessage .= "</table>
 
-                <h3>Private Company Contact</h3>
+                <h4>Private Company Contact</h4>
         
                 <table class='table'>
                 ";
