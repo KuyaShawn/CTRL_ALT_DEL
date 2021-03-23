@@ -102,13 +102,13 @@ function validation() {
         filledIn = false;
     }
 
-   /* // Key words
+   // Key words
     document.getElementById('tagInput');
     if(tagInput > TAG_MAX_LENGTH){
         filledIn = false;
     } else {
         tagInput.value = tagString;
-    } */
+    }
 
     // Private contact Name
     let private_contact_name = document.getElementById("private_contact_name").value;
