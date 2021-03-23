@@ -151,8 +151,8 @@
                 <!-- Company Zipcode-->
                 <div class="form-group col">
                     <label for="zipcode">Zipcode:</label>
-                    <textarea class="form-control" maxlength="12" rows="1" id="zipcode"
-                              name="zipcode"></textarea>
+                    <input type="text" class="form-control" maxlength="12" rows="1" id="zipcode"
+                              name="zipcode">
                 </div>
             </div>
 

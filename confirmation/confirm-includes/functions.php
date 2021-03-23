@@ -1,7 +1,7 @@
 <!--
     This file holds the PHP function code for the CbCSC
             Confirma.php page.
-    Updated: Sunday March 21st 2021
+    Updated: Monday March 22nd 2021
     Project Name: Coneybeare Sustainability Catalog
     File name: index.php   Root: ../confirmation/index.php
     Author/'s: CTRL ALT DEL
@@ -26,7 +26,7 @@
     }
 
     function readOut($company_name, $url, $public_email, $public_phone,
-                     $street_address, $country, $state, $city, $service_area,
+                     $street_address, $country, $state, $city, $zipcode, $service_area,
                      $category_id, $logo_path, $about, $tag_cloud,
                      $private_contact_name, $private_email, $private_phone)
     {
@@ -40,7 +40,9 @@
             
             <tr>
                 <td>Company Email:</td><td>$public_email</td>
-            </tr><tr>
+            </tr>
+            
+            <tr>
                 <td>Company Telephone:</td><td>$public_phone</td>
             </tr>
             
@@ -50,6 +52,9 @@
                         $city, $state, $country</td>
             </tr>
             
+            <tr>
+               <td>Zipcode: </td><td>$zipcode</td>
+            </tr>
             
             <tr>
                <td>Service Area:</td><td>$service_area</td>
@@ -79,55 +84,67 @@
             </table>";
     }
 
+    /* Required fields for validation*/
+    function validName($company_name) {
+        return !empty($company_name) && strlen($company_name) >= 2;
+    }
 
-
-
-
-    /*  TO DO:
-     *
-     * VALIDATION FUNCTIONS FOR USER INPUT
-        Name
-        Web address
-        address
-        country
-        state
-        city
-        geographic scope
-        logo
-        email
-        phone
-     * */
-
-
-    function userValidation()
-    {
-        /* boolean to flag and track validation errors     */
-        $isValid = true;
-
-        function validCompany()
-        {
-
-        }
-
-        function validName($empFirst)
-        {
-            if (!empty($empFirst) and ctype_alpha($empFirst)) {
-                $isValid = true;
-            } else {
-                return false;
-            }
-        }
-
-
-
-
-
+    function validURL($url) {
 
     }
 
+    function validAddress($street_address){
 
+    }
 
+    function validCountry($country){
 
-/*
+    }
 
-    }*/
+    function validState($state){
+
+    }
+
+    function validCity($city){
+
+    }
+
+    function validCategory($category_id){
+
+    }
+
+    function validPrivateName($private_contact_name){
+
+    }
+
+    function validPrivateEmail($private_email){
+
+    }
+    function validPrivatePhone($private_phone){
+
+    }
+
+    /* Not Required fields for validation*/
+
+    function validPublicEmail($public_email) {
+
+    }
+    function validPublicPhone($public_phone) {
+
+    }
+    function validZip($zipcode){
+
+    }
+    function validServiceArea($service_area){
+
+    }
+    function validLogo($logo_path){
+
+    }
+    function validAbout($about){
+
+    }
+    function validTags($tag_cloud){
+
+    }
+

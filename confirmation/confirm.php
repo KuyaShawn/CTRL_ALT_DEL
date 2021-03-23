@@ -1,7 +1,7 @@
 <!--
     This file is to catch the Confirmation PHP user data
         for the CbSC Confirmation HTML web page.
-    Date: Sunday March 21st 2021
+    Date: Monday March 22nd 2021
     Project Name: Coneybeare Sustainability Catalog
     File name: confirm.php
     Author/'s: CTRL ALT DEL
@@ -44,8 +44,8 @@
         $street_address .= " " . $_POST['street_address2'];
         $country = $_POST['country'];
         $state = $_POST['state'];
-        $zipcode = $_POST['zipcode'];
         $city = $_POST['city'];
+        $zipcode = $_POST['zipcode'];
         $service_area = $_POST['service_area'];
         $category_id = $_POST['category_id'];
         $logo_path = "PLACEHOLDER";
@@ -59,14 +59,101 @@
         $private_phone = $_POST['private_phone'];
         $private_phone .= " " . $_POST['private_phone2'];
 
+
+        // validating user input
+        $isValid = true;
+        $message = "<p> is required and must be </p>";
+        $two_char = "<p>at least two characters.</p>";
+        $ten_char = "<p>at least ten characters.</p>";
+        $only_nums = "<p> only numbers.</p>";
+
+        /*
+        if (!validName($company_name)) {
+            echo"A company name ";
+        }
+
+        if (!validURL($url)) {
+            echo"";
+        }
+
+        if (!validAddress($street_address)) {
+            echo"";
+        }
+
+        if (!validCountry($country)) {
+            echo"";
+        }
+
+        if (!validState($state)) {
+            echo"";
+        }
+
+        if (!validCity($city)) {
+            echo"";
+        }
+
+        if (!validCategory($category_id)) {
+            echo"";
+        }
+
+        if (!validPrivateName($private_contact_name)) {
+            echo"";
+        }
+
+        if (!validPrivateEmail($private_email)) {
+            echo"";
+        }
+
+        if (!validPrivatePhone($private_phone)) {
+            echo"";
+        }
+
+        /* Not Required fields for validation*/
+        /*
+        if (!validPublicEmail($public_email)) {
+            echo"";
+        }
+
+        if (!validPublicPhone($public_phone)) {
+            echo"";
+        }
+
+        if (!validZip($zipcode){) {
+            echo"";
+        }
+
+        if (!validServiceArea($service_area)) {
+            echo"";
+        }
+
+        if (!validLogo($logo_path)) {
+            echo"";
+        }
+
+        if (!validAbout($about)) {
+            echo"";
+        }
+
+        if (!validTags($tag_cloud)) {
+            echo"";
+        }
+
+        */
+
+
+
+
         /* Mixed Data Fields */
         //$street_address = $street_address1 . " " . $street_address2;
         //$private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
 
         $application_body = readout($company_name, $url, $public_email, $public_phone,
-            $street_address, $country, $state, $city, $service_area,
+            $street_address, $country, $state, $city, $zipcode, $service_area,
             $category_id, $logo_path, $about, $tag_cloud,
             $private_contact_name, $private_email, $private_phone);
+
+
+
 
 
         /* Printing Message and form content to Thank you page */
@@ -178,6 +265,7 @@
         curl_close($curl);
 
         echo '<br>' . json_decode($result)->message;
+
 
         ?>
 
