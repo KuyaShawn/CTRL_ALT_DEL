@@ -1,3 +1,21 @@
+<?php
+
+// Start the session
+session_start();
+
+// If the user is not logged in
+if (empty($_SESSION['username'])) {
+
+// Store the current page in the session
+    $_SESSION['page'] = "home.php";
+
+// Redirect user to login page
+    header('location: login.php');
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,8 +32,9 @@
 <body>
 <nav class="bg-warning text-dark nav navbar">
     <a class="navbar-brand navbar-link" href="/">Coneybeare Admin Page</a>
-    <div class="navbar-nav">
-        <span class="ml-auto">Welcome Admin!</span>
+    <div class="navbar-nav d-flex flex-row align-items-baseline">
+        <span class="ml-auto nav-item">Welcome Admin!</span>
+        <a class="nav-link ml-3" href="logout.php">Logout</a>
     </div>
 </nav>
 
@@ -155,6 +174,14 @@
         <button class="btn btn-danger w-25" onclick="closeDialogue()">No</button>
     </div>
 </div>
+
+<template id="alertTemplate">
+    <div class="alert-box" id="alert">
+        <div class="d-flex align-items-center justify-content-center h-100">
+            <span id="alert-content">Success!!</span>
+        </div>
+    </div>
+</template>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

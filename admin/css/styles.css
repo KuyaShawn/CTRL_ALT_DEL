@@ -1,11 +1,16 @@
 *{
     box-sizing: border-box;
 }
-.container {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+
+.form-container {
     width: 400px;
     max-width: 100%;
+}
+
+.form-style{
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+
 }
 
 .form-text {
