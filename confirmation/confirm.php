@@ -18,6 +18,7 @@ error_reporting(E_ALL);
 include('confirm-includes/headMeta.html');
 ?>
 <title>Thank you for your application.</title>
+<link rel="stylesheet" href="/styles/confirmation.css">
 </head>
 
 <body>
@@ -111,6 +112,7 @@ include('../includes/header.html');
         if($isValid) {
             mail($emailTo, $emailSubject, $emailBody, $headers);
         }
+        echo "<br><br><br>";
 
 
         /* logo uploader */

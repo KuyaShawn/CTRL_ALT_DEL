@@ -31,14 +31,16 @@
     <!-- Information Form -->
     <form enctype="multipart/form-data" action="confirm.php" method="post"
           class="form" id="form">
-        <h5>Please complete the form below to be considered for the
-            Sustainability Catalog</h5><br>
+
 
         <!-- Fieldset COMPANY Information-->
         <fieldset id="company-info">
             <h3>Company Information</h3><br>
+            <h5>Please complete the form below to be considered for the
+                Sustainability Catalog</h5>
             <p> Information provided in this section, if provided,
-                will be included in the Sustainability Catalog</p>
+                will be included in the Sustainability Catalog</p><br>
+
 
             <!-- Public Company Information authorization -->
             <div class="form-check">
