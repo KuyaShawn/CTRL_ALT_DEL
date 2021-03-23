@@ -41,5 +41,4 @@ if(!empty($data->id)){
 } else {
     http_response_code(400);
     echo json_encode(['message' => 'Please please provide an "id" field when accessing this endpoint.']);
-
 }
