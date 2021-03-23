@@ -17,7 +17,9 @@ include_once "../core/PDOuserconnect.php";
 include_once "../objects/company.php";
 
 $database = new Database();
-$company = new Company($database->connect(), NULL);
+$cnxn = $database->connect();
+$company = new Company($cnxn, NULL);
+$category = new Category($cnxn);
 
 //Data being sent a stringified json for now so we are streaming input to an array rather then superglobal
 //Might be changed depending on cURL configuarion.
@@ -32,8 +34,11 @@ if( //Checking to make sure all required fields are present
     !empty($data->service_area) &&
     !empty($data->url) &&
     !empty($data->private_email) &&
-    !empty($data->category_id)
+    !empty($data->raw_category)
 ){
+    $category->category_name = $data->raw_category;
+    $company->category_id = $category->getCategoryId();
+
     $company->company_name = $data->company_name;
     $company->about = $data->about;
     $company->city = $data->city;
@@ -42,7 +47,7 @@ if( //Checking to make sure all required fields are present
     $company->service_area = $data->service_area;
     $company->url = $data->url;
     $company->private_email = $data->private_email;
-    $company->category_id = $data->category_id;
+
 
 
     if(!empty($data->tag_cloud)){

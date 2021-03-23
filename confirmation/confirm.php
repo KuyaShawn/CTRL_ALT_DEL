@@ -14,8 +14,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-/* Link to the universal Meta & Head  */
-include('confirm-includes/headMeta.html');
+    /* Link to the universal Meta & Head  */
+    include('confirm-includes/headMeta.html');
 ?>
 <title>Thank you for your application.</title>
 <link rel="stylesheet" href="/styles/confirmation.css">
@@ -81,8 +81,32 @@ include('../includes/header.html');
         }
 
         /* Company information variables */
+        $company_name = $_POST['company_name'];
+        $url = $_POST['url'];
+        $public_email = $_POST['public_email'];
+        $public_phone = $_POST['public_phone'];
+        $street_address = $_POST['street_address'];
+        $street_address .= " " . $_POST['street_address2'];
+        $country = $_POST['country'];
+        $state = $_POST['state'];
+        $zipcode = $_POST['zipcode'];
+        $city = $_POST['city'];
+        $service_area = $_POST['service_area'];
+        $category_id = $_POST['category_id'];
         $logo_path = "PLACEHOLDER";
+        $about = $_POST['about'];
+        $tag_cloud = $_POST['tagPostString'];
 
+        /* Point of Contact/Private Contact Info variables */
+        $private_contact_name = $_POST['private_contact_name'];
+        $private_contact_name .= " " . $_POST['private_contact_last'];
+        $private_email = $_POST['private_email'];
+        $private_phone = $_POST['private_phone'];
+        $private_phone .= " " . $_POST['private_phone2'];
+
+        /* Mixed Data Fields */
+        //$street_address = $street_address1 . " " . $street_address2;
+        //$private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
 
         // don't forget the check box
         $application_body = readout($validationArray, $isValid);
@@ -99,11 +123,11 @@ include('../includes/header.html');
         }
 
         /*  E-mail variables*/
-        $emailTo = "aholt5@mail.greenriver.edu";
+        $emailTo = $private_email;
         $fromEmail = "no-reply@ctrl-alt-delete.greenriverdev.com";
         $emailSubject = "New Catalog Submission";
         $emailBody = $application_body;
-        $emailBody .= "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
+        $emailBody .= "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/home.php'>
             Click here to enter CBSC admin and confirm.</a>";
         $headers = "From: $fromEmail\r\n";
         $headers .= "Content-type: text/html; charset=utf-8\r\n";
@@ -182,7 +206,7 @@ include('../includes/header.html');
         $postVars['service_area'] = $validationArray['service_area']['value'];
         $postVars['url'] = $validationArray['url']['value'];
         $postVars['private_email'] = $validationArray['private_email']['value'];
-        $postVars['category_id'] = $validationArray['category_id']['value'];
+        $postVars['raw_category'] = $validationArray['category_id']['value'];
         // the below items were not included in the required fields listed above
         //$postVars['private_contact_name'] = $validationArray['private_contact_name']['value'];
 
