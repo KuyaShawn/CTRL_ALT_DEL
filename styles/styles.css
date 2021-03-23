@@ -73,20 +73,7 @@ header{
     color: black;
 }
 
-.alert-box{
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    top: 10%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-    height: 40px;
-    text-align: center;
-    background-color: lightgreen;
-    border: 2px solid darkgreen;
-    display: none;
-    border-radius: 10px;
-}
+
 
 .nav-icon{
     width: 1.5rem;
@@ -165,6 +152,23 @@ p{
     max-height: 2.8rem;
 }
 
+.max-lines-5 {
+    /*max-lines: 2;*/ /*Not yet standardized*/
+    /*line-clamp: 2;*/ /*Not yet standardized*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /*Only until the above properties are standardized then all of webkit can be removed*/
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+
+    /*legacy browser support for max lines until webkit features are standardized. Won't display ellipsis*/
+    display: inline-block;
+    line-height: 1.4rem;
+    max-height: 7.0rem;
+}
+
 @media (max-width: 991px) {
     .no-small-divider{
         border-right: none !important;
@@ -225,4 +229,22 @@ p{
     width: 1.25em;
     height: 1.25em;
     text-align: center;
+}
+
+/* About page styling */
+#aboutContain{
+    background-color: gainsboro;
+    border-radius: 13px
+
+}
+#vickySection{
+    padding: 2rem 1.25rem;
+}
+
+#vickyImg{
+    width: 100px;
+    margin-bottom: 5px;
+}
+#aboutTop{
+    display: inline-flex;
 }

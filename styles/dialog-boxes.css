@@ -1,3 +1,27 @@
+/* Alerts */
+
+.alert-box{
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 40px;
+    text-align: center;
+    background-color: lightgreen;
+    border: 2px solid darkgreen;
+    display: none;
+    border-radius: 10px;
+}
+
+.alert-success {
+    background-color: lightgreen;
+    border: 2px solid darkgreen;
+}
+
+/* Dialog boxes / Overlays */
+
 .overlay {
     position: fixed;
     opacity: 0;

@@ -21,14 +21,18 @@
 include '../includes/header.html';
 ?>
 
-<div class="container mt-3 my-3 rounded border border-success">
-    <section class="media my-3 d-flex flex-column" id="vicky">
-        <img class="mr-3 rounded img-fluid" style="width: 100px;"
-             src="images/vicky.png" alt="Victoria Betancourt">
+<!-- rounded border border-success -->
+<div class="container mt-3 my-3 " id="aboutContain">
+    <section class="media my-3 d-flex flex-column" id="vickySection">
+        <div id="aboutTop">
+            <img class="mr-4 rounded img-fluid" id="vickyImg"
+                 src="images/vicky.png" alt="Victoria Betancourt">
+            <div>
+                <h2>President</h2>
+                <h3>Victoria Betancourt</h3>
+            </div>
+        </div>
         <div class="media-body">
-            <p>
-            <h2>Victoria Betancourt</h2>
-            <h3>President</h3>
             <p class="mt-3">
                 Coneybeare Cleantech is a full-service recruitment leader in the sustainable technology and renewable
                 energy sectors, offering retained and exclusive contingency recruiting, direct hire and contractor

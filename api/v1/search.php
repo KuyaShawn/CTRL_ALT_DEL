@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $cnxn = connect();
 $cnxn->set_charset('utf8');
 
-$sql = "SELECT com.id, com.company_name, cat.category_name as category, cat.category_icon_path as icon_path, cat.category_icon_type as icon_type,  com.about, com.state, com.country, com.logo_path 
+$sql = "SELECT com.id, com.company_name, cat.category_name as category, cat.category_icon_path as icon_path, cat.category_icon_type as icon_type,  com.about, com.state, com.country, com.logo_path, com.url 
         FROM company com 
         INNER JOIN categories cat
         ON com.category_id = cat.category_id
