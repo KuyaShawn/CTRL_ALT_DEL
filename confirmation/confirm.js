@@ -126,6 +126,7 @@ function validation() {
         filledIn = false;
     }
 
+    /*
     // Private  phone
     let private_phone = document.getElementById("private_phone").value;
     if(private_phone === ""){
@@ -133,6 +134,7 @@ function validation() {
         errorPrivate_phone.classList.remove("d-none");
         filledIn = false;
     }
+    */
 
     // returning if field checks require an error message or not
     return filledIn;

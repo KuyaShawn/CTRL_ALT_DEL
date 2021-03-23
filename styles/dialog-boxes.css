@@ -15,11 +15,6 @@
     border-radius: 10px;
 }
 
-.alert-success {
-    background-color: lightgreen;
-    border: 2px solid darkgreen;
-}
-
 /* Dialog boxes / Overlays */
 
 .overlay {

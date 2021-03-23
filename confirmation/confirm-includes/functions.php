@@ -499,7 +499,7 @@ function validatePrivatePhone($privatePhone, $extension){
     $isValid = false;
     $value = $privatePhone . " ext: " . $extension;
     // Requirement Checking
-    $mandatoryField = true;
+    $mandatoryField = false;
     $mandatoryValid = !empty($value);
 
     if(isValidPhoneString($privatePhone)) {
