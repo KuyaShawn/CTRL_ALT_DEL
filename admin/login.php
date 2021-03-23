@@ -1,3 +1,32 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+
+$validLogin = true;
+$username = "";
+
+if(!empty($_POST)){
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    require('login-creds.php');
+    if($username == $adminusername && $password == $adminpassword){
+        $_SESSION['username'] = $username;
+
+        //Go to the home page
+        $page = isset($_SESSION['page']) ? $_SESSION['page'] : "home.php";
+        header('location: '.$page);
+    } else {
+        $validLogin = false;
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -17,8 +46,8 @@
 
 </head>
 <body>
-<div class="mt-3 container bg-success">
-    <form action="home.php" method="post">
+<div class="mt-3 form-container container">
+    <form action="#" method="post" class="bg-success form-style p-3">
         <form class="mt-3 row needs-validation" novalidate>
 
             <!-- create an account info-->
@@ -26,20 +55,14 @@
             <legend>Admin Sign-In</legend>
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username"
-                       placeholder="username" required>
-                <div class="invalid-feedback">Field is required</div>
+                <input type="text" class="form-control"
+                       id="username" name="username"
+                       value="<?php echo $username; ?>">
             </div>
 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" placeholder="password" name="password"
-                       class="form-control" aria-describedby="HelpBlock" required>
-                <!--
-                <small id="passwordHelpBlock" class="form-text text-warning">
-                    The username or password you entered is incorrect.
-                </small> -->
-                <div class="invalid-feedback"></div>
+                <input type="password" class="form-control" id="password" name="password" >
             </div>
             </fieldset>
 
@@ -48,7 +71,7 @@
         </form>
 
     </form>
-
+    <a href="/"> &larr; Return to homepage.</a>
 </div><!-- content container -->
 
 <!-- Optional JavaScript -->

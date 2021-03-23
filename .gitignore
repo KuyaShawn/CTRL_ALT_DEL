@@ -3,6 +3,7 @@
 
 # Project-specific stuff
 api/v1/core/*connect.php
+admin/*creds.php
 
 # User-specific stuff
 .idea/**/workspace.xml
