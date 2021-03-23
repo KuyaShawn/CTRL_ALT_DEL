@@ -11,41 +11,12 @@
 
 #formContainer {
     border-radius: 13px;
-    border: 7px solid #609E1C;
-    background-color: gainsboro;
-    margin-top: 1.25rem;
-}
-
-.form-group, .form-check {
-    border-radius: 13px;
-    background-color: #f7f7f7;
-    padding: 10px 30px 10px 22px;
-    
-}
-.form-control {
-    display: block;
-    background: transparent;
-    outline: none;
-    border: none;
-}
-
-h3 {
-    font-weight: 800;
-    font-family: sans-serif;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    text-align: center;
-}
-
-h5 {
-    text-align: center;
+    border: 1px solid #609E1C;
 }
 
 .text-danger {
     color: firebrick !important;
 }
 
-.recommended {
-    color: firebrick;
-}
+
 

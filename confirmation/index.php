@@ -75,7 +75,7 @@
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="public_email">Email address:</label>
                     <input type="email" class="form-control" id="public_email" name="public_email"
-                           pattern="/^[\w!#$%&\'*+\/=?^`{|}~.-]+@[\w]+\.[\w]+$/">
+                           > <!-- pattern="/^[\w!#$%&\'*+\/=?^`{|}~.-]+@[\w]+\.[\w]+$/" -->
                     <span class="incomplete d-none text-danger" id="invalid-public_email">
                 * Please enter e-mail</span>
                 </div>
@@ -94,7 +94,7 @@
                     <label for="street_address">Address:</label>
                     <input type="text" class="form-control" id="street_address"
                           name="street_address" placeholder="1234 Main St.">
-                    <span class="recommended" id="invalid-private_phone">
+                    <span class="recommended" id="invalid-street_address">
                         This company will not appear on the map if an address is not supplied. </span>
                     <!-- <span class="incomplete d-none text-danger" id="invalid-street_address">
                         * Please enter Company address</span> -->
@@ -151,7 +151,7 @@
                 <!-- Company Zipcode-->
                 <div class="form-group col">
                     <label for="zipcode">Zipcode:</label>
-                    <input type="text" class="form-control" maxlength="12" rows="1" id="zipcode"
+                    <input type="text" class="form-control" maxlength="12" id="zipcode"
                               name="zipcode">
                 </div>
             </div>
@@ -310,10 +310,7 @@
     </div>
 
 
-    <!-- Link to the universal Footer -->
-    <?php
-    include('../includes/footer.html');
-    ?>
+
 
 
     <template id="tagTemplate">
@@ -340,6 +337,13 @@
             bsCustomFileInput.init()
         })
     </script>
+    <!-- -->
+    <footer>
+        <!-- Link to the universal Footer -->
+        <?php
+        include('../includes/footer.html');
+        ?>
+    </footer>
 </body>
 </html>
 

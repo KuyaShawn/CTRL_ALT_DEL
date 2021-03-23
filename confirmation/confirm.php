@@ -10,169 +10,107 @@
 -->
 
 <?php
-    /* Turning on error reporting */
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+/* Turning on error reporting */
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-    /* Link to the universal Meta & Head  */
-    include('confirm-includes/headMeta.html');
+/* Link to the universal Meta & Head  */
+include('confirm-includes/headMeta.html');
 ?>
-    <title>Thank you for your application.</title>
+<title>Thank you for your application.</title>
 </head>
 
 <body>
-    <!-- Link to the universal Header/Navigation -->
-    <?php
-        include('../includes/header.html');
-    ?>
-    <div class="vh-100">
+<!-- Link to the universal Header/Navigation -->
+<?php
+include('../includes/header.html');
+?>
+<div class="vh-100">
     <div class="container p-3 my-3 border justify-content-center"
          id="formContainer">
-    <?php
+        <?php
         // autoglobal array
         //echo var_dump($_POST);
 
         /* link to functions.php */
         include('confirm-includes/functions.php');
 
-        /* Company information variables */
-        $company_name = $_POST['company_name'];
-        $url = $_POST['url'];
-        $public_email = $_POST['public_email'];
-        $public_phone = $_POST['public_phone'];
-        $street_address = $_POST['street_address'];
-        $street_address .= " " . $_POST['street_address2'];
-        $country = $_POST['country'];
-        $state = $_POST['state'];
-        $city = $_POST['city'];
-        $zipcode = $_POST['zipcode'];
-        $service_area = $_POST['service_area'];
-        $category_id = $_POST['category_id'];
-        $logo_path = "PLACEHOLDER";
-        $about = $_POST['about'];
-        $tag_cloud = $_POST['tagPostString'];
+        // Associative array for validation
 
-        /* Private Contact/Private Contact Info variables */
-        $private_contact_name = $_POST['private_contact_name'];
-        $private_contact_name .= " " . $_POST['private_contact_last'];
-        $private_email = $_POST['private_email'];
-        $private_phone = $_POST['private_phone'];
-        $private_phone .= " " . $_POST['private_phone2'];
+        $validationArray = array(
+            'company_name' => validateCompanyName($_POST['company_name']),
+            'url' => validateUrl($_POST['url']),
+            'public_email' => validatePublicEmail($_POST['public_email']),
+            'public_phone' => validatePublicPhone($_POST['public_phone']),
+            'street_address' => validateStreetAddress($_POST['street_address'], $_POST['street_address2']),
+            'country' => validateCountry($_POST['country']),
+            'state' => validateState($_POST['state']),
+            'city' => validateCity($_POST['city']),
+            'zipcode' => validateZip($_POST['zipcode']),
+            'service_area' => validateServiceArea($_POST['service_area']),
+            'category_id' => validateCategory($_POST['category_id']),
+            'about' => validateAbout($_POST['about']),
+            'tag_cloud' => validateTagCloud($_POST['tagPostString']),
+            'private_contact_name' => validatePrivateName($_POST['private_contact_name'], $_POST['private_contact_last']),
+            'private_email' => validatePrivateEmail($_POST['private_email']),
+            'private_phone' => validatePrivatePhone($_POST['private_phone'], $_POST['private_phone2'])
+        );
 
+        $myCompanyValue = $validationArray['company_name']['value'];
 
-        // validating user input
+        /*
+         * array(
+         *  'company_name' => array(
+         *     'isValid' => true,
+         *     'message' => "My awesome message",
+         *     'value' => "What I want to send to the server"
+         *   )
+         * )
+         */
+
         $isValid = true;
-        $message = "<p> is required and must be </p>";
-        $two_char = "<p>at least two characters.</p>";
-        $ten_char = "<p>at least ten characters.</p>";
-        $only_nums = "<p> only numbers.</p>";
-
-        /*
-        if (!validName($company_name)) {
-            echo"A company name ";
+        // Each item in $validationArray is named $formItem
+        foreach ($validationArray as $formItem) {
+            // Loop through each validation item, if we are not valid
+            // set the variable and break the loop
+            if ($formItem['mandatoryField'] && !$formItem['isValid']) {
+                $isValid = false;
+                break;
+            }
         }
 
-        if (!validURL($url)) {
-            echo"";
-        }
-
-        if (!validAddress($street_address)) {
-            echo"";
-        }
-
-        if (!validCountry($country)) {
-            echo"";
-        }
-
-        if (!validState($state)) {
-            echo"";
-        }
-
-        if (!validCity($city)) {
-            echo"";
-        }
-
-        if (!validCategory($category_id)) {
-            echo"";
-        }
-
-        if (!validPrivateName($private_contact_name)) {
-            echo"";
-        }
-
-        if (!validPrivateEmail($private_email)) {
-            echo"";
-        }
-
-        if (!validPrivatePhone($private_phone)) {
-            echo"";
-        }
-
-        /* Not Required fields for validation*/
-        /*
-        if (!validPublicEmail($public_email)) {
-            echo"";
-        }
-
-        if (!validPublicPhone($public_phone)) {
-            echo"";
-        }
-
-        if (!validZip($zipcode){) {
-            echo"";
-        }
-
-        if (!validServiceArea($service_area)) {
-            echo"";
-        }
-
-        if (!validLogo($logo_path)) {
-            echo"";
-        }
-
-        if (!validAbout($about)) {
-            echo"";
-        }
-
-        if (!validTags($tag_cloud)) {
-            echo"";
-        }
-
-        */
+        /* Company information variables */
+        $logo_path = "PLACEHOLDER";
 
 
-
-
-        /* Mixed Data Fields */
-        //$street_address = $street_address1 . " " . $street_address2;
-        //$private_contact_name = $private_contact_first_name . " " . $private_contact_last_name;
-
-        $application_body = readout($company_name, $url, $public_email, $public_phone,
-            $street_address, $country, $state, $city, $zipcode, $service_area,
-            $category_id, $logo_path, $about, $tag_cloud,
-            $private_contact_name, $private_email, $private_phone);
-
-
-
+        // don't forget the check box
+        $application_body = readout($validationArray, $isValid);
 
 
         /* Printing Message and form content to Thank you page */
-        thankYou();
-        message($company_name);
+        if($isValid){
+            thankYou();
+            message($validationArray['company_name']['value']);
+        }
         echo $application_body;
-
+        if(!$isValid){
+            echo"<p>Please click the back button and correct the above requests.</p>";
+        }
 
         /*  E-mail variables*/
         $emailTo = "aholt5@mail.greenriver.edu";
         $fromEmail = "no-reply@ctrl-alt-delete.greenriverdev.com";
         $emailSubject = "New Catalog Submission";
-        $emailBody = $application_body . "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
+        $emailBody = $application_body;
+        $emailBody .= "<a href='https://ctrl-alt-delete.greenriverdev.com/admin/'>
             Click here to enter CBSC admin and confirm.</a>";
         $headers = "From: $fromEmail\r\n";
         $headers .= "Content-type: text/html; charset=utf-8\r\n";
 
         /* Sending email to administrator */
-        mail($emailTo, $emailSubject, $emailBody, $headers);
+        if($isValid) {
+            mail($emailTo, $emailSubject, $emailBody, $headers);
+        }
 
 
         /* logo uploader */
@@ -217,7 +155,7 @@
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
                 echo "Sorry, your file was not uploaded.";
-                return;
+                //return;
                 // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["iconFile"]["tmp_name"], $target_file)) {
@@ -233,28 +171,44 @@
         $postVars = array();
 
         //Required fields for creating a company
-        $postVars['company_name'] = $company_name;
-        $postVars['about'] = $about;
-        $postVars['city'] = $city;
-        $postVars['state'] = $state;
-        $postVars['zipcode'] = $zipcode;
-        $postVars['country'] = $country;
-        $postVars['service_area'] = $service_area;
-        $postVars['url'] = $url;
-        $postVars['private_email'] = $private_email;
-        $postVars['category_id'] = 2; //temporary until code is added
+        $postVars['company_name'] = $validationArray['company_name']['value'];
+        $postVars['about'] = $validationArray['about']['value'];
+        $postVars['city'] = $validationArray['city']['value'];
+        $postVars['state'] = $validationArray['state']['value'];
+        $postVars['zipcode'] = $validationArray['zipcode']['value'];
+        $postVars['country'] = $validationArray['country']['value'];
+        $postVars['service_area'] = $validationArray['service_area']['value'];
+        $postVars['url'] = $validationArray['url']['value'];
+        $postVars['private_email'] = $validationArray['private_email']['value'];
+        $postVars['category_id'] = $validationArray['category_id']['value'];
+        // the below items were not included in the required fields listed above
+        //$postVars['private_contact_name'] = $validationArray['private_contact_name']['value'];
+
+
 
         //Optional fields
-        if(!empty($tag_cloud)){$postVars['tag_cloud'] = $tag_cloud;}
+        if ($validationArray['tag_cloud']['mandatoryValid']) {
+            $postVars['tag_cloud'] = $validationArray['tag_cloud']['value'];
+        }
+        if ($validationArray['street_address']['mandatoryValid']) {
+            $postVars['street_address'] = $validationArray['street_address']['value'];
+        }
+        if ($validationArray['public_email']['mandatoryValid']) {
+            $postVars['public_email'] = $validationArray['public_email']['value'];
+        }
+        if ($validationArray['public_phone']['mandatoryValid']) {
+            $postVars['public_phone'] = $validationArray['public_phone']['value'];
+        }
+        // not touching this special one
+        if(!empty($file_root_path)){
+            $postVars['logo_path'] = $file_root_path;
+        }
+        if ($validationArray['private_phone']['mandatoryValid']) {
+            $postVars['private_phone'] = $validationArray['private_phone']['value'];
+        }
 
-        if(!empty($street_address1) || !empty($street_address2)){$postVars['street_address'] = $street_address;}
-        if(!empty($public_email)){$postVars['public_email'] = $public_email;}
-        if(!empty($public_phone)){$postVars['public_phone'] = $public_phone;}
-        if(!empty($file_root_path)){$postVars['logo_path'] = $file_root_path;}
-        if(!empty($private_contact_first_name) || !empty($private_contact_last_name)){$postVars['private_contact_name'] = $private_contact_name;}
-        if(!empty($private_phone)){$postVars['private_phone'] = $private_phone;}
-
-
+        // for testing purposes
+        //echo var_dump($postVars);
     $curl = curl_init('http://api.ctrl-alt-delete.greenriverdev.com/v1/company/create.php');
 
         curl_setopt($curl, CURLOPT_POST, 1);
@@ -265,81 +219,25 @@
         curl_close($curl);
 
         echo '<br>' . json_decode($result)->message;
-
-
         ?>
 
     </div>
-    </div>
+</div>
 
+<footer>
+<?php
+/* Link to the universal Footer */
+include('../includes/footer.html');
+?>
+</footer>
+<!-- Links to Bootstrap libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
 
-    <?php
-        /* Link to the universal Footer */
-        include('../includes/footer.html');
-    ?>
-
-
-        <!-- Links to Bootstrap libraries -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-                crossorigin="anonymous"></script>
 
 </body>
 </html>
-/*
-
-
-not mandatory
-       - email
-        -phone number
-        - zip
-        - Geographical scope
-        - Logo or image of product - highly recommended
-        - Private contact Check box
-        -private contact last name
-        -private contact telephone2
-
-required / mandatory
-        Company Contact Publish check box
-        -Company Name
-        -Company url
-        -street address 1
-        -country
-        -state
-        -city
-        -category / industry
-        - key words
-        - Tagline / about
-        -private contact first name
-        -private contact email
-        -private contact telephone
-
-
-
-array(19) {
-    ["company-name"]=> string(9) "Pool Land"
-    ["url"]=> string(10) "www.pl.com"
-    ["public_email"]=> string(9) "pl@pl.com"
-    ["public_phone"]=> string(10) "8882024567"
-    ["street_address"]=> string(15) "123 main street"
-    ["street_address2"]=> string(6) "Unit 3"
-    ["country"]=> string(24) "United States of America"
-    ["state"]=> string(2) "AL"
-    ["city"]=> string(8) "citycity"
-    ["zip"]=> string(6) "198562"
-    ["service_area"]=> string(5) "state"
-    ["category_id"]=> string(12) "Architecture"
-    ["about"]=> string(20) "swimming is the best"
-    ["tagPostString"]=> string(0) ""
-    ["pocAuth"]=> string(0) ""
-    ["private_contact_name"]=> string(4) "jane"
-    ["private_contact_last"]=> string(5) "smith"
-    ["private_email"]=> string(9) "js@pl.com"
-    ["private_phone"]=> string(10) "8882026547"
-    ["private_phone2"]=> string(3) "001"
-}
-
-*/
