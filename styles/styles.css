@@ -152,6 +152,23 @@ p{
     max-height: 2.8rem;
 }
 
+.max-lines-5 {
+    /*max-lines: 2;*/ /*Not yet standardized*/
+    /*line-clamp: 2;*/ /*Not yet standardized*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /*Only until the above properties are standardized then all of webkit can be removed*/
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+
+    /*legacy browser support for max lines until webkit features are standardized. Won't display ellipsis*/
+    display: inline-block;
+    line-height: 1.4rem;
+    max-height: 7.0rem;
+}
+
 @media (max-width: 991px) {
     .no-small-divider{
         border-right: none !important;
